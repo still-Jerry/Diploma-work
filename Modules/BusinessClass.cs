@@ -8,12 +8,16 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 {
     class BusinessClass
     {
-        public static string GetRandomTextString(int n = 12, bool sp = true, bool pwd = false)
+        public static string GetRandomTextString(int n = 12, bool sp = true, bool up = true, bool pwd = false)
         {
             string text = string.Empty;
             Random rnd = new Random();
             string spec = @"!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-            string ALF = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string ALF = "1234567890abcdefghijklmnopqrstuvwxyz";
+            string UPP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if (up) { 
+                ALF+=UPP;
+            }
             if (sp)
             {
                 ALF += spec;
@@ -26,5 +30,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
             return text;
         }
+  
     }
 }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
-    using SLQClass = Modules.SLQClass;
+    using SQLClass = Modules.SQLClass;
     public partial class ProductForm : Form
     {
         public ProductForm()
@@ -92,7 +92,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
-            SLQClass.GetProducts(dataGridView, AlphabetСomboBox.Text, SpecComboBox.Text, SearchTextBox.Text);
+            //SQLClass.GetProducts(dataGridView, AlphabetСomboBox.Text, SpecComboBox.Text, SearchTextBox.Text);
         }
 
     }

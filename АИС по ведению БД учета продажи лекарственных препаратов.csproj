@@ -72,6 +72,12 @@
     <Compile Include="Forms\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CaptchaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaptchaForm.Designer.cs">
+      <DependentUpon>CaptchaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DelayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,12 +127,16 @@
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\BusinessClass.cs" />
-    <Compile Include="Modules\SLQClass.cs" />
+    <Compile Include="Modules\PersonalDataClass.cs" />
+    <Compile Include="Modules\SQLClass.cs" />
     <Compile Include="Modules\ViewsClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaptchaForm.resx">
+      <DependentUpon>CaptchaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DelayForm.resx">
       <DependentUpon>DelayForm.cs</DependentUpon>
@@ -177,21 +187,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Res\background.jpg">
+    <None Include="Res\AppView\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Res\plug.png">
+    <None Include="Res\AppView\plug.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\background.jpg" />
-    <Content Include="Res\icon.ico">
+    <Content Include="Res\AppView\captha.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Res\iconP.png">
+    <Content Include="Res\AppView\icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Res\AppView\iconP.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Res\Product\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>

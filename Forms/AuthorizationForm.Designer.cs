@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.EntarenceButton = new System.Windows.Forms.Button();
             this.PwdCheckBox = new System.Windows.Forms.CheckBox();
             this.PwdTextBox = new System.Windows.Forms.TextBox();
@@ -39,7 +41,7 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +65,18 @@
             this.ВackgroundGroupBox.Size = new System.Drawing.Size(390, 199);
             this.ВackgroundGroupBox.TabIndex = 6;
             this.ВackgroundGroupBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(245, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(48, 30);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Н";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // EntarenceButton
             // 
@@ -100,7 +114,7 @@
             this.PwdTextBox.Name = "PwdTextBox";
             this.PwdTextBox.Size = new System.Drawing.Size(377, 31);
             this.PwdTextBox.TabIndex = 9;
-            this.PwdTextBox.Text = "qwerqwer";
+            this.PwdTextBox.Text = "qweqwe";
             this.PwdTextBox.UseSystemPasswordChar = true;
             // 
             // PwdLabel
@@ -177,24 +191,12 @@
             this.ExpandButton.UseVisualStyleBackColor = false;
             this.ExpandButton.Click += new System.EventHandler(this.ExpandButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(245, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Н";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
             this.CancelButton = this.ExpandButton;
             this.ClientSize = new System.Drawing.Size(428, 252);
             this.ControlBox = false;
@@ -229,6 +231,7 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer;
 
     }
 }

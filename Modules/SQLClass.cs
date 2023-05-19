@@ -13,7 +13,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     /// <summary>
     /// <CreateParams>Class for working with SQL queries</CreateParams>
     /// </summary>
-    class SLQClass
+    class SQLClass
     {
 
         public static MySqlConnection Connect()
@@ -41,6 +41,53 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка");
+            }
+        }
+        public static DataTable GetSelectInDataTable(String tables, String where = "", String attributes = "*")
+        {
+            try
+            {
+                String cmd = "SELECT " + attributes + " FROM " + tables + where+";";
+                MySqlCommand Command = new MySqlCommand(cmd, Connect());
+                MySqlDataAdapter adapt = new MySqlDataAdapter(Command);
+                DataTable table = new DataTable();
+                adapt.Fill(table);
+                //dg.DataSource = table;
+                Command.ExecuteNonQuery();
+                Command.Connection.Close();
+                return table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
+            }
+        }
+        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "")
+        {
+            try
+            {
+                List<String> list = new List<String>();
+                
+                String cmd = "SELECT " + attributes + " FROM " + tables + where + order+ ";";
+                MySqlCommand Command = new MySqlCommand(cmd, Connect());
+                MySqlDataReader reader = Command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (Int16 i = 0; reader.FieldCount > i; i++)
+                    {
+                        list.Add(reader[i].ToString());
+                    }
+                }
+                
+                Command.Connection.Close();
+                //Command.ExecuteNonQuery();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
             }
         }
         public static Boolean GetUserInfo(List<string> ust, string login, string pwd)

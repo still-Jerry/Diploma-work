@@ -9,6 +9,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     class ViewsClass
     {
         public static Boolean StateWindows = true;
-       
+        public static Boolean EnabledForm = false;
+        
     }
 }

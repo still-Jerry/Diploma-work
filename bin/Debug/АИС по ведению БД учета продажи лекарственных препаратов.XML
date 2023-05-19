@@ -21,6 +21,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.components">
             <summary>
             Required designer variable.
@@ -187,7 +204,7 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
-        <member name="T:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules.SLQClass">
+        <member name="T:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules.SQLClass">
             <summary>
             <CreateParams>Class for working with SQL queries</CreateParams>
             </summary>
@@ -216,6 +233,16 @@
         <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.captha">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.icon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
             </summary>
         </member>
         <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.iconP">
