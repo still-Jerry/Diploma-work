@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>АИС по ведению БД учета продажи лекарственных препаратов</name>
+    </assembly>
+    <members>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.ToMenuButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.UsersForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.UsersForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.UsersForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.UsersForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
+        <member name="T:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules.SLQClass">
+            <summary>
+            <CreateParams>Class for working with SQL queries</CreateParams>
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.iconP">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.plug">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
