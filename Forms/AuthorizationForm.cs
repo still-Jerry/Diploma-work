@@ -12,12 +12,13 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
+    using BusinessClass = Modules.BusinessClass;
+
     using SQLClass = Modules.SQLClass;
     using PersonalDataClass = Modules.PersonalDataClass;
 
     public partial class AuthorizationForm : Form
     {
-        public static List<String> UserInfoList;
         Int16 countEntarense = 1;
         public AuthorizationForm()
         {
@@ -40,9 +41,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 if (PersonalDataClass.CheckUserEquality(LoginTextBox.Text, PwdTextBox.Text))
                 {
-                    UserInfoList = SQLClass.GetSelectInList("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
+                    BusinessClass.UserInfoList = SQLClass.GetSelectInList("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
 
-                    MessageBox.Show("Добро пожаловать, " + UserInfoList[1] + " " + UserInfoList[2] + " " + UserInfoList[3] + "!", "Информация");
+                    MessageBox.Show("Добро пожаловать, " + BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3] + "!", "Информация");
                     MenuForm NewForm = new MenuForm();
                     this.Visible = false;
                     NewForm.ShowDialog();

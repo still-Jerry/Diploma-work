@@ -11,14 +11,16 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
+    using BusinessClass = Modules.BusinessClass;
     using SQLClass = Modules.SQLClass;
     public partial class ProductForm : Form
     {
-        public ProductForm()
-        {
-            InitializeComponent();
-        }
+        Int16 page = 1;
+        Int32 rows = 0;
+        Int32 allPages;
 
+        #region Typical events of all forms
+        /// <summary>window display buttons </summary>
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -42,10 +44,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+
         /// <summary>
         /// <CreateParams>Shape stretching</CreateParams>
         /// </summary>
-
         protected override CreateParams CreateParams
         {
             get
@@ -59,6 +62,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+
+        /// <summary>
+        /// <Button_Click>Buttons transitions</Button_Click>
+        /// </summary>
         private void ToMenuButton_Click(object sender, EventArgs e)
         {
             MenuForm NewForm = new MenuForm();
@@ -90,9 +97,184 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            if (page > 1)
+            {
+                page--;
+                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                PagesLabel.Text = page + " / " + allPages;
+            }
+
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            if (page * 5 < rows)
+            {
+                page++;
+                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                PagesLabel.Text = page + " / " + allPages;
+
+            }
+        }
+
         private void ProductForm_Load(object sender, EventArgs e)
         {
-            //SQLClass.GetProducts(dataGridView, AlphabetСomboBox.Text, SpecComboBox.Text, SearchTextBox.Text);
+            rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+            allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+            PagesLabel.Text = page + " / " + allPages;
+        }
+
+        #endregion
+
+        //тк как тут картинка надо переделать отображение , ноо будет другиЮ но код рабочий для другх таблиц, ток подумать над шапкой модет снова брать вьюшки а может просто поменять шапку 
+        //void GetProduct() {
+        //    try
+        //    {
+        //        string order, where;
+        //        if (AlphabetСomboBox.SelectedItem == "по возрастанию цены")
+        //        {
+        //            order = " ORDER BY `priceProduct` ASC";
+        //        }
+        //        else
+        //        {
+        //            order = " ORDER BY `priceProduct` DESC";
+
+        //        }
+
+        //        if (SpecComboBox.SelectedItem == "Все категории")
+        //        {
+        //            where = "";
+        //        }
+        //        else
+        //        {
+        //            where = " where `categoryProduct` = '" + SpecComboBox.Text + "' ";
+        //        }
+        //        dataGridView.DataSource = SQLClass.GetSelectInDataTable("product", where: where, order: order);
+        //    }
+        //    catch(Exception ex) {
+        //        MessageBox.Show(ex.Message, "Ошибка");
+        //    }
+        //}
+
+
+        public ProductForm()
+        {
+            InitializeComponent();
+            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            for (Int16 i = 0; i < category.Count(); i++) {
+                SpecComboBox.Items.Add(category[i]);
+            }
+                SpecComboBox.Items.Add("Все категории");
+
+            SpecComboBox.SelectedItem = "Все категории";
+
+            AlphabetСomboBox.Items.Add("по возрастанию цены");
+            AlphabetСomboBox.Items.Add("по убыванию цены");
+
+            AlphabetСomboBox.SelectedIndex = 0;
+            if (BusinessClass.UserInfoList[5] == "2")
+            {
+                contextMenuStrip.Items[2].Visible = false;
+                AddNewProductButton.Visible = false;
+            }
+            else {
+                contextMenuStrip.Items[2].Visible = true;
+                AddNewProductButton.Visible = true;
+            
+            }
+            
+        }
+
+        /// <summary>Private form functions</summary>
+        
+        DataTable RequestGetProduct()
+        {
+            try
+            {
+                string order, where;
+                if (AlphabetСomboBox.SelectedItem == "по возрастанию цены")
+                {
+                    order = " ORDER BY `priceProduct` ASC";
+                }
+                else
+                {
+                    order = " ORDER BY `priceProduct` DESC";
+
+                }
+
+                if (SpecComboBox.SelectedItem == "Все категории")
+                {
+                    where = "";
+                }
+                else
+                {
+                    where = " where `nameСategory` = '" + SpecComboBox.Text + "' ";
+                }
+                return SQLClass.GetSelectInDataTable(
+                    "product", 
+                    where: where, 
+                    order: order, 
+                    attributes: " idProduct, pictureProduct, nameProduct, priceProduct, discountProduct ",
+                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`"
+                    );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
+            }
+        }
+
+        /// <summary>Function Events </summary>
+
+        private void просмотрТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewsClass.MoreProductButtonState = 0;
+            MoreProductForm NewForm = new MoreProductForm();
+            this.Visible = false;
+            NewForm.ShowDialog();
+        }
+
+        private void редактированиеТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BusinessClass.SelectedProductList = SQLClass.GetSelectInList("Product",
+                    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
+                ViewsClass.MoreProductButtonState = 1;
+                MoreProductForm NewForm = new MoreProductForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
+        }
+        private void SpecComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           page = 1;
+           rows= ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+           page = rows == 0 ? page = 0 : page=1;
+           allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+           PagesLabel.Text = page + " / " + allPages;
+        }
+
+
+        //сделай енаблед фолс 
+
+
+        private void AddNewProductButton_Click(object sender, EventArgs e)
+        {
+            ViewsClass.MoreProductButtonState = 2;
+            MoreProductForm NewForm = new MoreProductForm();
+            this.Visible = false;
+            NewForm.ShowDialog();
         }
 
     }

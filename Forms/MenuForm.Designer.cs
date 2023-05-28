@@ -33,7 +33,7 @@
             this.ToDelayButton = new System.Windows.Forms.Button();
             this.ToSpeciallyButton = new System.Windows.Forms.Button();
             this.ToUsersButton = new System.Windows.Forms.Button();
-            this.ToSuppliersButton = new System.Windows.Forms.Button();
+            this.ToDirectoryButton = new System.Windows.Forms.Button();
             this.ToOrdersButton = new System.Windows.Forms.Button();
             this.ToProductButton = new System.Windows.Forms.Button();
             this.ToAuthorizationButton = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.ВackgroundGroupBox.Controls.Add(this.ToDelayButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToSpeciallyButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToUsersButton);
-            this.ВackgroundGroupBox.Controls.Add(this.ToSuppliersButton);
+            this.ВackgroundGroupBox.Controls.Add(this.ToDirectoryButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToOrdersButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToProductButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToAuthorizationButton);
@@ -68,7 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToDelayButton.BackColor = System.Drawing.Color.White;
             this.ToDelayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToDelayButton.Location = new System.Drawing.Point(6, 280);
+            this.ToDelayButton.Location = new System.Drawing.Point(6, 163);
             this.ToDelayButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToDelayButton.Name = "ToDelayButton";
             this.ToDelayButton.Size = new System.Drawing.Size(208, 33);
@@ -83,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToSpeciallyButton.BackColor = System.Drawing.Color.White;
             this.ToSpeciallyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToSpeciallyButton.Location = new System.Drawing.Point(6, 241);
+            this.ToSpeciallyButton.Location = new System.Drawing.Point(6, 280);
             this.ToSpeciallyButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToSpeciallyButton.Name = "ToSpeciallyButton";
             this.ToSpeciallyButton.Size = new System.Drawing.Size(208, 33);
@@ -98,7 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToUsersButton.BackColor = System.Drawing.Color.White;
             this.ToUsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToUsersButton.Location = new System.Drawing.Point(6, 202);
+            this.ToUsersButton.Location = new System.Drawing.Point(6, 241);
             this.ToUsersButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToUsersButton.Name = "ToUsersButton";
             this.ToUsersButton.Size = new System.Drawing.Size(208, 33);
@@ -107,20 +107,20 @@
             this.ToUsersButton.UseVisualStyleBackColor = false;
             this.ToUsersButton.Click += new System.EventHandler(this.ToUsersButton_Click);
             // 
-            // ToSuppliersButton
+            // ToDirectoryButton
             // 
-            this.ToSuppliersButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ToDirectoryButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ToSuppliersButton.BackColor = System.Drawing.Color.White;
-            this.ToSuppliersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToSuppliersButton.Location = new System.Drawing.Point(6, 163);
-            this.ToSuppliersButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ToSuppliersButton.Name = "ToSuppliersButton";
-            this.ToSuppliersButton.Size = new System.Drawing.Size(208, 33);
-            this.ToSuppliersButton.TabIndex = 15;
-            this.ToSuppliersButton.Text = "Поставщики";
-            this.ToSuppliersButton.UseVisualStyleBackColor = false;
-            this.ToSuppliersButton.Click += new System.EventHandler(this.ToSuppliersButton_Click);
+            this.ToDirectoryButton.BackColor = System.Drawing.Color.White;
+            this.ToDirectoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToDirectoryButton.Location = new System.Drawing.Point(6, 202);
+            this.ToDirectoryButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ToDirectoryButton.Name = "ToDirectoryButton";
+            this.ToDirectoryButton.Size = new System.Drawing.Size(208, 33);
+            this.ToDirectoryButton.TabIndex = 15;
+            this.ToDirectoryButton.Text = "Справочники";
+            this.ToDirectoryButton.UseVisualStyleBackColor = false;
+            this.ToDirectoryButton.Click += new System.EventHandler(this.ToSuppliersButton_Click);
             // 
             // ToOrdersButton
             // 
@@ -252,7 +252,7 @@
         private System.Windows.Forms.Button ToDelayButton;
         private System.Windows.Forms.Button ToSpeciallyButton;
         private System.Windows.Forms.Button ToUsersButton;
-        private System.Windows.Forms.Button ToSuppliersButton;
+        private System.Windows.Forms.Button ToDirectoryButton;
         private System.Windows.Forms.Button ToOrdersButton;
         private System.Windows.Forms.Button ToProductButton;
     }

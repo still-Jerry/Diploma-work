@@ -32,22 +32,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
-        public static void GetDataFromBD(String tables,DataGridView DataGrid1, List<String> List1, String where="", String collumn = " * ", Boolean useList = true)
-        {
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
-            }
-        }
-        public static DataTable GetSelectInDataTable(String tables, String where = "", String attributes = "*")
+        public static DataTable GetSelectInDataTable(String tables, String where = "", String attributes = "*", String order = "", String join = "")
         {
             try
             {
-                String cmd = "SELECT " + attributes + " FROM " + tables + where+";";
+                String cmd = "SELECT " + attributes + " FROM " + tables +join + where + order + ";";
                 MySqlCommand Command = new MySqlCommand(cmd, Connect());
                 MySqlDataAdapter adapt = new MySqlDataAdapter(Command);
                 DataTable table = new DataTable();
@@ -63,15 +53,42 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
-        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "")
+        //public static List<String> GetSelectInRowList(String tables, String where = "", String attributes = "*", String order = "")
+        //{
+        //    try
+        //    {
+        //        List<String> list = new List<String>();
+                
+        //        String cmd = "SELECT " + attributes + " FROM " + tables + where + order+ ";";
+        //        MySqlCommand Command = new MySqlCommand(cmd, Connect());
+        //        MySqlDataReader reader = Command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            for (Int16 i = 0; reader.FieldCount > i; i++)
+        //            {
+        //                list.Add(reader[i].ToString());
+        //            }
+        //        }
+                
+        //        Command.Connection.Close();
+        //        return list;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Ошибка");
+        //        return null;
+        //    }
+        //}
+        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "", String join = "")
         {
             try
             {
                 List<String> list = new List<String>();
-                
-                String cmd = "SELECT " + attributes + " FROM " + tables + where + order+ ";";
+
+                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
                 MySqlCommand Command = new MySqlCommand(cmd, Connect());
                 MySqlDataReader reader = Command.ExecuteReader();
+                
                 while (reader.Read())
                 {
                     for (Int16 i = 0; reader.FieldCount > i; i++)
@@ -79,9 +96,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         list.Add(reader[i].ToString());
                     }
                 }
-                
+
                 Command.Connection.Close();
-                //Command.ExecuteNonQuery();
                 return list;
             }
             catch (Exception ex)
@@ -90,137 +106,102 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
-        public static Boolean GetUserInfo(List<string> ust, string login, string pwd)
-        {
-            try
-            {
-                ust.Clear();
-                string cmd = "SELECT * FROM db39.user where UserLogin = '" + login + "' and UserPassword = '" + pwd + "';";
-                MySqlCommand Command = new MySqlCommand(cmd, Connect());
-                MySqlDataReader reader = Command.ExecuteReader();
-                while (reader.Read())
-                {
-                    ust.Add(reader[0].ToString());
-                    ust.Add(reader[1].ToString());
-                    ust.Add(reader[2].ToString());
-                    ust.Add(reader[3].ToString());
-                    ust.Add(reader[4].ToString());
-                    ust.Add(reader[5].ToString());
-                    ust.Add(reader[6].ToString());
-                }
-                if (ust.Count > 0)
-                {
-                    return true;
+        //public static Boolean GetUserInfo(List<string> ust, string login, string pwd)
+        //{
+        //    try
+        //    {
+        //        ust.Clear();
+        //        string cmd = "SELECT * FROM db39.user where UserLogin = '" + login + "' and UserPassword = '" + pwd + "';";
+        //        MySqlCommand Command = new MySqlCommand(cmd, Connect());
+        //        MySqlDataReader reader = Command.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            ust.Add(reader[0].ToString());
+        //            ust.Add(reader[1].ToString());
+        //            ust.Add(reader[2].ToString());
+        //            ust.Add(reader[3].ToString());
+        //            ust.Add(reader[4].ToString());
+        //            ust.Add(reader[5].ToString());
+        //            ust.Add(reader[6].ToString());
+        //        }
+        //        if (ust.Count > 0)
+        //        {
+        //            return true;
 
-                }
-                else
-                {
-                    return false;
+        //        }
+        //        else
+        //        {
+        //            return false;
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Ошибка");
 
-                return false;
-            }
-        }
-        public static Boolean GetProducts(DataGridView dg, string filter, string orde, string stext)
-        {
-            try
-            {
-                dg.Rows.Clear();
-                string cmd = "SELECT * FROM product;";
-                //switch (filter)
-                //{
-                //    case ("0-9,99%"):
-                //        cmd += "where (ProductDiscountAmount >= 0 and ProductDiscountAmount <10) ";
-                //        break;
-                //    case ("10-14,99%"):
-                //        cmd += "where (ProductDiscountAmount >= 10 and ProductDiscountAmount <15) ";
+        //        return false;
+        //    }
+        //}
+        //public static Boolean GetProducts(DataGridView dg, string filter, string orde, string stext)
+        //{
+        //    try
+        //    {
+        //        dg.Rows.Clear();
+        //        string cmd = "SELECT * FROM product;";
+       
 
-                //        break;
-                //    case ("15% и более"):
-                //        cmd += "where (ProductDiscountAmount >= 15) ";
+        //        MySqlCommand Command = new MySqlCommand(cmd, Connect());
+        //        MySqlDataReader reader = Command.ExecuteReader();
+        //        int i = 0;
+        //        while (reader.Read())
+        //        {
+        //            int cost = 9;
+        //            var path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\";
+        //            if (reader[9].ToString() == "" || reader[9].ToString() == " ")
+        //            {
+        //                path += "plug.png";
+        //            }
+        //            else
+        //            {
+        //                path += reader[9].ToString();
+        //            }
+        //            dg.Rows.Add(reader[0].ToString(), Image.FromFile(path),
+        //                "Наименование: " + reader[1].ToString() + "\n" +
+        //                "Описание: " + reader[2].ToString() + "\n" +
+        //                "Производитель: " + reader[5].ToString() + "\n" +
+        //                "Цена без скидки: " + reader[8].ToString() + "\n" +
+        //                "Цена со скидкой: " + cost,
+        //                reader[9].ToString() + "%");
+        //            //int ct = Convert.ToInt32(reader[9].ToString());
+        //            //if (Convert.ToInt32(reader[9].ToString()) >= 15)
+        //            //{
+        //            //    dg.Rows[i].Cells[dg.ColumnCount - 1].Style.BackColor = Color.Chartreuse;
+        //            //}
+        //            //else
+        //            //{
+        //            //    dg.Rows[i].Cells[dg.ColumnCount - 1].Style.BackColor = Color.White;
 
-                //        break;
-                //    default:
-                //        break;
-                //}
-                //if (filter == "Все диапазоны")
-                //{
-                //    cmd += "where ( ProductName like '" + stext + "%' or ProductDescription like '" + stext + "%')";
-                //}
-                //else
-                //{
-                //    cmd += "and ( ProductName like '" + stext + "%' or ProductDescription like '" + stext + "%')";
+        //            //}
+        //            i++;
+        //        }
+        //        if (i > 0)
+        //        {
+        //            return true;
 
-                //}
-                //switch (orde)
-                //{
-                //    case ("по возрастанию"):
-                //        cmd += " order by ProductCost asc;";
-                //        break;
+        //        }
+        //        else
+        //        {
+        //            return false;
 
-                //    default:
-                //        cmd += " order by ProductCost desc;";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Ошибка");
 
-                //        break;
-                //}
-
-                MySqlCommand Command = new MySqlCommand(cmd, Connect());
-                MySqlDataReader reader = Command.ExecuteReader();
-                int i = 0;
-                while (reader.Read())
-                {
-                    int cost = 9;
-                    var path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\";
-                    if (reader[9].ToString() == "" || reader[9].ToString() == " ")
-                    {
-                        path += "plug.png";
-                    }
-                    else
-                    {
-                        path += reader[9].ToString();
-                    }
-                    dg.Rows.Add(reader[0].ToString(), Image.FromFile(path),
-                        "Наименование: " + reader[1].ToString() + "\n" +
-                        "Описание: " + reader[2].ToString() + "\n" +
-                        "Производитель: " + reader[5].ToString() + "\n" +
-                        "Цена без скидки: " + reader[8].ToString() + "\n" +
-                        "Цена со скидкой: " + cost,
-                        reader[9].ToString() + "%");
-                    //int ct = Convert.ToInt32(reader[9].ToString());
-                    //if (Convert.ToInt32(reader[9].ToString()) >= 15)
-                    //{
-                    //    dg.Rows[i].Cells[dg.ColumnCount - 1].Style.BackColor = Color.Chartreuse;
-                    //}
-                    //else
-                    //{
-                    //    dg.Rows[i].Cells[dg.ColumnCount - 1].Style.BackColor = Color.White;
-
-                    //}
-                    i++;
-                }
-                if (i > 0)
-                {
-                    return true;
-
-                }
-                else
-                {
-                    return false;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
-
-                return false;
-            }
-        }
+        //        return false;
+        //    }
+        //}
     }
 
 }

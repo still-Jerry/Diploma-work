@@ -96,6 +96,12 @@
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MoreProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MoreProductForm.Designer.cs">
+      <DependentUpon>MoreProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\OrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +120,11 @@
     <Compile Include="Forms\SpeciallyForm.Designer.cs">
       <DependentUpon>SpeciallyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SuppliersForm.cs">
+    <Compile Include="Forms\DirectoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SuppliersForm.Designer.cs">
-      <DependentUpon>SuppliersForm.cs</DependentUpon>
+    <Compile Include="Forms\DirectoryForm.Designer.cs">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UsersForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +153,9 @@
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MoreProductForm.resx">
+      <DependentUpon>MoreProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrdersForm.resx">
       <DependentUpon>OrdersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,8 +165,8 @@
     <EmbeddedResource Include="Forms\SpeciallyForm.resx">
       <DependentUpon>SpeciallyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SuppliersForm.resx">
-      <DependentUpon>SuppliersForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DirectoryForm.resx">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
@@ -187,6 +196,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Res\Product\Гриппферон.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Прогестерон.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Res\AppView\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -205,7 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Res\Product\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

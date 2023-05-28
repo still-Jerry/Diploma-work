@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +75,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Н";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // EntarenceButton
             // 
@@ -231,7 +230,6 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer;
 
     }
 }

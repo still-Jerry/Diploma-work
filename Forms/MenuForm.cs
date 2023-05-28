@@ -11,12 +11,24 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass=Modules.ViewsClass;
+    using BusinessClass = Modules.BusinessClass;
 
     public partial class MenuForm : Form
     {
         public MenuForm()
         {
             InitializeComponent();
+            if (BusinessClass.UserInfoList[5] == "2")
+            {
+              
+               this.Height = 214;
+               this.Width = 257;
+
+            }
+            else {
+                this.Height = 378;
+                this.Width = 257;
+            }
         }
 
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,7 +108,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void ToSuppliersButton_Click(object sender, EventArgs e)
         {
-            SuppliersForm NewForm = new SuppliersForm();
+            DirectoryForm NewForm = new DirectoryForm();
             this.Visible = false;
             NewForm.ShowDialog();
             try

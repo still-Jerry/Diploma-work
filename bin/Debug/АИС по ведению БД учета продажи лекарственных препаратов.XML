@@ -94,6 +94,36 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.ToMenuButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            <Button_Click>Buttons transitions</Button_Click>
+            </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.CreateParams">
+            <summary>
+            <CreateParams>Shape stretching</CreateParams>
+            </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.components">
             <summary>
             Required designer variable.
@@ -115,6 +145,20 @@
             <summary>
             <CreateParams>Shape stretching</CreateParams>
             </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.ToMenuButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            <Button_Click>Buttons transitions</Button_Click>
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.RequestGetProduct">
+            <summary>Private form functions</summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.просмотрТовараToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>Function Events </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.components">
             <summary>
@@ -160,24 +204,24 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.components">
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.components">
             <summary>
             Required designer variable.
             </summary>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.Dispose(System.Boolean)">
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.InitializeComponent">
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SuppliersForm.CreateParams">
+        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.CreateParams">
             <summary>
             <CreateParams>Shape stretching</CreateParams>
             </summary>

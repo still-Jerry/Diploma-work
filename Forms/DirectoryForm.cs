@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
-    public partial class SuppliersForm : Form
+    public partial class DirectoryForm : Form
     {
-        public SuppliersForm()
+        public DirectoryForm()
         {
             InitializeComponent();
         }
