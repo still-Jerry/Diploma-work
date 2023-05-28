@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
@@ -15,6 +15,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using SQLClass = Modules.SQLClass;
     public partial class MoreProductForm : Form
     {
+        String pictureName=BusinessClass.SelectedFromDataGridList[8];
+        String CategotyID = "";
         #region Typical events of all forms
         /// <summary>window display buttons </summary>
         private void CloseButton_Click(object sender, EventArgs e)
@@ -77,6 +79,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public MoreProductForm()
         {
             InitializeComponent();
+            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            for (Int16 i = 0; i < category.Count(); i++)
+            {
+                CategoryComboBox.Items.Add(category[i]);
+            }
+            CategoryComboBox.SelectedIndex=0;
+
             switch (ViewsClass.MoreProductButtonState) { 
             
                 case 1:
@@ -85,6 +94,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     EditButton.Visible = true;
 
                     AddToOrderButton.Visible = false;
+                    OutputProduct();
                     break;
                 case 2:
                     DeleteButton.Visible = false;
@@ -92,7 +102,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     EditButton.Visible = false;
 
                     AddToOrderButton.Visible = false;
-
+                    
                     break;
                 default:
                     DeleteButton.Visible = false;
@@ -101,40 +111,251 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     ImageButton.Visible = false;
 
                     AddToOrderButton.Visible = true;
+
+                    //NameTextBox.Enabled = false;
+                    //CategoryComboBox.Enabled = false;
+                    //DescriptionTextBox.Enabled = false;
+                    //ManufactureTextBox.Enabled = false;
+                    //checkBox.Enabled = false;
+                    //PriceUpDown.Enabled = false;
+                    //QuantityInStockUpDown.Enabled = false;
+                    //StorageRackUpDown.Enabled = false;
+                    //DiscountUpDown.Enabled = false;
+                    
+                    NameTextBox.ReadOnly = true;
+                    CategoryComboBox.Enabled = false;
+                    DescriptionTextBox.ReadOnly = true;
+                    ManufactureTextBox.ReadOnly = true;
+                    checkBox.Enabled = false;
+                    PriceUpDown.Enabled = false;
+                    QuantityInStockUpDown.Enabled = false;
+                    StorageRackUpDown.Enabled = false;
+                    DiscountUpDown.Enabled = false;
+
+                    OutputProduct();
+
                     break;
             }
 
-            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
-            for (Int16 i = 0; i < category.Count(); i++)
-            {
-                CategoryComboBox.Items.Add(category[i]);
-            }
+           
 
-            OutputProduct();
+            
         }
         /// <summary>Private form functions</summary>
         void OutputProduct() {
-            NameTextBox.Text = BusinessClass.SelectedProductList[1];
-            CategoryComboBox.SelectedItem = BusinessClass.SelectedProductList[12];
-            ManufactureTextBox.Text = BusinessClass.SelectedProductList[7];
-
+            NameTextBox.Text = BusinessClass.SelectedFromDataGridList[1];
+            CategoryComboBox.SelectedItem = BusinessClass.SelectedFromDataGridList[12];
+            DescriptionTextBox.Text = BusinessClass.SelectedFromDataGridList[6];
+            ManufactureTextBox.Text = BusinessClass.SelectedFromDataGridList[7];
             var path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\";
-            if (BusinessClass.SelectedProductList[8] == "" || BusinessClass.SelectedProductList[8] == " ")
+            if (BusinessClass.SelectedFromDataGridList[8] == "" || BusinessClass.SelectedFromDataGridList[8] == " ")
             {
                 pictureBox.Image = Properties.Resources.plug as Bitmap;
             }
             else
             {
-                path += BusinessClass.SelectedProductList[8];
+                path += BusinessClass.SelectedFromDataGridList[8];
                 pictureBox.Image = Image.FromFile(path);
             }
-            if (BusinessClass.SelectedProductList[9] == "1")
+            if (BusinessClass.SelectedFromDataGridList[9] == "1")
             {
                 checkBox.Checked = true;
             }
             else
             {
                 checkBox.Checked = false;
+            }
+            PriceUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[3]);
+            QuantityInStockUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[4]);
+            StorageRackUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[5]);
+            DiscountUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[10])*100;
+           
+
+        }
+
+        Boolean DuplicateCheck() {
+            try
+            {
+                if (SQLClass.GetSelectInList(" product ", 
+                    where: "where nameProduct = '" + NameTextBox.Text + "' and "+
+                    "priceProduct = '"+ PriceUpDown.Value+"' and "+
+                    "categoryProduct = '"+CategotyID+"' and  "+ 
+                    "descriptionProduct = '"+ DescriptionTextBox.Text +"' and "+
+                    "isPrescriptionProduct = '"+ Convert.ToInt32(checkBox.Checked)+"' and "+
+                    "manufacturerProduct = '" + ManufactureTextBox.Text+"'"
+                ).Count !=0){
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return false;
+            }
+        }
+
+        /// <summary>Function Events </summary>
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var question = MessageBox.Show("Уверены, что хотите удалить данный товар? Изменения необратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                if (question == DialogResult.Yes) {
+                    if (SQLClass.DeleteFromDataBase(" product ", "where idProduct = " + Convert.ToInt32(BusinessClass.SelectedFromDataGridList[0])))
+                    {
+                        MessageBox.Show("Удаление прошло успешно!", "Информация");
+                        ProductForm NewForm = new ProductForm();
+                        this.Visible = false;
+                        NewForm.ShowDialog();
+                    }
+                    else {
+                        MessageBox.Show("Произошла ошибка.\nТовар не удалён.", "Информация");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
+                    PriceUpDown.Value == 0 || QuantityInStockUpDown.Value == 0
+                    )
+                {
+                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, цена и количество не нулевые.", "Информация");
+                }
+                else
+                {
+                    DialogResult question;
+                    CategotyID = SQLClass.GetSelectInList(" category ", " where nameСategory = '" + CategoryComboBox.Text + "'")[0];
+
+                    if (DuplicateCheck())
+                    { 
+                        question = MessageBox.Show("Похожий товар уже существует. Вы уверены, что хотите продолжить?", "Предупреждение", MessageBoxButtons.YesNo);
+                    }
+                    else
+                    {
+                        question = MessageBox.Show("Уверены, что хотите изменить данный товар?", "Предупреждение", MessageBoxButtons.YesNo);
+                    }
+                    if (question == DialogResult.Yes)
+                    {
+                        try { File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Изображение не сохранено");
+                            pictureName = "";
+                        }
+
+                        if (SQLClass.UpdateFromDataBase(" product ",
+                           "nameProduct = '" + NameTextBox.Text + "' , " +
+                            "categoryProduct = '" + CategotyID + "' ," +
+                            "priceProduct = '" + Convert.ToDouble(PriceUpDown.Value) + "' , " +
+                            "quantityInStockProduct = '" + Convert.ToDouble(QuantityInStockUpDown.Value) + "' , " +
+                            "storageRackProduct = '" + Convert.ToDouble(StorageRackUpDown.Value) + "' , " +
+                            "descriptionProduct = '" + DescriptionTextBox.Text + "' , " +
+                            "manufacturerProduct = '" + ManufactureTextBox.Text + "' , " +
+                            "pictureProduct = '" + pictureName + "' , " +
+                            "isPrescriptionProduct = '" + Convert.ToInt32(checkBox.Checked) + "' , " +
+                            "discountProduct = '" + Convert.ToDouble(DiscountUpDown.Value) + "'",
+                            " where idProduct = " + BusinessClass.SelectedFromDataGridList[0]))
+                        {
+                            MessageBox.Show("Изменения сохранены!", "Информация");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка.\nТовар не изменён.", "Информация");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
+                    PriceUpDown.Value == 0 || QuantityInStockUpDown.Value == 0
+                    )
+                {
+                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, цена и количество не нулевые.", "Информация");
+                }
+                else
+                {
+                    DialogResult question;
+                    CategotyID = SQLClass.GetSelectInList(" category ", " where nameСategory = '" + CategoryComboBox.Text+"'")[0];
+
+                    if (DuplicateCheck())
+                    {
+                        question = MessageBox.Show("Похожий товар уже существует. Вы уверены, что хотите продолжить?", "Предупреждение", MessageBoxButtons.YesNo);
+                    }
+                    else
+                    {
+                        question = MessageBox.Show("Уверены, что хотите добавить данный товар?", "Предупреждение", MessageBoxButtons.YesNo);
+                    }
+                    if (question == DialogResult.Yes)
+                    {
+                        if (SQLClass.AddFromDataBase(" product ",
+                            "null, '" +
+                            NameTextBox.Text + "' , '" +
+                            CategotyID + "' , '" +
+                            Convert.ToDouble(PriceUpDown.Value) + "' , '" +
+                            Convert.ToDouble(QuantityInStockUpDown.Value) + "' , '" +
+                            Convert.ToDouble(StorageRackUpDown.Value) + "' , '" +
+                            DescriptionTextBox.Text + "' , '" +
+                            ManufactureTextBox.Text + "' , '" +
+                            pictureName + "' , '" +
+                            Convert.ToInt32(checkBox.Checked) + "' , '" +
+                            Convert.ToDouble(DiscountUpDown.Value) + "'"
+                            ))
+                        //'', 'имя', 'категория', 'цена', 'колво', 'стеллаж', 'описание', 'производитель', 'картинка', 'рецепторность', 'скидка'
+                        {
+                            MessageBox.Show("Добавление прошло успешно!", "Информация");
+                            MoreProductForm NewForm = new MoreProductForm();
+                            this.Visible = false;
+                            NewForm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка.\nТовар не добален.", "Информация");
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ImageButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var FileDialog = new OpenFileDialog();
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureName =DateTime.Now.Ticks+ openFileDialog1.FileName.Split(new[] { '\\' }).Last();
+
+
+                    pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
      

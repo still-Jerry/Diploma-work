@@ -9,7 +9,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     class BusinessClass
     {
         public static List<String> UserInfoList;
-        public static List<String> SelectedProductList;
+        public static List<String> SelectedFromDataGridList;
+        public static List<String> DuplicateСheckList;
+
         public static string GetRandomTextString(int n = 12, bool sp = true, bool up = true, bool pwd = false)
         {
             string text = string.Empty;

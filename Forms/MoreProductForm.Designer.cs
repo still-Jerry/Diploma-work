@@ -39,6 +39,7 @@
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.ImageLabel = new System.Windows.Forms.Label();
             this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.ImageButton = new System.Windows.Forms.Button();
             this.StorageRackLabel = new System.Windows.Forms.Label();
             this.QuantityInStockLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
-            this.ImageButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityInStockUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRackUpDown)).BeginInit();
@@ -130,6 +131,7 @@
             this.EditButton.TabIndex = 38;
             this.EditButton.Text = "Редактировать";
             this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // DeleteButton
             // 
@@ -145,6 +147,7 @@
             this.DeleteButton.TabIndex = 37;
             this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // AddButton
             // 
@@ -160,6 +163,7 @@
             this.AddButton.TabIndex = 36;
             this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // checkBox
             // 
@@ -227,6 +231,18 @@
             this.DescriptionLabel.TabIndex = 30;
             this.DescriptionLabel.Text = "Описание";
             // 
+            // ImageButton
+            // 
+            this.ImageButton.BackColor = System.Drawing.Color.White;
+            this.ImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ImageButton.Location = new System.Drawing.Point(6, 225);
+            this.ImageButton.Name = "ImageButton";
+            this.ImageButton.Size = new System.Drawing.Size(224, 31);
+            this.ImageButton.TabIndex = 29;
+            this.ImageButton.Text = "Выбрать фото";
+            this.ImageButton.UseVisualStyleBackColor = false;
+            this.ImageButton.Click += new System.EventHandler(this.ImageButton_Click);
+            // 
             // StorageRackLabel
             // 
             this.StorageRackLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -274,6 +290,11 @@
             this.QuantityInStockUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.QuantityInStockUpDown.Location = new System.Drawing.Point(236, 225);
+            this.QuantityInStockUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.QuantityInStockUpDown.Name = "QuantityInStockUpDown";
             this.QuantityInStockUpDown.Size = new System.Drawing.Size(116, 31);
             this.QuantityInStockUpDown.TabIndex = 24;
@@ -298,7 +319,18 @@
             // PriceUpDown
             // 
             this.PriceUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriceUpDown.DecimalPlaces = 2;
+            this.PriceUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.PriceUpDown.Location = new System.Drawing.Point(365, 165);
+            this.PriceUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.PriceUpDown.Name = "PriceUpDown";
             this.PriceUpDown.Size = new System.Drawing.Size(97, 31);
             this.PriceUpDown.TabIndex = 21;
@@ -307,6 +339,8 @@
             // 
             this.CategoryComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(236, 105);
             this.CategoryComboBox.Name = "CategoryComboBox";
@@ -317,6 +351,7 @@
             // 
             this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.NameTextBox.Location = new System.Drawing.Point(236, 45);
             this.NameTextBox.MaxLength = 70;
             this.NameTextBox.Name = "NameTextBox";
@@ -416,16 +451,9 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
-            // ImageButton
+            // openFileDialog1
             // 
-            this.ImageButton.BackColor = System.Drawing.Color.White;
-            this.ImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ImageButton.Location = new System.Drawing.Point(6, 225);
-            this.ImageButton.Name = "ImageButton";
-            this.ImageButton.Size = new System.Drawing.Size(224, 31);
-            this.ImageButton.TabIndex = 29;
-            this.ImageButton.Text = "Выбрать фото";
-            this.ImageButton.UseVisualStyleBackColor = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // MoreProductForm
             // 
@@ -487,5 +515,6 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ImageButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

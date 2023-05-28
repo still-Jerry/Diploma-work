@@ -15,7 +15,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using SQLClass = Modules.SQLClass;
     public partial class ProductForm : Form
     {
-        Int16 page = 1;
+        Int32 page = 1;
         Int32 rows = 0;
         Int32 allPages;
 
@@ -105,19 +105,25 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
                 allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
                 PagesLabel.Text = page + " / " + allPages;
+                numericUpDown.Value = page;
+
             }
 
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            if (numericUpDown.Value != page && numericUpDown.Value!=0)
+            {
+                page = Convert.ToInt32(numericUpDown.Value) - 1;
+            }
             if (page * 5 < rows)
             {
                 page++;
                 rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
                 allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
                 PagesLabel.Text = page + " / " + allPages;
-
+                numericUpDown.Value = page;
             }
         }
 
@@ -126,6 +132,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
             allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
             PagesLabel.Text = page + " / " + allPages;
+            numericUpDown.Value = page;
         }
 
         #endregion
@@ -176,6 +183,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             AlphabetСomboBox.Items.Add("по убыванию цены");
 
             AlphabetСomboBox.SelectedIndex = 0;
+          
             if (BusinessClass.UserInfoList[5] == "2")
             {
                 contextMenuStrip.Items[2].Visible = false;
@@ -233,17 +241,27 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void просмотрТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ViewsClass.MoreProductButtonState = 0;
-            MoreProductForm NewForm = new MoreProductForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
+            try
+            {
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
+                ViewsClass.MoreProductButtonState = 0;
+                MoreProductForm NewForm = new MoreProductForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
         }
 
         private void редактированиеТовараToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                BusinessClass.SelectedProductList = SQLClass.GetSelectInList("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 1;
@@ -271,11 +289,29 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void AddNewProductButton_Click(object sender, EventArgs e)
         {
-            ViewsClass.MoreProductButtonState = 2;
-            MoreProductForm NewForm = new MoreProductForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
+            try
+            {
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
+                ViewsClass.MoreProductButtonState = 2;
+                MoreProductForm NewForm = new MoreProductForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
         }
+
+        private void numericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            numericUpDown.Maximum = allPages;
+        }
+
+      
+
 
     }
 }

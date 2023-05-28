@@ -104,6 +104,7 @@
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(58, 27);
             this.numericUpDown.TabIndex = 20;
+            this.numericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // PagesLabel
             // 

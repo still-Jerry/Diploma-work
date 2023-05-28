@@ -196,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Res\Product\638208987283151274Анастрозол.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Res\Product\Гриппферон.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

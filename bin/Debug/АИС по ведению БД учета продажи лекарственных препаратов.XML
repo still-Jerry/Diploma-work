@@ -102,6 +102,12 @@
             <Button_Click>Buttons transitions</Button_Click>
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.OutputProduct">
+            <summary>Private form functions</summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.DeleteButton_Click(System.Object,System.EventArgs)">
+            <summary>Function Events </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.components">
             <summary>
             Required designer variable.

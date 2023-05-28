@@ -16,7 +16,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Boolean EnabledForm = false;
         public static Int16 MoreProductButtonState = 1;
 
-        public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table,  Int16 j)
+        public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table,  Int32 j)
         {
             datagrid.Rows.Clear();
             try
@@ -43,10 +43,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         table.Rows[i][0].ToString(),
                         img,
                         "Наименование: " + table.Rows[i][2].ToString() +
-                        "\nСтоимость: " + table.Rows[i][3].ToString() +
-                        "\nРазмер скидки: " + table.Rows[i][4].ToString()
+                        "\nСтоимость cучётом скидки: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4]))
                         );
-                    datagrid.Rows[datagrid.Rows.Count-1].Height = 100;
+                    //"\nСтоимость: " + table.Rows[i][3].ToString() +
+                    // "\nРазмер скидки: " + Convert.ToDouble(table.Rows[i][4]) * 100 +
+                    datagrid.Rows[datagrid.Rows.Count-1].Height = 120;
                 }
                 return table.Rows.Count;
 
@@ -57,38 +58,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return -1; 
             }
         }
-        //public static void ViewListWithPicturesOnTable(DataGridView datagrid, List<String> list)
-        //{
-        //    try
-        //    {
-        //        for (int i = 0; i < list.Count(); i++)
-        //        {
-        //            Image img;
-        //            var path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\";
-        //            if (list[1].ToString() == "" || list[1].ToString() == " ")
-        //            {
-        //                img=Properties.Resources.plug as Bitmap;
-
-        //            }
-        //            else
-        //            {
-        //                path += list[1].ToString();
-        //                img = Image.FromFile(path);
-        //            }
-        //            datagrid.Rows.Add(
-        //                list[0],
-        //                img,
-        //                "Наименование: " + list[2] +
-        //                "\nСтоимость: " + list[3]+
-        //                "\nРазмер скидки: " + list[4]
-        //                );
-        //            datagrid.Rows[i].Height = 100;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Ошибка");
-        //    }
-        //}
+        
     }
 }
