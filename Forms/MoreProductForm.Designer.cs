@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddToSeriesButton = new System.Windows.Forms.Button();
             this.AddToOrderButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
@@ -41,10 +42,8 @@
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.ImageButton = new System.Windows.Forms.Button();
             this.StorageRackLabel = new System.Windows.Forms.Label();
-            this.QuantityInStockLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
             this.DiscountLabel = new System.Windows.Forms.Label();
-            this.QuantityInStockUpDown = new System.Windows.Forms.NumericUpDown();
             this.StorageRackUpDown = new System.Windows.Forms.NumericUpDown();
             this.DiscountUpDown = new System.Windows.Forms.NumericUpDown();
             this.PriceUpDown = new System.Windows.Forms.NumericUpDown();
@@ -59,7 +58,6 @@
             this.ToMenuButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ВackgroundGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuantityInStockUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRackUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceUpDown)).BeginInit();
@@ -71,6 +69,7 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ВackgroundGroupBox.Controls.Add(this.AddToSeriesButton);
             this.ВackgroundGroupBox.Controls.Add(this.AddToOrderButton);
             this.ВackgroundGroupBox.Controls.Add(this.EditButton);
             this.ВackgroundGroupBox.Controls.Add(this.DeleteButton);
@@ -83,10 +82,8 @@
             this.ВackgroundGroupBox.Controls.Add(this.DescriptionLabel);
             this.ВackgroundGroupBox.Controls.Add(this.ImageButton);
             this.ВackgroundGroupBox.Controls.Add(this.StorageRackLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.QuantityInStockLabel);
             this.ВackgroundGroupBox.Controls.Add(this.PriceLabel);
             this.ВackgroundGroupBox.Controls.Add(this.DiscountLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.QuantityInStockUpDown);
             this.ВackgroundGroupBox.Controls.Add(this.StorageRackUpDown);
             this.ВackgroundGroupBox.Controls.Add(this.DiscountUpDown);
             this.ВackgroundGroupBox.Controls.Add(this.PriceUpDown);
@@ -98,9 +95,24 @@
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(468, 442);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(557, 446);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
+            // 
+            // AddToSeriesButton
+            // 
+            this.AddToSeriesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddToSeriesButton.BackColor = System.Drawing.Color.White;
+            this.AddToSeriesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddToSeriesButton.Location = new System.Drawing.Point(339, 367);
+            this.AddToSeriesButton.MaximumSize = new System.Drawing.Size(208, 31);
+            this.AddToSeriesButton.MinimumSize = new System.Drawing.Size(208, 31);
+            this.AddToSeriesButton.Name = "AddToSeriesButton";
+            this.AddToSeriesButton.Size = new System.Drawing.Size(208, 31);
+            this.AddToSeriesButton.TabIndex = 40;
+            this.AddToSeriesButton.Text = "Добавить серию";
+            this.AddToSeriesButton.UseVisualStyleBackColor = false;
+            this.AddToSeriesButton.Click += new System.EventHandler(this.AddToSeriesButton_Click);
             // 
             // AddToOrderButton
             // 
@@ -108,7 +120,7 @@
             this.AddToOrderButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.AddToOrderButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AddToOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddToOrderButton.Location = new System.Drawing.Point(255, 365);
+            this.AddToOrderButton.Location = new System.Drawing.Point(339, 367);
             this.AddToOrderButton.MaximumSize = new System.Drawing.Size(208, 31);
             this.AddToOrderButton.MinimumSize = new System.Drawing.Size(208, 31);
             this.AddToOrderButton.Name = "AddToOrderButton";
@@ -123,7 +135,7 @@
             this.EditButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.EditButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Location = new System.Drawing.Point(255, 365);
+            this.EditButton.Location = new System.Drawing.Point(339, 406);
             this.EditButton.MaximumSize = new System.Drawing.Size(208, 31);
             this.EditButton.MinimumSize = new System.Drawing.Size(208, 31);
             this.EditButton.Name = "EditButton";
@@ -135,15 +147,15 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Location = new System.Drawing.Point(346, 402);
-            this.DeleteButton.MaximumSize = new System.Drawing.Size(116, 31);
-            this.DeleteButton.MinimumSize = new System.Drawing.Size(116, 31);
+            this.DeleteButton.Location = new System.Drawing.Point(6, 406);
+            this.DeleteButton.MaximumSize = new System.Drawing.Size(174, 31);
+            this.DeleteButton.MinimumSize = new System.Drawing.Size(174, 31);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(116, 31);
+            this.DeleteButton.Size = new System.Drawing.Size(174, 31);
             this.DeleteButton.TabIndex = 37;
             this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -155,11 +167,11 @@
             this.AddButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Location = new System.Drawing.Point(346, 402);
-            this.AddButton.MaximumSize = new System.Drawing.Size(116, 31);
-            this.AddButton.MinimumSize = new System.Drawing.Size(116, 31);
+            this.AddButton.Location = new System.Drawing.Point(339, 367);
+            this.AddButton.MaximumSize = new System.Drawing.Size(208, 31);
+            this.AddButton.MinimumSize = new System.Drawing.Size(208, 31);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(116, 31);
+            this.AddButton.Size = new System.Drawing.Size(208, 31);
             this.AddButton.TabIndex = 36;
             this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = false;
@@ -167,10 +179,10 @@
             // 
             // checkBox
             // 
-            this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBox.AutoSize = true;
             this.checkBox.BackColor = System.Drawing.Color.White;
-            this.checkBox.Location = new System.Drawing.Point(288, 326);
+            this.checkBox.Location = new System.Drawing.Point(6, 367);
             this.checkBox.Name = "checkBox";
             this.checkBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox.Size = new System.Drawing.Size(174, 27);
@@ -180,19 +192,19 @@
             // 
             // ManufactureTextBox
             // 
-            this.ManufactureTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ManufactureTextBox.Location = new System.Drawing.Point(240, 285);
+            this.ManufactureTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ManufactureTextBox.Location = new System.Drawing.Point(236, 225);
             this.ManufactureTextBox.MaxLength = 70;
             this.ManufactureTextBox.Name = "ManufactureTextBox";
-            this.ManufactureTextBox.Size = new System.Drawing.Size(223, 31);
+            this.ManufactureTextBox.Size = new System.Drawing.Size(311, 31);
             this.ManufactureTextBox.TabIndex = 34;
             // 
             // ManufacturerLabel
             // 
-            this.ManufacturerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ManufacturerLabel.AutoSize = true;
             this.ManufacturerLabel.BackColor = System.Drawing.Color.White;
-            this.ManufacturerLabel.Location = new System.Drawing.Point(302, 259);
+            this.ManufacturerLabel.Location = new System.Drawing.Point(236, 199);
             this.ManufacturerLabel.Name = "ManufacturerLabel";
             this.ManufacturerLabel.Size = new System.Drawing.Size(160, 23);
             this.ManufacturerLabel.TabIndex = 33;
@@ -203,10 +215,10 @@
             this.DescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescriptionTextBox.Location = new System.Drawing.Point(11, 285);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(6, 285);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(219, 111);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(541, 76);
             this.DescriptionTextBox.TabIndex = 32;
             // 
             // ImageLabel
@@ -225,7 +237,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DescriptionLabel.AutoSize = true;
             this.DescriptionLabel.BackColor = System.Drawing.Color.White;
-            this.DescriptionLabel.Location = new System.Drawing.Point(11, 259);
+            this.DescriptionLabel.Location = new System.Drawing.Point(6, 259);
             this.DescriptionLabel.Name = "DescriptionLabel";
             this.DescriptionLabel.Size = new System.Drawing.Size(105, 23);
             this.DescriptionLabel.TabIndex = 30;
@@ -248,28 +260,17 @@
             this.StorageRackLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.StorageRackLabel.AutoSize = true;
             this.StorageRackLabel.BackColor = System.Drawing.Color.White;
-            this.StorageRackLabel.Location = new System.Drawing.Point(366, 199);
+            this.StorageRackLabel.Location = new System.Drawing.Point(454, 139);
             this.StorageRackLabel.Name = "StorageRackLabel";
             this.StorageRackLabel.Size = new System.Drawing.Size(93, 23);
             this.StorageRackLabel.TabIndex = 28;
             this.StorageRackLabel.Text = "Стеллаж";
             // 
-            // QuantityInStockLabel
-            // 
-            this.QuantityInStockLabel.AutoSize = true;
-            this.QuantityInStockLabel.BackColor = System.Drawing.Color.White;
-            this.QuantityInStockLabel.Location = new System.Drawing.Point(236, 199);
-            this.QuantityInStockLabel.Name = "QuantityInStockLabel";
-            this.QuantityInStockLabel.Size = new System.Drawing.Size(79, 23);
-            this.QuantityInStockLabel.TabIndex = 27;
-            this.QuantityInStockLabel.Text = "Кол-во";
-            // 
             // PriceLabel
             // 
-            this.PriceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PriceLabel.AutoSize = true;
             this.PriceLabel.BackColor = System.Drawing.Color.White;
-            this.PriceLabel.Location = new System.Drawing.Point(366, 139);
+            this.PriceLabel.Location = new System.Drawing.Point(346, 139);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(58, 23);
             this.PriceLabel.TabIndex = 26;
@@ -285,47 +286,33 @@
             this.DiscountLabel.TabIndex = 25;
             this.DiscountLabel.Text = "Скидка";
             // 
-            // QuantityInStockUpDown
-            // 
-            this.QuantityInStockUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.QuantityInStockUpDown.Location = new System.Drawing.Point(236, 225);
-            this.QuantityInStockUpDown.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.QuantityInStockUpDown.Name = "QuantityInStockUpDown";
-            this.QuantityInStockUpDown.Size = new System.Drawing.Size(116, 31);
-            this.QuantityInStockUpDown.TabIndex = 24;
-            // 
             // StorageRackUpDown
             // 
             this.StorageRackUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.StorageRackUpDown.Location = new System.Drawing.Point(365, 225);
+            this.StorageRackUpDown.Location = new System.Drawing.Point(453, 165);
             this.StorageRackUpDown.Name = "StorageRackUpDown";
             this.StorageRackUpDown.Size = new System.Drawing.Size(97, 31);
             this.StorageRackUpDown.TabIndex = 23;
+            this.StorageRackUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // DiscountUpDown
             // 
-            this.DiscountUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DiscountUpDown.Location = new System.Drawing.Point(236, 165);
             this.DiscountUpDown.Name = "DiscountUpDown";
-            this.DiscountUpDown.Size = new System.Drawing.Size(116, 31);
+            this.DiscountUpDown.Size = new System.Drawing.Size(97, 31);
             this.DiscountUpDown.TabIndex = 22;
             // 
             // PriceUpDown
             // 
-            this.PriceUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriceUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PriceUpDown.DecimalPlaces = 2;
             this.PriceUpDown.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.PriceUpDown.Location = new System.Drawing.Point(365, 165);
+            this.PriceUpDown.Location = new System.Drawing.Point(345, 165);
             this.PriceUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -344,7 +331,7 @@
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(236, 105);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(226, 31);
+            this.CategoryComboBox.Size = new System.Drawing.Size(311, 31);
             this.CategoryComboBox.TabIndex = 20;
             // 
             // NameTextBox
@@ -355,7 +342,7 @@
             this.NameTextBox.Location = new System.Drawing.Point(236, 45);
             this.NameTextBox.MaxLength = 70;
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(226, 31);
+            this.NameTextBox.Size = new System.Drawing.Size(311, 31);
             this.NameTextBox.TabIndex = 18;
             // 
             // CategoryLabel
@@ -394,7 +381,7 @@
             this.CloseButton.BackColor = System.Drawing.Color.IndianRed;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CloseButton.Location = new System.Drawing.Point(471, 12);
+            this.CloseButton.Location = new System.Drawing.Point(560, 12);
             this.CloseButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.Name = "CloseButton";
@@ -410,7 +397,7 @@
             this.HideButton.BackColor = System.Drawing.Color.Gainsboro;
             this.HideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HideButton.Location = new System.Drawing.Point(413, 12);
+            this.HideButton.Location = new System.Drawing.Point(502, 12);
             this.HideButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.HideButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.HideButton.Name = "HideButton";
@@ -426,7 +413,7 @@
             this.ExpandButton.BackColor = System.Drawing.Color.Gainsboro;
             this.ExpandButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExpandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExpandButton.Location = new System.Drawing.Point(442, 12);
+            this.ExpandButton.Location = new System.Drawing.Point(531, 12);
             this.ExpandButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.Name = "ExpandButton";
@@ -461,7 +448,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(506, 501);
+            this.ClientSize = new System.Drawing.Size(595, 505);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
@@ -470,12 +457,11 @@
             this.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.MinimumSize = new System.Drawing.Size(506, 501);
+            this.MinimumSize = new System.Drawing.Size(595, 505);
             this.Name = "MoreProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuantityInStockUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRackUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceUpDown)).EndInit();
@@ -496,10 +482,8 @@
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Label StorageRackLabel;
-        private System.Windows.Forms.Label QuantityInStockLabel;
         private System.Windows.Forms.Label PriceLabel;
         private System.Windows.Forms.Label DiscountLabel;
-        private System.Windows.Forms.NumericUpDown QuantityInStockUpDown;
         private System.Windows.Forms.NumericUpDown StorageRackUpDown;
         private System.Windows.Forms.NumericUpDown DiscountUpDown;
         private System.Windows.Forms.NumericUpDown PriceUpDown;
@@ -516,5 +500,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ImageButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button AddToSeriesButton;
     }
 }

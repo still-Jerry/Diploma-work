@@ -4,6 +4,26 @@
         <name>АИС по ведению БД учета продажи лекарственных препаратов</name>
     </assembly>
     <members>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.components">
             <summary>
             Required designer variable.
@@ -89,6 +109,26 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.

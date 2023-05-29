@@ -105,6 +105,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
                 allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
                 PagesLabel.Text = page + " / " + allPages;
+                numericUpDown.Maximum = allPages;
                 numericUpDown.Value = page;
 
             }
@@ -123,6 +124,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
                 allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
                 PagesLabel.Text = page + " / " + allPages;
+                numericUpDown.Maximum = allPages;
                 numericUpDown.Value = page;
             }
         }
@@ -132,6 +134,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
             allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
             PagesLabel.Text = page + " / " + allPages;
+            numericUpDown.Maximum = allPages;
             numericUpDown.Value = page;
         }
 
@@ -276,11 +279,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         }
         private void SpecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
            page = 1;
            rows= ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
            page = rows == 0 ? page = 0 : page=1;
            allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
            PagesLabel.Text = page + " / " + allPages;
+           numericUpDown.Maximum = allPages;
+           numericUpDown.Value = page;
         }
 
 
@@ -308,6 +314,19 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown.Maximum = allPages;
+        }
+
+        private void добавитьКЗаказуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewsClass.EnabledForm = false;
+            BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
+            ProductMessageForm NewForm = new ProductMessageForm();
+            this.Enabled = ViewsClass.EnabledForm;
+            NewForm.ShowDialog();
+            this.Enabled = true;
+
         }
 
       

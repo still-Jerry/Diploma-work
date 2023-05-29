@@ -28,8 +28,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.AddNewProductButton = new System.Windows.Forms.Button();
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddNewProductButton.BackColor = System.Drawing.Color.White;
             this.AddNewProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNewProductButton.Location = new System.Drawing.Point(151, 373);
+            this.AddNewProductButton.Location = new System.Drawing.Point(149, 376);
             this.AddNewProductButton.MinimumSize = new System.Drawing.Size(252, 30);
             this.AddNewProductButton.Name = "AddNewProductButton";
             this.AddNewProductButton.Size = new System.Drawing.Size(252, 30);
@@ -215,14 +215,14 @@
             this.ImgColumn,
             this.Column});
             this.dataGridView.ContextMenuStrip = this.contextMenuStrip;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.Location = new System.Drawing.Point(6, 96);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
@@ -250,8 +250,8 @@
             // 
             // Column
             // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column.HeaderText = "Column";
             this.Column.Name = "Column";
             this.Column.ReadOnly = true;
@@ -272,6 +272,7 @@
             this.добавитьКЗаказуToolStripMenuItem.Name = "добавитьКЗаказуToolStripMenuItem";
             this.добавитьКЗаказуToolStripMenuItem.Size = new System.Drawing.Size(275, 22);
             this.добавитьКЗаказуToolStripMenuItem.Text = "Добавить к заказу";
+            this.добавитьКЗаказуToolStripMenuItem.Click += new System.EventHandler(this.добавитьКЗаказуToolStripMenuItem_Click);
             // 
             // просмотрТовараToolStripMenuItem
             // 

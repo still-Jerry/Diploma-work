@@ -36,14 +36,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                     else
                     {
-                        path += table.Rows[i][1].ToString();
-                        img = Image.FromFile(path);
+                        try
+                        {
+                            path += table.Rows[i][1].ToString();
+                            img = Image.FromFile(path);
+                        }
+                        catch(Exception ex) {
+                            MessageBox.Show(ex.Message, "Ошибка");
+                            img = Properties.Resources.plug as Bitmap;
+                        }
                     }
                     datagrid.Rows.Add(
                         table.Rows[i][0].ToString(),
                         img,
                         "Наименование: " + table.Rows[i][2].ToString() +
-                        "\nСтоимость cучётом скидки: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4]))
+                        "\nСтоимость c учётом скидки: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4]))
                         );
                     //"\nСтоимость: " + table.Rows[i][3].ToString() +
                     // "\nРазмер скидки: " + Convert.ToDouble(table.Rows[i][4]) * 100 +

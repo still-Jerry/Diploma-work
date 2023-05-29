@@ -24,6 +24,32 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             InitializeComponent();
         }
+        #region Typical events of all forms
+        /// <summary>window display buttons </summary>
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void HideButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void ExpandButton_Click(object sender, EventArgs e)
+        {
+            if (ViewsClass.StateWindows)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                ViewsClass.StateWindows = false;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                ViewsClass.StateWindows = true;
+            }
+        }
+        #endregion
 
         private void AuthorizationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -75,28 +101,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void HideButton_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void ExpandButton_Click(object sender, EventArgs e)
-        {
-            if (ViewsClass.StateWindows)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                ViewsClass.StateWindows = false;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                ViewsClass.StateWindows = true;
-            }
-        }
+     
     }
 }

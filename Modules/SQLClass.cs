@@ -32,7 +32,33 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
+        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "", String join = "")
+        {
+            try
+            {
+                List<String> list = new List<String>();
 
+                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
+                MySqlCommand Command = new MySqlCommand(cmd, Connect());
+                MySqlDataReader reader = Command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    for (Int16 i = 0; reader.FieldCount > i; i++)
+                    {
+                        list.Add(reader[i].ToString());
+                    }
+                }
+
+                Command.Connection.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
+            }
+        }
         public static DataTable GetSelectInDataTable(String tables, String where = "", String attributes = "*", String order = "", String join = "")
         {
             try
@@ -69,7 +95,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false;
             }
         }
-        public static Boolean UpdateFromDataBase(String tables, String attributes, String where)
+        public static Boolean UpdateToDataBase(String tables, String attributes, String where)
         {
             try
             {
@@ -85,7 +111,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false;
             }
         }
-        public static Boolean AddFromDataBase(String tables,  String attributes)
+        public static Boolean AddToDataBase(String tables,  String attributes)
         {
             try
             {
@@ -101,34 +127,46 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false;
             }
         }
-    
-        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "", String join = "")
-        {
-            try
-            {
-                List<String> list = new List<String>();
 
-                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
-                MySqlCommand Command = new MySqlCommand(cmd, Connect());
-                MySqlDataReader reader = Command.ExecuteReader();
+
+        //public static List<String> TransactionAddToDataBase(String tables1, String attributes1, 
+        //    String tables, String where = "", String attributes = "*", String order = "", String join = "")
+        //{
+        //    MySqlConnection con = Connect();
+        //    MySqlTransaction trans = con.BeginTransaction();
+        //    try
+        //    {
+
+        //        String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
+        //        MySqlCommand Command = new MySqlCommand(cmd, con, trans);
+        //        MySqlDataReader reader = Command.ExecuteReader();
+        //        List<String> list = new List<String>();
                 
-                while (reader.Read())
-                {
-                    for (Int16 i = 0; reader.FieldCount > i; i++)
-                    {
-                        list.Add(reader[i].ToString());
-                    }
-                }
+        //        while (reader.Read())
+        //        {
+        //            for (Int16 i = 0; reader.FieldCount > i; i++)
+        //            {
+        //                list.Add(reader[i].ToString());
+        //            }
+        //        }
 
-                Command.Connection.Close();
-                return list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
-                return null;
-            }
-        }
+
+        //        String cmd1 = "INSERT INTO  " + tables1 + " VALUES (" + attributes1 + ");";
+        //        MySqlCommand Command1 = new MySqlCommand(cmd1, con, trans);
+        //        Command1.ExecuteNonQuery();
+
+        //        trans.Commit();
+        //        con.Close();
+        //        return list;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Ошибка");
+        //        trans.Rollback();
+        //        return null;
+        //    }
+        //}
+       
         
     }
 

@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\MoreProductMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MoreProductMessageForm.Designer.cs">
+      <DependentUpon>MoreProductMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AuthorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductMessageForm.Designer.cs">
+      <DependentUpon>ProductMessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MoreProductForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,9 @@
     <Compile Include="Modules\ViewsClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\MoreProductMessageForm.resx">
+      <DependentUpon>MoreProductMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductMessageForm.resx">
+      <DependentUpon>ProductMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MoreProductForm.resx">
       <DependentUpon>MoreProductForm.cs</DependentUpon>

@@ -94,6 +94,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     EditButton.Visible = true;
 
                     AddToOrderButton.Visible = false;
+                    AddToSeriesButton.Visible = true;
                     OutputProduct();
                     break;
                 case 2:
@@ -102,7 +103,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     EditButton.Visible = false;
 
                     AddToOrderButton.Visible = false;
-                    
+                    AddToSeriesButton.Visible = false;
                     break;
                 default:
                     DeleteButton.Visible = false;
@@ -111,24 +112,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     ImageButton.Visible = false;
 
                     AddToOrderButton.Visible = true;
-
-                    //NameTextBox.Enabled = false;
-                    //CategoryComboBox.Enabled = false;
-                    //DescriptionTextBox.Enabled = false;
-                    //ManufactureTextBox.Enabled = false;
-                    //checkBox.Enabled = false;
-                    //PriceUpDown.Enabled = false;
-                    //QuantityInStockUpDown.Enabled = false;
-                    //StorageRackUpDown.Enabled = false;
-                    //DiscountUpDown.Enabled = false;
-                    
+                    AddToSeriesButton.Visible = false;
+                                        
                     NameTextBox.ReadOnly = true;
                     CategoryComboBox.Enabled = false;
                     DescriptionTextBox.ReadOnly = true;
                     ManufactureTextBox.ReadOnly = true;
                     checkBox.Enabled = false;
                     PriceUpDown.Enabled = false;
-                    QuantityInStockUpDown.Enabled = false;
                     StorageRackUpDown.Enabled = false;
                     DiscountUpDown.Enabled = false;
 
@@ -144,20 +135,28 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         /// <summary>Private form functions</summary>
         void OutputProduct() {
             NameTextBox.Text = BusinessClass.SelectedFromDataGridList[1];
-            CategoryComboBox.SelectedItem = BusinessClass.SelectedFromDataGridList[12];
-            DescriptionTextBox.Text = BusinessClass.SelectedFromDataGridList[6];
-            ManufactureTextBox.Text = BusinessClass.SelectedFromDataGridList[7];
+            CategoryComboBox.SelectedItem = BusinessClass.SelectedFromDataGridList[11];
+            DescriptionTextBox.Text = BusinessClass.SelectedFromDataGridList[5];
+            ManufactureTextBox.Text = BusinessClass.SelectedFromDataGridList[6];
             var path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\";
-            if (BusinessClass.SelectedFromDataGridList[8] == "" || BusinessClass.SelectedFromDataGridList[8] == " ")
+            if (BusinessClass.SelectedFromDataGridList[7] == "" || BusinessClass.SelectedFromDataGridList[7] == " ")
             {
                 pictureBox.Image = Properties.Resources.plug as Bitmap;
             }
             else
             {
-                path += BusinessClass.SelectedFromDataGridList[8];
-                pictureBox.Image = Image.FromFile(path);
+                try
+                {
+                    path += BusinessClass.SelectedFromDataGridList[7];
+                    pictureBox.Image = Image.FromFile(path);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка");
+                    pictureBox.Image = Properties.Resources.plug as Bitmap;
+                }
             }
-            if (BusinessClass.SelectedFromDataGridList[9] == "1")
+            if (BusinessClass.SelectedFromDataGridList[8] == "1")
             {
                 checkBox.Checked = true;
             }
@@ -166,9 +165,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 checkBox.Checked = false;
             }
             PriceUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[3]);
-            QuantityInStockUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[4]);
-            StorageRackUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[5]);
-            DiscountUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[10])*100;
+            StorageRackUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[4]);
+            DiscountUpDown.Value = Convert.ToDecimal(BusinessClass.SelectedFromDataGridList[9])*100;
            
 
         }
@@ -202,6 +200,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             {
                 var question = MessageBox.Show("Уверены, что хотите удалить данный товар? Изменения необратимы.", "Предупреждение", MessageBoxButtons.YesNo);
                 if (question == DialogResult.Yes) {
+                    if (SQLClass.DeleteFromDataBase(" seriesproduct ", "where productIdSeries = " + Convert.ToInt32(BusinessClass.SelectedFromDataGridList[0])))
+                    {
+                         MessageBox.Show("Удаление серий продукта прошло успешно!", "Информация"); 
+                    } else {
+                        MessageBox.Show("Произошла ошибка.\nСерия не удалёна, либо её не существовало.", "Информация");
+                    }
+
                     if (SQLClass.DeleteFromDataBase(" product ", "where idProduct = " + Convert.ToInt32(BusinessClass.SelectedFromDataGridList[0])))
                     {
                         MessageBox.Show("Удаление прошло успешно!", "Информация");
@@ -209,9 +214,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         this.Visible = false;
                         NewForm.ShowDialog();
                     }
-                    else {
+                    else
+                    {
                         MessageBox.Show("Произошла ошибка.\nТовар не удалён.", "Информация");
                     }
+                    
                 }
             }
             catch (Exception ex)
@@ -225,10 +232,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
-                    PriceUpDown.Value == 0 || QuantityInStockUpDown.Value == 0
+                    PriceUpDown.Value == 0 
                     )
                 {
-                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, цена и количество не нулевые.", "Информация");
+                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, поле 'цена' не нулевое.", "Информация");
                 }
                 else
                 {
@@ -253,17 +260,16 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             pictureName = "";
                         }
 
-                        if (SQLClass.UpdateFromDataBase(" product ",
+                        if (SQLClass.UpdateToDataBase(" product ",
                            "nameProduct = '" + NameTextBox.Text + "' , " +
                             "categoryProduct = '" + CategotyID + "' ," +
-                            "priceProduct = '" + Convert.ToDouble(PriceUpDown.Value) + "' , " +
-                            "quantityInStockProduct = '" + Convert.ToDouble(QuantityInStockUpDown.Value) + "' , " +
+                            "priceProduct = '" + Convert.ToDouble(PriceUpDown.Value).ToString().Replace(',', '.') + "' , " +
                             "storageRackProduct = '" + Convert.ToDouble(StorageRackUpDown.Value) + "' , " +
                             "descriptionProduct = '" + DescriptionTextBox.Text + "' , " +
                             "manufacturerProduct = '" + ManufactureTextBox.Text + "' , " +
                             "pictureProduct = '" + pictureName + "' , " +
                             "isPrescriptionProduct = '" + Convert.ToInt32(checkBox.Checked) + "' , " +
-                            "discountProduct = '" + Convert.ToDouble(DiscountUpDown.Value) + "'",
+                            "discountProduct = '" + (Convert.ToDecimal(DiscountUpDown.Value)/100).ToString().Replace(',', '.') + "'",
                             " where idProduct = " + BusinessClass.SelectedFromDataGridList[0]))
                         {
                             MessageBox.Show("Изменения сохранены!", "Информация");
@@ -286,10 +292,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
-                    PriceUpDown.Value == 0 || QuantityInStockUpDown.Value == 0
+                    PriceUpDown.Value == 0 
                     )
                 {
-                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, цена и количество не нулевые.", "Информация");
+                    MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, поле 'цена' не нулевое.", "Информация");
                 }
                 else
                 {
@@ -306,22 +312,47 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                     if (question == DialogResult.Yes)
                     {
-                        if (SQLClass.AddFromDataBase(" product ",
+                        try
+                        {
+                            File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Изображение не сохранено");
+                            pictureName = "";
+                        }
+////////////////////////////////////////////////////////В этом куске нужна транзакция!!!!!!!!!
+                        //Begin;
+                        if (SQLClass.AddToDataBase(" product ",
                             "null, '" +
                             NameTextBox.Text + "' , '" +
                             CategotyID + "' , '" +
-                            Convert.ToDouble(PriceUpDown.Value) + "' , '" +
-                            Convert.ToDouble(QuantityInStockUpDown.Value) + "' , '" +
+                            Convert.ToDouble(PriceUpDown.Value).ToString().Replace(',', '.') + "' , '" +
                             Convert.ToDouble(StorageRackUpDown.Value) + "' , '" +
                             DescriptionTextBox.Text + "' , '" +
                             ManufactureTextBox.Text + "' , '" +
                             pictureName + "' , '" +
                             Convert.ToInt32(checkBox.Checked) + "' , '" +
-                            Convert.ToDouble(DiscountUpDown.Value) + "'"
+                            (Convert.ToDecimal(DiscountUpDown.Value) / 100).ToString().Replace(',', '.') + "'"
                             ))
                         //'', 'имя', 'категория', 'цена', 'колво', 'стеллаж', 'описание', 'производитель', 'картинка', 'рецепторность', 'скидка'
                         {
-                            MessageBox.Show("Добавление прошло успешно!", "Информация");
+                            var res = MessageBox.Show("Добавление прошло успешно!\nДобавить серию продукта?.", "Информация", MessageBoxButtons.YesNo);
+
+                            if (res == DialogResult.Yes) {
+                                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                                join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`",
+                                order: " ORDER BY idProduct Desc"); 
+
+                                ViewsClass.EnabledForm = false;
+                                MoreProductMessageForm NewForm1 = new MoreProductMessageForm();
+                                this.Enabled = ViewsClass.EnabledForm;
+                                NewForm1.ShowDialog();
+                                this.Enabled = ViewsClass.EnabledForm;
+
+                            }
+                            //COMMIT;
+                            
                             MoreProductForm NewForm = new MoreProductForm();
                             this.Visible = false;
                             NewForm.ShowDialog();
@@ -329,6 +360,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         else
                         {
                             MessageBox.Show("Произошла ошибка.\nТовар не добален.", "Информация");
+                            //ROllback;
+//////////////////////////////////////////////////////////////////////////
                         }
                     }
                 }
@@ -358,6 +391,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void AddToSeriesButton_Click(object sender, EventArgs e)
+        {
+            ViewsClass.EnabledForm = false;
+            MoreProductMessageForm NewForm = new MoreProductMessageForm();
+            this.Enabled = ViewsClass.EnabledForm;
+            NewForm.ShowDialog();
+            this.Enabled = ViewsClass.EnabledForm;
+
+        }
+
+     
      
 
     }
