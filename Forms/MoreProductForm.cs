@@ -321,9 +321,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             MessageBox.Show("Изображение не сохранено");
                             pictureName = "";
                         }
-////////////////////////////////////////////////////////В этом куске нужна транзакция!!!!!!!!!
-                        //Begin;
-                        if (SQLClass.AddToDataBase(" product ",
+                        BusinessClass.SelectedFromDataGridList =SQLClass.TransactionAddToDataBase(" product ", 
                             "null, '" +
                             NameTextBox.Text + "' , '" +
                             CategotyID + "' , '" +
@@ -333,17 +331,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             ManufactureTextBox.Text + "' , '" +
                             pictureName + "' , '" +
                             Convert.ToInt32(checkBox.Checked) + "' , '" +
-                            (Convert.ToDecimal(DiscountUpDown.Value) / 100).ToString().Replace(',', '.') + "'"
-                            ))
-                        //'', 'имя', 'категория', 'цена', 'колво', 'стеллаж', 'описание', 'производитель', 'картинка', 'рецепторность', 'скидка'
-                        {
+                            (Convert.ToDecimal(DiscountUpDown.Value) / 100).ToString().Replace(',', '.') + "'",
+                            " product "
+                            );
+                        if (BusinessClass.SelectedFromDataGridList.Count!=0)
+                       {
                             var res = MessageBox.Show("Добавление прошло успешно!\nДобавить серию продукта?.", "Информация", MessageBoxButtons.YesNo);
 
                             if (res == DialogResult.Yes) {
-                                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
-                                join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`",
-                                order: " ORDER BY idProduct Desc"); 
-
                                 ViewsClass.EnabledForm = false;
                                 MoreProductMessageForm NewForm1 = new MoreProductMessageForm();
                                 this.Enabled = ViewsClass.EnabledForm;
@@ -351,7 +346,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                                 this.Enabled = ViewsClass.EnabledForm;
 
                             }
-                            //COMMIT;
                             
                             MoreProductForm NewForm = new MoreProductForm();
                             this.Visible = false;
@@ -360,8 +354,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         else
                         {
                             MessageBox.Show("Произошла ошибка.\nТовар не добален.", "Информация");
-                            //ROllback;
-//////////////////////////////////////////////////////////////////////////
                         }
                     }
                 }

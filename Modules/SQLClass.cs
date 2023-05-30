@@ -129,43 +129,47 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         }
 
 
-        //public static List<String> TransactionAddToDataBase(String tables1, String attributes1, 
-        //    String tables, String where = "", String attributes = "*", String order = "", String join = "")
-        //{
-        //    MySqlConnection con = Connect();
-        //    MySqlTransaction trans = con.BeginTransaction();
-        //    try
-        //    {
+        public static List<String> TransactionAddToDataBase(String tables1, String attributes1,
+            String tables, String where = "", String attributes = " * ", String order = "", String join = "")
+        {
+            MySqlConnection cont = Connect();
+            MySqlConnection con = Connect();
 
-        //        String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
-        //        MySqlCommand Command = new MySqlCommand(cmd, con, trans);
-        //        MySqlDataReader reader = Command.ExecuteReader();
-        //        List<String> list = new List<String>();
+            MySqlTransaction trans = cont.BeginTransaction();
+            try
+            {
+                String cmd1 = "INSERT INTO  " + tables1 + " VALUES (" + attributes1 + ");";
+                MySqlCommand Command1 = new MySqlCommand(cmd1, cont, trans);
+                Command1.ExecuteNonQuery();
+
+
+                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
+                MySqlCommand Command = new MySqlCommand(cmd, con, trans);
+                MySqlDataReader reader = Command.ExecuteReader();
+                List<String> list = new List<String>();
+
+                while (reader.Read())
+                {
+                    for (Int16 i = 0; reader.FieldCount > i; i++)
+                    {
+                        list.Add(reader[i].ToString());
+                    }
+                }
+
+                con.Close();
+                trans.Commit();
                 
-        //        while (reader.Read())
-        //        {
-        //            for (Int16 i = 0; reader.FieldCount > i; i++)
-        //            {
-        //                list.Add(reader[i].ToString());
-        //            }
-        //        }
-
-
-        //        String cmd1 = "INSERT INTO  " + tables1 + " VALUES (" + attributes1 + ");";
-        //        MySqlCommand Command1 = new MySqlCommand(cmd1, con, trans);
-        //        Command1.ExecuteNonQuery();
-
-        //        trans.Commit();
-        //        con.Close();
-        //        return list;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Ошибка");
-        //        trans.Rollback();
-        //        return null;
-        //    }
-        //}
+               
+                return list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                trans.Rollback();
+                return null;
+            }
+            cont.Close();
+        }
        
         
     }

@@ -318,14 +318,24 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void добавитьКЗаказуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ViewsClass.EnabledForm = false;
             BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
-            ProductMessageForm NewForm = new ProductMessageForm();
-            this.Enabled = ViewsClass.EnabledForm;
-            NewForm.ShowDialog();
-            this.Enabled = true;
+
+            if(SQLClass.GetSelectInList("`seriesproduct`",
+                attributes: " concat(idSeries,')  ',ExpirationDateSeries, ' ', countProductSeries, ' шт.') ",
+                order: " ORDER BY `ExpirationDateSeries` ASC",
+                where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]).Count==0)
+            {
+                MessageBox.Show("Отсутсвуют серии продукта. Добавьте серию через меню редактироваения (администратор).", "Информация");
+            }else{
+                ViewsClass.EnabledForm = false;
+                ProductMessageForm NewForm = new ProductMessageForm();
+                this.Enabled = ViewsClass.EnabledForm;
+                NewForm.ShowDialog();
+                this.Enabled = true;
+            }
+           
 
         }
 

@@ -11,6 +11,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static List<String> UserInfoList;
         public static List<String> SelectedFromDataGridList;
         public static List<String> DuplicateСheckList;
+        public static Dictionary<String, Int32[]> SeriesCountPrescriptionNumberDictionary = new Dictionary<string,int[]>();
 
         public static string GetRandomTextString(int n = 12, bool sp = true, bool up = true, bool pwd = false)
         {
