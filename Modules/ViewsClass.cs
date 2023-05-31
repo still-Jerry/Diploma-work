@@ -15,6 +15,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Boolean StateWindows = true;
         public static Boolean EnabledForm = false;
         public static Int16 MoreProductButtonState = 1;
+        public static Int16 DiscountDay = 31;
 
         public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table, Int32 j, Boolean pagination=true)
         {
@@ -54,16 +55,32 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             img = Properties.Resources.plug as Bitmap;
                         }
                     }
-                    datagrid.Rows.Add(
-                        table.Rows[i][0].ToString(),
-                        img,
-                         table.Rows[i][2].ToString() +
-                        "\n\nЦена: " + table.Rows[i][3].ToString()+" p." +
-                         "\nСкидка: " + Convert.ToDouble(table.Rows[i][4]) * 100 +"%"+
-                        "\nИтого: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4])) +" p."
-                        );
+                    if (Convert.ToInt16(DateTime.Today.Day) == DiscountDay)
+                    {
+                        datagrid.Rows.Add(
+                            table.Rows[i][0].ToString(),
+                            img,
+                             table.Rows[i][2].ToString() +
+                            "\n\nЦена: " + table.Rows[i][3].ToString() + " p." +
+                             "\nСкидка: " + Convert.ToDouble(table.Rows[i][4]) * 100 + "%" +
+                            "\nИтого: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4])) + " p."
+                            );
+
+                        datagrid.Rows[datagrid.Rows.Count - 1].Height = 120;
+
+                    }
+                    else {
+                        datagrid.Rows.Add(
+                            table.Rows[i][0].ToString(),
+                            img,
+                             table.Rows[i][2].ToString() +
+                            "\n\nЦена: " + table.Rows[i][3].ToString() + " p." );
+
+                        datagrid.Rows[datagrid.Rows.Count - 1].Height = 100;
+
+                    }
+                    
                    
-                    datagrid.Rows[datagrid.Rows.Count-1].Height = 120;
                 }
                 return table.Rows.Count;
 

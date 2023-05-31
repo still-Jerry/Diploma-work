@@ -4,6 +4,29 @@
         <name>АИС по ведению БД учета продажи лекарственных препаратов</name>
     </assembly>
     <members>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.RequestGetProduct">
+            <summary>Private form functions</summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.components">
             <summary>
             Required designer variable.
@@ -183,6 +206,9 @@
             <summary>
             <CreateParams>Shape stretching</CreateParams>
             </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.components">
             <summary>

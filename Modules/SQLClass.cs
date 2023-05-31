@@ -192,9 +192,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 reader.Close();
                 values = values.Replace(key, list[0]);
-                command.CommandText = "INSERT INTO  " + tables + " VALUES " + values + ";"; ;
-                command.ExecuteNonQuery();
+                command.CommandText = "INSERT INTO  " + tables + " VALUES " + values + ";"; 
 
+                command.ExecuteNonQuery();
+               
                 // подтверждаем транзакцию
                 transaction.Commit();
 

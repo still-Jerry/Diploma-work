@@ -30,9 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.SpecComboBox = new System.Windows.Forms.ComboBox();
-            this.AlphabetСomboBox = new System.Windows.Forms.ComboBox();
+            this.FilterLabel = new System.Windows.Forms.Label();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.ToListButton = new System.Windows.Forms.Button();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.FilterComboBox = new System.Windows.Forms.ComboBox();
+            this.SearchСomboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
@@ -47,48 +50,87 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ВackgroundGroupBox.Controls.Add(this.dateTimePicker);
-            this.ВackgroundGroupBox.Controls.Add(this.SpecComboBox);
-            this.ВackgroundGroupBox.Controls.Add(this.AlphabetСomboBox);
+            this.ВackgroundGroupBox.Controls.Add(this.FilterLabel);
+            this.ВackgroundGroupBox.Controls.Add(this.SearchLabel);
+            this.ВackgroundGroupBox.Controls.Add(this.ToListButton);
+            this.ВackgroundGroupBox.Controls.Add(this.SearchTextBox);
+            this.ВackgroundGroupBox.Controls.Add(this.FilterComboBox);
+            this.ВackgroundGroupBox.Controls.Add(this.SearchСomboBox);
             this.ВackgroundGroupBox.Controls.Add(this.dataGridView);
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(530, 403);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(541, 410);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
-            // dateTimePicker
+            // FilterLabel
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(6, 18);
-            this.dateTimePicker.MaxDate = new System.DateTime(2023, 5, 11, 0, 0, 0, 0);
-            this.dateTimePicker.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker.TabIndex = 11;
-            this.dateTimePicker.Value = new System.DateTime(2023, 5, 11, 0, 0, 0, 0);
+            this.FilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterLabel.AutoSize = true;
+            this.FilterLabel.BackColor = System.Drawing.Color.White;
+            this.FilterLabel.Location = new System.Drawing.Point(443, 61);
+            this.FilterLabel.Name = "FilterLabel";
+            this.FilterLabel.Size = new System.Drawing.Size(92, 23);
+            this.FilterLabel.TabIndex = 18;
+            this.FilterLabel.Text = "Период:";
             // 
-            // SpecComboBox
+            // SearchLabel
             // 
-            this.SpecComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SpecComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SpecComboBox.FormattingEnabled = true;
-            this.SpecComboBox.Location = new System.Drawing.Point(379, 18);
-            this.SpecComboBox.Name = "SpecComboBox";
-            this.SpecComboBox.Size = new System.Drawing.Size(145, 31);
-            this.SpecComboBox.TabIndex = 10;
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.BackColor = System.Drawing.Color.White;
+            this.SearchLabel.Location = new System.Drawing.Point(6, 61);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(109, 23);
+            this.SearchLabel.TabIndex = 17;
+            this.SearchLabel.Text = "Поиск по:";
             // 
-            // AlphabetСomboBox
+            // ToListButton
             // 
-            this.AlphabetСomboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AlphabetСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AlphabetСomboBox.FormattingEnabled = true;
-            this.AlphabetСomboBox.Items.AddRange(new object[] {
+            this.ToListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ToListButton.BackColor = System.Drawing.Color.White;
+            this.ToListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ToListButton.Location = new System.Drawing.Point(364, 22);
+            this.ToListButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ToListButton.Name = "ToListButton";
+            this.ToListButton.Size = new System.Drawing.Size(171, 31);
+            this.ToListButton.TabIndex = 16;
+            this.ToListButton.Text = "Сформировать";
+            this.ToListButton.UseVisualStyleBackColor = false;
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTextBox.Location = new System.Drawing.Point(6, 22);
+            this.SearchTextBox.MaxLength = 70;
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(352, 31);
+            this.SearchTextBox.TabIndex = 11;
+            // 
+            // FilterComboBox
+            // 
+            this.FilterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilterComboBox.FormattingEnabled = true;
+            this.FilterComboBox.Location = new System.Drawing.Point(273, 87);
+            this.FilterComboBox.Name = "FilterComboBox";
+            this.FilterComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FilterComboBox.Size = new System.Drawing.Size(262, 31);
+            this.FilterComboBox.TabIndex = 10;
+            // 
+            // SearchСomboBox
+            // 
+            this.SearchСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SearchСomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchСomboBox.FormattingEnabled = true;
+            this.SearchСomboBox.Items.AddRange(new object[] {
             "ы"});
-            this.AlphabetСomboBox.Location = new System.Drawing.Point(228, 18);
-            this.AlphabetСomboBox.Name = "AlphabetСomboBox";
-            this.AlphabetСomboBox.Size = new System.Drawing.Size(145, 31);
-            this.AlphabetСomboBox.TabIndex = 9;
+            this.SearchСomboBox.Location = new System.Drawing.Point(6, 87);
+            this.SearchСomboBox.Name = "SearchСomboBox";
+            this.SearchСomboBox.Size = new System.Drawing.Size(262, 31);
+            this.SearchСomboBox.TabIndex = 9;
             // 
             // dataGridView
             // 
@@ -98,6 +140,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -105,18 +148,17 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.Location = new System.Drawing.Point(6, 55);
+            this.dataGridView.Location = new System.Drawing.Point(6, 124);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.Size = new System.Drawing.Size(518, 342);
-            this.dataGridView.TabIndex = 0;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(529, 280);
+            this.dataGridView.TabIndex = 0;
             // 
             // CloseButton
             // 
@@ -124,7 +166,7 @@
             this.CloseButton.BackColor = System.Drawing.Color.IndianRed;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CloseButton.Location = new System.Drawing.Point(533, 12);
+            this.CloseButton.Location = new System.Drawing.Point(544, 12);
             this.CloseButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.Name = "CloseButton";
@@ -140,7 +182,7 @@
             this.HideButton.BackColor = System.Drawing.Color.Gainsboro;
             this.HideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HideButton.Location = new System.Drawing.Point(475, 12);
+            this.HideButton.Location = new System.Drawing.Point(486, 12);
             this.HideButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.HideButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.HideButton.Name = "HideButton";
@@ -156,7 +198,7 @@
             this.ExpandButton.BackColor = System.Drawing.Color.Gainsboro;
             this.ExpandButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExpandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExpandButton.Location = new System.Drawing.Point(504, 12);
+            this.ExpandButton.Location = new System.Drawing.Point(515, 12);
             this.ExpandButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.Name = "ExpandButton";
@@ -187,7 +229,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(568, 462);
+            this.ClientSize = new System.Drawing.Size(579, 469);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
@@ -201,6 +243,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учёт заказов";
             this.ВackgroundGroupBox.ResumeLayout(false);
+            this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,8 +257,11 @@
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToMenuButton;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.ComboBox SpecComboBox;
-        private System.Windows.Forms.ComboBox AlphabetСomboBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.ComboBox FilterComboBox;
+        private System.Windows.Forms.ComboBox SearchСomboBox;
+        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Button ToListButton;
+        private System.Windows.Forms.Label FilterLabel;
+        private System.Windows.Forms.Label SearchLabel;
     }
 }

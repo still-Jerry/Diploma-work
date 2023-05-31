@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.EntarenceButton = new System.Windows.Forms.Button();
+            this.ToDiscountFormButton = new System.Windows.Forms.Button();
+            this.BackupButton = new System.Windows.Forms.Button();
+            this.ExportButton = new System.Windows.Forms.Button();
+            this.ImportButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
-            this.BackupButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,10 +45,10 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ВackgroundGroupBox.Controls.Add(this.button2);
+            this.ВackgroundGroupBox.Controls.Add(this.ToDiscountFormButton);
             this.ВackgroundGroupBox.Controls.Add(this.BackupButton);
-            this.ВackgroundGroupBox.Controls.Add(this.button1);
-            this.ВackgroundGroupBox.Controls.Add(this.EntarenceButton);
+            this.ВackgroundGroupBox.Controls.Add(this.ExportButton);
+            this.ВackgroundGroupBox.Controls.Add(this.ImportButton);
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
@@ -56,33 +56,62 @@
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
-            // button1
+            // ToDiscountFormButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ToDiscountFormButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 57);
-            this.button1.MinimumSize = new System.Drawing.Size(85, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 35);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Экспорт";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ToDiscountFormButton.BackColor = System.Drawing.Color.White;
+            this.ToDiscountFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToDiscountFormButton.Location = new System.Drawing.Point(6, 97);
+            this.ToDiscountFormButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ToDiscountFormButton.Name = "ToDiscountFormButton";
+            this.ToDiscountFormButton.Size = new System.Drawing.Size(158, 57);
+            this.ToDiscountFormButton.TabIndex = 24;
+            this.ToDiscountFormButton.Text = "Работа со скидками";
+            this.ToDiscountFormButton.UseVisualStyleBackColor = false;
+            this.ToDiscountFormButton.Click += new System.EventHandler(this.ToDiscountFormButton_Click);
             // 
-            // EntarenceButton
+            // BackupButton
             // 
-            this.EntarenceButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EntarenceButton.BackColor = System.Drawing.Color.White;
-            this.EntarenceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EntarenceButton.Location = new System.Drawing.Point(6, 16);
-            this.EntarenceButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.EntarenceButton.Name = "EntarenceButton";
-            this.EntarenceButton.Size = new System.Drawing.Size(158, 35);
-            this.EntarenceButton.TabIndex = 12;
-            this.EntarenceButton.Text = "Импорт";
-            this.EntarenceButton.UseVisualStyleBackColor = false;
+            this.BackupButton.BackColor = System.Drawing.Color.White;
+            this.BackupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackupButton.Location = new System.Drawing.Point(6, 159);
+            this.BackupButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.BackupButton.Name = "BackupButton";
+            this.BackupButton.Size = new System.Drawing.Size(158, 57);
+            this.BackupButton.TabIndex = 23;
+            this.BackupButton.Text = "Создать бэкап";
+            this.BackupButton.UseVisualStyleBackColor = false;
+            // 
+            // ExportButton
+            // 
+            this.ExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExportButton.BackColor = System.Drawing.Color.White;
+            this.ExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportButton.Location = new System.Drawing.Point(6, 57);
+            this.ExportButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(158, 35);
+            this.ExportButton.TabIndex = 13;
+            this.ExportButton.Text = "Экспорт";
+            this.ExportButton.UseVisualStyleBackColor = false;
+            // 
+            // ImportButton
+            // 
+            this.ImportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImportButton.BackColor = System.Drawing.Color.White;
+            this.ImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImportButton.Location = new System.Drawing.Point(6, 16);
+            this.ImportButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ImportButton.Name = "ImportButton";
+            this.ImportButton.Size = new System.Drawing.Size(158, 35);
+            this.ImportButton.TabIndex = 12;
+            this.ImportButton.Text = "Импорт";
+            this.ImportButton.UseVisualStyleBackColor = false;
             // 
             // CloseButton
             // 
@@ -148,34 +177,6 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
-            // BackupButton
-            // 
-            this.BackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BackupButton.BackColor = System.Drawing.Color.White;
-            this.BackupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackupButton.Location = new System.Drawing.Point(6, 159);
-            this.BackupButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.BackupButton.Name = "BackupButton";
-            this.BackupButton.Size = new System.Drawing.Size(158, 57);
-            this.BackupButton.TabIndex = 23;
-            this.BackupButton.Text = "Создать бэкап";
-            this.BackupButton.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(6, 97);
-            this.button2.MinimumSize = new System.Drawing.Size(85, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 57);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Работа со скидками";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // SpeciallyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -207,9 +208,9 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToMenuButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button EntarenceButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ExportButton;
+        private System.Windows.Forms.Button ImportButton;
+        private System.Windows.Forms.Button ToDiscountFormButton;
         private System.Windows.Forms.Button BackupButton;
     }
 }

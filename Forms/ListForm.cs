@@ -118,11 +118,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     {
                         dataGridView.CurrentCell.Value = Convert.ToInt32(list[3]);
                         BusinessClass.SeriesCountPrescriptionNumberDictionary[selectedId][0] = Convert.ToInt32(list[3]);
-
+                        RequestGetProduct();
                     }
                     else {
                         BusinessClass.SeriesCountPrescriptionNumberDictionary[selectedId][0] = Convert.ToInt32(value);
-                    
+                        RequestGetProduct();
                     }
                     ChangeNumbers();
                 }
@@ -151,12 +151,28 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
                     sum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[2].Replace("Цена:", "").Replace("p.", "")) * Convert.ToDouble(row.Cells[3].Value);
+                    if (ViewsClass.DiscountDay == Convert.ToInt16(DateTime.Today.Day))
+                    {
+                        totalSum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[4].Replace("Итого:", "").Replace("p.", ""));
 
-                    totalSum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[4].Replace("Итого:", "").Replace("p.", "")) * Convert.ToDouble(row.Cells[3].Value);
+                    }
+                    else {
+
+                        totalSum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[3].Replace("Итого:", "").Replace("p.", ""));
+                    
+                    }
+                }
+                if (ViewsClass.DiscountDay == Convert.ToInt16(DateTime.Today.Day))
+                {
+                    DiscountLabel.Text = "Скидка: " + Math.Round(100 - (totalSum * 100 / sum), 2) + "%";
+
+                }
+                else {
+                    DiscountLabel.Text = "Скидка: 0%";
+                
                 }
                 SumLabel.Text = "Общая сумма: " + sum + " p.";
-                DiscountLabel.Text = "Скидка: " + Math.Round(100 - (totalSum * 100 / sum), 2) + "%";
-                TotalSumLabel.Text = "ИТОГО: " + totalSum + " p.";
+                TotalSumLabel.Text = "Итого: " + totalSum + " p.";
             }
             catch (Exception ex)
             {
@@ -196,7 +212,22 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                                                             where: " where `idSeries` = " + row.Cells[0].Value.ToString()
                                                             );
                     row.Cells[3].Value = BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][0];
+                    if (ViewsClass.DiscountDay == Convert.ToInt16(DateTime.Today.Day)) {
+                        var value = row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\');
+                        row.Cells[2].Value = value[0] + "\n";
+                        for (int i=1; i<value.Count()-1; i++){
+                            row.Cells[2].Value += value[i]+"\n";
+                        }
+                        row.Cells[2].Value=row.Cells[2].Value.ToString()+ "Итого: "
+                            + (Convert.ToDouble(value[value.Count()-1].Replace("Итого:","").Replace("p.", ""))
+                            *  BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][0])+" p.";
+                    }
+                    else {
+                        row.Cells[2].Value = row.Cells[2].Value.ToString() + "\nИтого: " +
+                           Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[2].Replace("Цена:", "").Replace("p.", ""))
+                            * BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][0] + " p.";
 
+                        }
                     row.Cells[2].Value  =row.Cells[2].Value.ToString()+
                         "\n\nСерия: " + list[0]
                         + "\nГоден до: " + list[2].Split(' ')[0];
@@ -280,7 +311,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 if (SQLClass.TransactionAddToDataBase2(" `order` ",
                     "null, " + BusinessClass.UserInfoList[0] + ", '" + DateTime.Today.Year + "." + DateTime.Today.Month + "." + DateTime.Today.Day + "'",
                    " `list` ",
-                   values.Remove(values.Length - 2), "{idOrderList}", order: "ORDER BY idOrder LIMIT 1")) {
+                   values.Remove(values.Length - 2), "{idOrderList}", order: "ORDER BY idOrder DESC LIMIT 1")) {
+
+                       foreach (string series in BusinessClass.SeriesCountPrescriptionNumberDictionary.Keys) {
+                           SQLClass.UpdateToDataBase(" seriesproduct ", " countProductSeries = countProductSeries-"+
+                               BusinessClass.SeriesCountPrescriptionNumberDictionary[series][0],
+                               " where idSeries = " + series);
+                       }
                        MessageBox.Show("Успешное оформление заказа.", "Информация");
                        ClearButton_Click(sender, e);
 
@@ -296,9 +333,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView.SelectedRows[0].Height >= 220 || dataGridView.SelectedRows[0].Height < 120)
+            int h = 100;
+            if (ViewsClass.DiscountDay == Convert.ToInt16(DateTime.Today.Day)) {
+                h = 120;
+            }
+            if (dataGridView.SelectedRows[0].Height >= 220 || dataGridView.SelectedRows[0].Height < h)
             {
-                dataGridView.SelectedRows[0].Height = 120;
+                dataGridView.SelectedRows[0].Height = h;
             }
             else {
                 dataGridView.SelectedRows[0].Height = 220;

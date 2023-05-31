@@ -61,5 +61,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ToDiscountFormButton_Click(object sender, EventArgs e)
+        {
+            DiscountForm NewForm = new DiscountForm();
+            this.Visible = false;
+            NewForm.ShowDialog();
+        }
     }
 }
