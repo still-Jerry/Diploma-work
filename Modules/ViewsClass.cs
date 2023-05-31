@@ -16,14 +16,22 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Boolean EnabledForm = false;
         public static Int16 MoreProductButtonState = 1;
 
-        public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table,  Int32 j)
+        public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table, Int32 j, Boolean pagination=true)
         {
             datagrid.Rows.Clear();
             try
             {
-                int start = j * 5 - 5 <= 0 ? start = 0 : start = j * 5 - 5;
-                int stop = 5 * j > table.Rows.Count ? stop = table.Rows.Count : stop = 5 * j;
-
+                int start, stop;
+                //проерку на вс записи либо сделать погинацию?
+                if (pagination)
+                {
+                     start = j * 5 - 5 <= 0 ? start = 0 : start = j * 5 - 5;
+                     stop = 5 * j > table.Rows.Count ? stop = table.Rows.Count : stop = 5 * j;
+                }
+                else {
+                    start = j;
+                    stop = table.Rows.Count;
+                }
                 //table.Rows.Count
                 for (int i = start; i < stop; i++)
                 {

@@ -321,7 +321,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             MessageBox.Show("Изображение не сохранено");
                             pictureName = "";
                         }
-                        BusinessClass.SelectedFromDataGridList =SQLClass.TransactionAddToDataBase(" product ", 
+                        BusinessClass.SelectedFromDataGridList =SQLClass.TransactionAddToDataBase1(" product ", 
                             "null, '" +
                             NameTextBox.Text + "' , '" +
                             CategotyID + "' , '" +
@@ -332,7 +332,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             pictureName + "' , '" +
                             Convert.ToInt32(checkBox.Checked) + "' , '" +
                             (Convert.ToDecimal(DiscountUpDown.Value) / 100).ToString().Replace(',', '.') + "'",
-                            " product "
+                            " product ", order: "ORDER BY idProduct DESC LIMIT 1"
                             );
                         if (BusinessClass.SelectedFromDataGridList.Count!=0)
                        {

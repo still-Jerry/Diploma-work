@@ -129,23 +129,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         }
 
 
-        public static List<String> TransactionAddToDataBase(String tables1, String attributes1,
+        public static List<String> TransactionAddToDataBase1(String tables1, String values1,
             String tables, String where = "", String attributes = " * ", String order = "", String join = "")
         {
-            MySqlConnection cont = Connect();
             MySqlConnection con = Connect();
+            MySqlTransaction transaction = con.BeginTransaction();
+            MySqlCommand command = con.CreateCommand();
+            command.Transaction = transaction;
 
-            MySqlTransaction trans = cont.BeginTransaction();
             try
             {
-                String cmd1 = "INSERT INTO  " + tables1 + " VALUES (" + attributes1 + ");";
-                MySqlCommand Command1 = new MySqlCommand(cmd1, cont, trans);
-                Command1.ExecuteNonQuery();
-
-
-                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
-                MySqlCommand Command = new MySqlCommand(cmd, con, trans);
-                MySqlDataReader reader = Command.ExecuteReader();
+                command.CommandText = "INSERT INTO  " + tables1 + " VALUES (" + values1 + ");";
+                command.ExecuteNonQuery();
+                command.CommandText = "SELECT " + attributes + " FROM " + tables1 + join + where + order + ";";
+                MySqlDataReader reader = command.ExecuteReader();
                 List<String> list = new List<String>();
 
                 while (reader.Read())
@@ -155,9 +152,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         list.Add(reader[i].ToString());
                     }
                 }
-
-                con.Close();
-                trans.Commit();
+                reader.Close();
+                transaction.Commit();
                 
                
                 return list;
@@ -165,12 +161,52 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка");
-                trans.Rollback();
+                transaction.Rollback();
                 return null;
             }
-            cont.Close();
+            con.Close();
         }
-       
+
+        public static Boolean TransactionAddToDataBase2(String tables1, String values1,
+        String tables, String values, String key, String where = "", String attributes = " * ", String order = "", String join = "")
+        {
+            MySqlConnection con = Connect();
+            MySqlTransaction transaction = con.BeginTransaction();
+            MySqlCommand command = con.CreateCommand();
+            command.Transaction = transaction;
+
+            try
+            {
+                command.CommandText = "INSERT INTO  " + tables1 + " VALUES (" + values1 + ");";
+                command.ExecuteNonQuery();
+                command.CommandText = "SELECT " + attributes + " FROM " + tables1 + join + where + order + ";";
+                MySqlDataReader reader = command.ExecuteReader();
+                List<String> list = new List<String>();
+
+                while (reader.Read())
+                {
+                    for (Int16 i = 0; reader.FieldCount > i; i++)
+                    {
+                        list.Add(reader[i].ToString());
+                    }
+                }
+                reader.Close();
+                values = values.Replace(key, list[0]);
+                command.CommandText = "INSERT INTO  " + tables + " VALUES " + values + ";"; ;
+                command.ExecuteNonQuery();
+
+                // подтверждаем транзакцию
+                transaction.Commit();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                transaction.Rollback();
+                return false;
+            }
+        }
         
     }
 

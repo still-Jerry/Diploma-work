@@ -75,6 +75,20 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.CloseButton_Click(System.Object,System.EventArgs)">
+            <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.dataGridView_EditingControlShowing(System.Object,System.Windows.Forms.DataGridViewEditingControlShowingEventArgs)">
+            <summary>
+            checking the input of numbers in a column
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.RequestGetProduct">
+            <summary>Private form functions</summary> 
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.ClearButton_Click(System.Object,System.EventArgs)">
+            <summary>Function Events </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.components">
             <summary>
             Required designer variable.

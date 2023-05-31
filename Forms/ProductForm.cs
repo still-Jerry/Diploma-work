@@ -83,17 +83,15 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void ToListButton_Click(object sender, EventArgs e)
         {
-
-            ListForm NewForm = new ListForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-            try
+            if (BusinessClass.SeriesCountPrescriptionNumberDictionary.Count == 0)
             {
-
+                MessageBox.Show("Нет ни одного товара в заказах.","Информация");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                ListForm NewForm = new ListForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
             }
         }
 
@@ -246,6 +244,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
+               
                 BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
@@ -264,6 +263,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
+                
                 BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
@@ -277,6 +277,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 MessageBox.Show(ex.Message, "Ошибка");
             }
         }
+
         private void SpecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -289,14 +290,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
            numericUpDown.Value = page;
         }
 
-
-        //сделай енаблед фолс 
-
-
         private void AddNewProductButton_Click(object sender, EventArgs e)
         {
             try
             {
+               
                 BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
@@ -318,6 +316,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void добавитьКЗаказуToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        
             BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
