@@ -17,6 +17,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
     public partial class ListForm : Form
     {
+        Double sum = 0;
+        Double totalSum = 0;
+        string selectedId = "";
         #region Typical events of all forms
         
 
@@ -89,31 +92,41 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void CountColumn_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // allowed numeric and one dot  ex. 10.23
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
-                 && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if (e.KeyChar == '.'
-                && (sender as TextBox).Text.IndexOf('.') > -1)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-
+        
         private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+      
+                selectedId = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+
                 var value = dataGridView.CurrentCell.Value;
                 Convert.ToInt32(dataGridView.CurrentCell.Value);
-                if (value== null || value.ToString() =="0")
+                if (value == null || value.ToString() == "0")
                 {
                     удалитьИзЗаказаToolStripMenuItem_Click(sender, e);
                 }
+                else {
+                    
+                    List <String> list = SQLClass.GetSelectInList("seriesproduct", " where idSeries = " + selectedId);
+                    if (Convert.ToInt32(list[3]) <= Convert.ToInt32(value))
+                    {
+                        dataGridView.CurrentCell.Value = Convert.ToInt32(list[3]);
+                        BusinessClass.SeriesCountPrescriptionNumberDictionary[selectedId][0] = Convert.ToInt32(list[3]);
+
+                    }
+                    else {
+                        BusinessClass.SeriesCountPrescriptionNumberDictionary[selectedId][0] = Convert.ToInt32(value);
+                    
+                    }
+                    ChangeNumbers();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -129,7 +142,27 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             RequestGetProduct();
         }
         /// <summary>Private form functions</summary> 
+        void ChangeNumbers() {
+            try
+            {
+                sum = 0;
+                totalSum = 0;
 
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    sum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[2].Replace("Цена:", "").Replace("p.", "")) * Convert.ToDouble(row.Cells[3].Value);
+
+                    totalSum += Convert.ToDouble(row.Cells[2].Value.ToString().Replace("\n", "\\").Split('\\')[4].Replace("Итого:", "").Replace("p.", "")) * Convert.ToDouble(row.Cells[3].Value);
+                }
+                SumLabel.Text = "Общая сумма: " + sum + " p.";
+                DiscountLabel.Text = "Скидка: " + Math.Round(100 - (totalSum * 100 / sum), 2) + "%";
+                TotalSumLabel.Text = "ИТОГО: " + totalSum + " p.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
+        }
         void RequestGetProduct() {
             try
             {
@@ -156,6 +189,23 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         join: " inner join product on productIdSeries = idProduct"
                         ), 0, false);
 
+                foreach (DataGridViewRow  row in dataGridView.Rows)
+                {
+                    List <String > list = SQLClass.GetSelectInList(
+                                                            "seriesproduct",
+                                                            where: " where `idSeries` = " + row.Cells[0].Value.ToString()
+                                                            );
+                    row.Cells[3].Value = BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][0];
+
+                    row.Cells[2].Value  =row.Cells[2].Value.ToString()+
+                        "\n\nСерия: " + list[0]
+                        + "\nГоден до: " + list[2].Split(' ')[0];
+                    if (BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][1] != 0) {
+                        row.Cells[2].Value = row.Cells[2].Value.ToString() +
+                            "\n№ рецепта: " + BusinessClass.SeriesCountPrescriptionNumberDictionary[list[0]][1];
+                    }
+                }
+                ChangeNumbers();
             }
             catch (Exception ex)
             {
@@ -196,10 +246,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 var question = MessageBox.Show("Вы уверены, что хотите удалить выбранный товар из заказа? Изменения необратимы.", "Предупреждение", MessageBoxButtons.YesNo);
                 if (question == DialogResult.Yes)
                 {
-                    BusinessClass.SeriesCountPrescriptionNumberDictionary.Remove(dataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    if (selectedId != "")
+                    {
+                        BusinessClass.SeriesCountPrescriptionNumberDictionary.Remove(selectedId);
+
+                        selectedId = "";
+                    }
+                    else {
+                        BusinessClass.SeriesCountPrescriptionNumberDictionary.Remove(dataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    
+                    }
                     MessageBox.Show("Товар удалён из заказа", "Информация");
                     RequestGetProduct();
-
                 }
                 else {
                     dataGridView.CurrentCell.Value = 1;
@@ -232,6 +290,37 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
             }
             catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
+        }
+
+        private void dataGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView.SelectedRows[0].Height >= 220 || dataGridView.SelectedRows[0].Height < 120)
+            {
+                dataGridView.SelectedRows[0].Height = 120;
+            }
+            else {
+                dataGridView.SelectedRows[0].Height = 220;
+            
+            }
+        }
+
+        private void просмотрТовараToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                    where: " where idSeries = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    join: " inner join seriesproduct on productIdSeries = idProduct");
+                ViewsClass.MoreProductButtonState = 4;
+                MoreProductForm NewForm = new MoreProductForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "Ошибка");
             }
         }

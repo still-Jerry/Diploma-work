@@ -83,7 +83,7 @@
             checking the input of numbers in a column
             </summary>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.RequestGetProduct">
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.ChangeNumbers">
             <summary>Private form functions</summary> 
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.ClearButton_Click(System.Object,System.EventArgs)">

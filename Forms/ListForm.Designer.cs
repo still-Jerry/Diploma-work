@@ -171,6 +171,7 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(529, 284);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentDoubleClick);
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             // 
@@ -219,13 +220,14 @@
             this.просмотрТовараToolStripMenuItem,
             this.удалитьИзЗаказаToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(232, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(232, 70);
             // 
             // просмотрТовараToolStripMenuItem
             // 
             this.просмотрТовараToolStripMenuItem.Name = "просмотрТовараToolStripMenuItem";
             this.просмотрТовараToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
             this.просмотрТовараToolStripMenuItem.Text = "Просмотр товара";
+            this.просмотрТовараToolStripMenuItem.Click += new System.EventHandler(this.просмотрТовараToolStripMenuItem_Click);
             // 
             // удалитьИзЗаказаToolStripMenuItem
             // 

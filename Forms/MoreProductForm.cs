@@ -63,17 +63,19 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         /// </summary>
         private void ToMenuButton_Click(object sender, EventArgs e)
         {
-            ProductForm NewForm = new ProductForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-            try
+            if (ViewsClass.MoreProductButtonState == 4)
             {
-
+                ListForm NewForm = new ListForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            else {
+                
+                ProductForm NewForm = new ProductForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
             }
+         
         }
 
         public MoreProductForm()

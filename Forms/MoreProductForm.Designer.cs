@@ -218,6 +218,7 @@
             this.DescriptionTextBox.Location = new System.Drawing.Point(6, 285);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
+            this.DescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.DescriptionTextBox.Size = new System.Drawing.Size(541, 76);
             this.DescriptionTextBox.TabIndex = 32;
             // 

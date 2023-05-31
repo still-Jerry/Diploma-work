@@ -18,9 +18,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table, Int32 j, Boolean pagination=true)
         {
-            datagrid.Rows.Clear();
             try
             {
+                datagrid.Rows.Clear();
                 int start, stop;
                 //проерку на вс записи либо сделать погинацию?
                 if (pagination)
@@ -57,11 +57,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     datagrid.Rows.Add(
                         table.Rows[i][0].ToString(),
                         img,
-                        "Наименование: " + table.Rows[i][2].ToString() +
-                        "\nСтоимость c учётом скидки: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4]))
+                         table.Rows[i][2].ToString() +
+                        "\n\nЦена: " + table.Rows[i][3].ToString()+" p." +
+                         "\nСкидка: " + Convert.ToDouble(table.Rows[i][4]) * 100 +"%"+
+                        "\nИтого: " + (Convert.ToDouble(table.Rows[i][3]) - Convert.ToDouble(table.Rows[i][3]) * Convert.ToDouble(table.Rows[i][4])) +" p."
                         );
-                    //"\nСтоимость: " + table.Rows[i][3].ToString() +
-                    // "\nРазмер скидки: " + Convert.ToDouble(table.Rows[i][4]) * 100 +
+                   
                     datagrid.Rows[datagrid.Rows.Count-1].Height = 120;
                 }
                 return table.Rows.Count;
