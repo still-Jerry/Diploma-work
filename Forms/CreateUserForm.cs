@@ -11,13 +11,10 @@ using System.Windows.Forms;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
-    public partial class UsersForm : Form
+    public partial class CreateUserForm : Form
     {
-        public UsersForm()
-        {
-            InitializeComponent();
-        }
-
+        #region Typical events of all forms
+        /// <summary>window display buttons </summary>
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -42,35 +39,19 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             this.WindowState = FormWindowState.Minimized;
         }
 
+        #endregion
+        public CreateUserForm()
+        {
+            InitializeComponent();
+        }
+
         private void ToMenuButton_Click(object sender, EventArgs e)
         {
-            MenuForm NewForm = new MenuForm();
+            DirectoryForm NewForm = new DirectoryForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
-        /// <summary>
-        /// <CreateParams>Shape stretching</CreateParams>
-        /// </summary>
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                const int WS_THICKFRAME = 0x40000;
 
-                var cp = base.CreateParams;
-                cp.Style |= WS_THICKFRAME;
-
-                return cp;
-            }
-        }
     }
 }

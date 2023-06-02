@@ -26,7 +26,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
             }
             else {
-                this.Height = 378;
+                this.Height = 340;
                 this.Width = 257;
             }
         }
@@ -121,20 +121,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        private void ToUsersButton_Click(object sender, EventArgs e)
-        {
-            UsersForm NewForm = new UsersForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void ToSpeciallyButton_Click(object sender, EventArgs e)
         {

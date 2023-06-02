@@ -60,7 +60,7 @@
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(541, 410);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 411);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
@@ -69,7 +69,7 @@
             this.FilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FilterLabel.AutoSize = true;
             this.FilterLabel.BackColor = System.Drawing.Color.White;
-            this.FilterLabel.Location = new System.Drawing.Point(443, 61);
+            this.FilterLabel.Location = new System.Drawing.Point(444, 61);
             this.FilterLabel.Name = "FilterLabel";
             this.FilterLabel.Size = new System.Drawing.Size(92, 23);
             this.FilterLabel.TabIndex = 18;
@@ -90,7 +90,7 @@
             this.ToListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ToListButton.BackColor = System.Drawing.Color.White;
             this.ToListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ToListButton.Location = new System.Drawing.Point(364, 22);
+            this.ToListButton.Location = new System.Drawing.Point(365, 22);
             this.ToListButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToListButton.Name = "ToListButton";
             this.ToListButton.Size = new System.Drawing.Size(171, 31);
@@ -105,7 +105,7 @@
             this.SearchTextBox.Location = new System.Drawing.Point(6, 22);
             this.SearchTextBox.MaxLength = 70;
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(352, 31);
+            this.SearchTextBox.Size = new System.Drawing.Size(353, 31);
             this.SearchTextBox.TabIndex = 11;
             // 
             // FilterComboBox
@@ -114,7 +114,7 @@
             this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(273, 87);
+            this.FilterComboBox.Location = new System.Drawing.Point(274, 87);
             this.FilterComboBox.Name = "FilterComboBox";
             this.FilterComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FilterComboBox.Size = new System.Drawing.Size(262, 31);
@@ -122,6 +122,8 @@
             // 
             // SearchСomboBox
             // 
+            this.SearchСomboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SearchСomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchСomboBox.FormattingEnabled = true;
@@ -157,7 +159,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(529, 280);
+            this.dataGridView.Size = new System.Drawing.Size(530, 281);
             this.dataGridView.TabIndex = 0;
             // 
             // CloseButton
@@ -166,7 +168,7 @@
             this.CloseButton.BackColor = System.Drawing.Color.IndianRed;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CloseButton.Location = new System.Drawing.Point(544, 12);
+            this.CloseButton.Location = new System.Drawing.Point(545, 12);
             this.CloseButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.CloseButton.Name = "CloseButton";
@@ -182,7 +184,7 @@
             this.HideButton.BackColor = System.Drawing.Color.Gainsboro;
             this.HideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.HideButton.Location = new System.Drawing.Point(486, 12);
+            this.HideButton.Location = new System.Drawing.Point(487, 12);
             this.HideButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.HideButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.HideButton.Name = "HideButton";
@@ -198,7 +200,7 @@
             this.ExpandButton.BackColor = System.Drawing.Color.Gainsboro;
             this.ExpandButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExpandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExpandButton.Location = new System.Drawing.Point(515, 12);
+            this.ExpandButton.Location = new System.Drawing.Point(516, 12);
             this.ExpandButton.MaximumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.ExpandButton.Name = "ExpandButton";
@@ -229,7 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(579, 469);
+            this.ClientSize = new System.Drawing.Size(580, 470);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
@@ -238,7 +240,7 @@
             this.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.MaximumSize = new System.Drawing.Size(1024, 720);
+            this.MinimumSize = new System.Drawing.Size(560, 350);
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учёт заказов";

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//ВЫВЕДИ СЕРИЮ И РЕЦЕПТОРНОСТЬ В ПОСМОТРЕ ТОВАРА!!!!!!!!!!
 //добавить столбец в order  с общей ценой?
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {

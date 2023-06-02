@@ -138,36 +138,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         #endregion
 
-        //тк как тут картинка надо переделать отображение , ноо будет другиЮ но код рабочий для другх таблиц, ток подумать над шапкой модет снова брать вьюшки а может просто поменять шапку 
-        //void GetProduct() {
-        //    try
-        //    {
-        //        string order, where;
-        //        if (AlphabetСomboBox.SelectedItem == "по возрастанию цены")
-        //        {
-        //            order = " ORDER BY `priceProduct` ASC";
-        //        }
-        //        else
-        //        {
-        //            order = " ORDER BY `priceProduct` DESC";
-
-        //        }
-
-        //        if (SpecComboBox.SelectedItem == "Все категории")
-        //        {
-        //            where = "";
-        //        }
-        //        else
-        //        {
-        //            where = " where `categoryProduct` = '" + SpecComboBox.Text + "' ";
-        //        }
-        //        dataGridView.DataSource = SQLClass.GetSelectInDataTable("product", where: where, order: order);
-        //    }
-        //    catch(Exception ex) {
-        //        MessageBox.Show(ex.Message, "Ошибка");
-        //    }
-        //}
-
 
         public ProductForm()
         {
