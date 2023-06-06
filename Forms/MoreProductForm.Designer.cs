@@ -199,6 +199,7 @@
             this.ManufactureTextBox.Name = "ManufactureTextBox";
             this.ManufactureTextBox.Size = new System.Drawing.Size(311, 31);
             this.ManufactureTextBox.TabIndex = 34;
+            this.ManufactureTextBox.TextChanged += new System.EventHandler(this.ManufactureTextBox_TextChanged);
             // 
             // ManufacturerLabel
             // 
@@ -221,6 +222,7 @@
             this.DescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.DescriptionTextBox.Size = new System.Drawing.Size(541, 76);
             this.DescriptionTextBox.TabIndex = 32;
+            this.DescriptionTextBox.TextChanged += new System.EventHandler(this.DescriptionTextBox_TextChanged);
             // 
             // ImageLabel
             // 
@@ -345,6 +347,7 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(311, 31);
             this.NameTextBox.TabIndex = 18;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // CategoryLabel
             // 

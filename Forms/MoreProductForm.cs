@@ -393,6 +393,27 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         }
 
+        private void ManufactureTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ManufactureTextBox.Text = ViewsClass.ToUpperString(ManufactureTextBox.Text);
+            ManufactureTextBox.SelectionStart = ManufactureTextBox.Text.Length;
+            ManufactureTextBox.Focus();
+        }
+
+        private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DescriptionTextBox.Text = ViewsClass.ToUpperString(DescriptionTextBox.Text);
+            DescriptionTextBox.SelectionStart = DescriptionTextBox.Text.Length;
+            DescriptionTextBox.Focus();
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            NameTextBox.Text = ViewsClass.ToUpperString(NameTextBox.Text);
+            NameTextBox.SelectionStart = NameTextBox.Text.Length;
+            NameTextBox.Focus();
+        }
+
      
      
 

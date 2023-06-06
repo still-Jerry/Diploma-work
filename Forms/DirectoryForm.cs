@@ -176,30 +176,66 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             switch (tabControl.SelectedIndex)
             {
                 case (0):
-                   var count = SQLClass.GetSelectInList(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
-
-                   res = MessageBox.Show("Внимание! Будет удалено товары удалятся в количестве: " + count + " шт. Уверены что хотите продолжить? \nИзменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
-                    if (res == DialogResult.Yes)
+                    if (CategoryDataGridView.RowCount > 1)
                     {
-                        SQLClass.DeleteFromDataBase(" product ", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                        var count = SQLClass.GetSelectInList(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
 
-                        SQLClass.DeleteFromDataBase(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
-              
+                        res = MessageBox.Show("Внимание! Будет удалено товары удалятся в количестве: " + count + " шт. Уверены что хотите продолжить? \nИзменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                        if (res == DialogResult.Yes)
+                        {
+                            if (SQLClass.DeleteFromDataBase(" product ", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")
+                             &&
+                             SQLClass.DeleteFromDataBase(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")
+                             )
+                            {
+                                MessageBox.Show("Успешное удаление категории!", "Информация");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Произошла ошибка. Категория не удалилась", "Информация");
+                            }
+                        }
+                    }
+                    else {
+                        MessageBox.Show("Вы не можете удалить последнюю оставшуюся категорию", "Информация");
                     }
                     
                 break;
                 case (1):
                     res = MessageBox.Show("Уверены что хотите удалить выбранную серию? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
                     if (res == DialogResult.Yes){
-                    SQLClass.DeleteFromDataBase(" seriesproduct ", where: " where `idSeries` = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                        if(SQLClass.DeleteFromDataBase(" seriesproduct ", where: " where `idSeries` = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'")){
+
+                            MessageBox.Show("Успешное удаление серии!", "Информация");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка. Серия не удалилась", "Информация");
+                        }
                     }    
                 break;
                 case (2):
-                   res = MessageBox.Show("Уверены что хотите удалить данного пользователя? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
-                   if (res == DialogResult.Yes)
-                   {
-                       SQLClass.DeleteFromDataBase(" `user` ", where: " where `idUser` = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'");
-                   }    
+                if (UsersDataGridView.SelectedRows[0].Cells[0].Value.ToString() == BusinessClass.UserInfoList[0])
+                {
+                    MessageBox.Show("Вы не можете удалить сами себя","Информация");
+                }
+                else
+                {
+                    res = MessageBox.Show("Уверены что хотите удалить данного пользователя? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
+                    {
+                        if (SQLClass.DeleteFromDataBase(" `user` ", where: " where `idUser` = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'"))
+                        {
+                            MessageBox.Show("Успешное удаление пользователя!", "Информация");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка. Пользователь не удалён", "Информация");
+
+                        }
+                    }
+                }
                 break;
                 default:
                     break;

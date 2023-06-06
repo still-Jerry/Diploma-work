@@ -85,6 +85,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
             SearchСomboBox.Items.Add("пользователям");
             SearchСomboBox.Items.Add("номеру заказа");
+            SearchСomboBox.SelectedItem = "номеру заказа";
+
             GetProduct();
         }
         void GetProduct()
@@ -108,12 +110,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     attributes:" idOrder as '№', concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления'  ",
                     join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`",
                     where:where);
-                //dataGridView.Columns["dataGridView"].Width = 30;
+                //
+
+                //dataGridView.Columns["№"].Width = 30;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка");
             }
+        }
+
+    
+
+        private void dataGridView_VisibleChanged(object sender, EventArgs e)
+        {
+            dataGridView.Columns[0].Width = 80;
         }
 
         //SELECT idOrder, concat(`surnameUser`, " ",`nameUser`, " ", `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления', 

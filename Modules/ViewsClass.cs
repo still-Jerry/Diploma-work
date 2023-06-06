@@ -18,6 +18,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Int16 DiscountDay = 31;
         public static Boolean DirectoryFormAdd = true;
 
+        public static string ToUpperString(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return string.Empty;
+
+            char[] s = str.ToCharArray();
+
+            s[0] = char.ToUpper(s[0]);
+
+            return new string(s);
+        }
+
         public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table, Int32 j, Boolean pagination=true)
         {
             try
