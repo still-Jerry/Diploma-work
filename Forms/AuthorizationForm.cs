@@ -60,28 +60,39 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                if (countEntarense <= 0) {
-                    CaptchaForm CForm = new CaptchaForm();
-                    this.Enabled = ViewsClass.EnabledForm;
-                    CForm.ShowDialog();
-                }
-                if (PersonalDataClass.CheckUserEquality(LoginTextBox.Text, PwdTextBox.Text))
+                if (LoginTextBox.Text.Replace(" ", "").Replace(" ", "") == "" || PwdTextBox.Text.Replace(" ", "").Replace(" ", "") == "")
                 {
-                    BusinessClass.UserInfoList = SQLClass.GetSelectInList("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
-
-                    MessageBox.Show("Добро пожаловать, " + BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3] + "!", "Информация");
-                    MenuForm NewForm = new MenuForm();
-                    this.Visible = false;
-                    NewForm.ShowDialog();
-                }else{
-                    if (countEntarense <= 0) {
-                        MessageBox.Show("Система заблокируется на 10 секунд", "Информация");
-                        Thread.Sleep(10000);
-                        this.Enabled = true;
-                        
+                    MessageBox.Show("Заполните пустые поля", "Ошибка");
+                }
+                else
+                {
+                    if (countEntarense <= 0)
+                    {
+                        CaptchaForm CForm = new CaptchaForm();
+                        this.Enabled = ViewsClass.EnabledForm;
+                        CForm.ShowDialog();
                     }
-                    //MessageBox.Show("Несовпадение логина", "Ошибка");
-                    countEntarense--;
+                    if (PersonalDataClass.CheckUserEquality(LoginTextBox.Text, PwdTextBox.Text))
+                    {
+                        BusinessClass.UserInfoList = SQLClass.GetSelectInList("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
+
+                        MessageBox.Show("Добро пожаловать, " + BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3] + "!", "Информация");
+                        MenuForm NewForm = new MenuForm();
+                        this.Visible = false;
+                        NewForm.ShowDialog();
+                    }
+                    else
+                    {
+                        if (countEntarense <= 0)
+                        {
+                            MessageBox.Show("Система заблокируется на 10 секунд", "Информация");
+                            Thread.Sleep(10000);
+                            this.Enabled = true;
+
+                        }
+                        //MessageBox.Show("Несовпадение логина", "Ошибка");
+                        countEntarense--;
+                    }
                 }
             }
             catch(Exception ex) {

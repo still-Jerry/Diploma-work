@@ -47,6 +47,7 @@
             this.OKButton.TabIndex = 20;
             this.OKButton.Text = "ОК";
             this.OKButton.UseVisualStyleBackColor = false;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // CancelButton
             // 
@@ -59,6 +60,7 @@
             this.CancelButton.TabIndex = 21;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // BackgroundGroupBox
             // 

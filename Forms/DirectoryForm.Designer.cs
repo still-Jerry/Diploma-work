@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -43,7 +43,6 @@
             this.CategoryDataGridView = new System.Windows.Forms.DataGridView();
             this.SeriesTabPage = new System.Windows.Forms.TabPage();
             this.SeriesDataGridView = new System.Windows.Forms.DataGridView();
-            this.SeriesButton = new System.Windows.Forms.Button();
             this.SeriesTextBox = new System.Windows.Forms.TextBox();
             this.UsersTabPage = new System.Windows.Forms.TabPage();
             this.UsersDataGridView = new System.Windows.Forms.DataGridView();
@@ -99,19 +98,21 @@
             this.редактироватьToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(199, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(199, 70);
             // 
             // редактироватьToolStripMenuItem
             // 
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
             this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
+            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // CategoryTabPage
             // 
@@ -161,14 +162,14 @@
             this.CategoryDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.CategoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CategoryDataGridView.ContextMenuStrip = this.contextMenuStrip;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CategoryDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CategoryDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.CategoryDataGridView.Location = new System.Drawing.Point(3, 43);
             this.CategoryDataGridView.MultiSelect = false;
             this.CategoryDataGridView.Name = "CategoryDataGridView";
@@ -182,7 +183,6 @@
             // 
             this.SeriesTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.SeriesTabPage.Controls.Add(this.SeriesDataGridView);
-            this.SeriesTabPage.Controls.Add(this.SeriesButton);
             this.SeriesTabPage.Controls.Add(this.SeriesTextBox);
             this.SeriesTabPage.Location = new System.Drawing.Point(4, 32);
             this.SeriesTabPage.Name = "SeriesTabPage";
@@ -220,27 +220,13 @@
             this.SeriesDataGridView.Size = new System.Drawing.Size(522, 312);
             this.SeriesDataGridView.TabIndex = 19;
             // 
-            // SeriesButton
-            // 
-            this.SeriesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SeriesButton.BackColor = System.Drawing.Color.White;
-            this.SeriesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SeriesButton.Location = new System.Drawing.Point(409, 6);
-            this.SeriesButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.SeriesButton.Name = "SeriesButton";
-            this.SeriesButton.Size = new System.Drawing.Size(116, 31);
-            this.SeriesButton.TabIndex = 18;
-            this.SeriesButton.Text = "Добавить";
-            this.SeriesButton.UseVisualStyleBackColor = false;
-            this.SeriesButton.Click += new System.EventHandler(this.SeriesButton_Click);
-            // 
             // SeriesTextBox
             // 
             this.SeriesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SeriesTextBox.Location = new System.Drawing.Point(3, 6);
             this.SeriesTextBox.Name = "SeriesTextBox";
-            this.SeriesTextBox.Size = new System.Drawing.Size(403, 31);
+            this.SeriesTextBox.Size = new System.Drawing.Size(522, 31);
             this.SeriesTextBox.TabIndex = 17;
             // 
             // UsersTabPage
@@ -267,14 +253,14 @@
             this.UsersDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.UsersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UsersDataGridView.ContextMenuStrip = this.contextMenuStrip;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UsersDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UsersDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.UsersDataGridView.Location = new System.Drawing.Point(3, 43);
             this.UsersDataGridView.MultiSelect = false;
             this.UsersDataGridView.Name = "UsersDataGridView";
@@ -421,7 +407,6 @@
         private System.Windows.Forms.Button CategoryButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.DataGridView SeriesDataGridView;
-        private System.Windows.Forms.Button SeriesButton;
         private System.Windows.Forms.TextBox SeriesTextBox;
         private System.Windows.Forms.DataGridView UsersDataGridView;
         private System.Windows.Forms.Button UsersButton;

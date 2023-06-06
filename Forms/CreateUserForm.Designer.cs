@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.PwdTextBox2 = new System.Windows.Forms.TextBox();
+            this.PwdLabel2 = new System.Windows.Forms.Label();
+            this.PwdTextBox1 = new System.Windows.Forms.TextBox();
+            this.PwdLabel1 = new System.Windows.Forms.Label();
+            this.LoginTextBox = new System.Windows.Forms.TextBox();
+            this.LoginLabel = new System.Windows.Forms.Label();
+            this.OTextBox = new System.Windows.Forms.TextBox();
+            this.OLabel = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
-            this.ManufactureTextBox = new System.Windows.Forms.TextBox();
-            this.ManufacturerLabel = new System.Windows.Forms.Label();
-            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.NTextBox = new System.Windows.Forms.TextBox();
+            this.NLabel = new System.Windows.Forms.Label();
+            this.ComboBox = new System.Windows.Forms.ComboBox();
+            this.FTextBox = new System.Windows.Forms.TextBox();
             this.CategoryLabel = new System.Windows.Forms.Label();
-            this.NameLabel = new System.Windows.Forms.Label();
+            this.АLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
@@ -57,21 +58,22 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ВackgroundGroupBox.Controls.Add(this.textBox1);
-            this.ВackgroundGroupBox.Controls.Add(this.label1);
-            this.ВackgroundGroupBox.Controls.Add(this.textBox3);
-            this.ВackgroundGroupBox.Controls.Add(this.label3);
-            this.ВackgroundGroupBox.Controls.Add(this.textBox4);
-            this.ВackgroundGroupBox.Controls.Add(this.label4);
-            this.ВackgroundGroupBox.Controls.Add(this.textBox2);
-            this.ВackgroundGroupBox.Controls.Add(this.label2);
+            this.ВackgroundGroupBox.Controls.Add(this.AddButton);
+            this.ВackgroundGroupBox.Controls.Add(this.PwdTextBox2);
+            this.ВackgroundGroupBox.Controls.Add(this.PwdLabel2);
+            this.ВackgroundGroupBox.Controls.Add(this.PwdTextBox1);
+            this.ВackgroundGroupBox.Controls.Add(this.PwdLabel1);
+            this.ВackgroundGroupBox.Controls.Add(this.LoginTextBox);
+            this.ВackgroundGroupBox.Controls.Add(this.LoginLabel);
+            this.ВackgroundGroupBox.Controls.Add(this.OTextBox);
+            this.ВackgroundGroupBox.Controls.Add(this.OLabel);
             this.ВackgroundGroupBox.Controls.Add(this.EditButton);
-            this.ВackgroundGroupBox.Controls.Add(this.ManufactureTextBox);
-            this.ВackgroundGroupBox.Controls.Add(this.ManufacturerLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.CategoryComboBox);
-            this.ВackgroundGroupBox.Controls.Add(this.NameTextBox);
+            this.ВackgroundGroupBox.Controls.Add(this.NTextBox);
+            this.ВackgroundGroupBox.Controls.Add(this.NLabel);
+            this.ВackgroundGroupBox.Controls.Add(this.ComboBox);
+            this.ВackgroundGroupBox.Controls.Add(this.FTextBox);
             this.ВackgroundGroupBox.Controls.Add(this.CategoryLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.NameLabel);
+            this.ВackgroundGroupBox.Controls.Add(this.АLabel);
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
@@ -79,90 +81,105 @@
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
-            // textBox1
+            // AddButton
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(284, 172);
-            this.textBox1.MaxLength = 70;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 31);
-            this.textBox1.TabIndex = 67;
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Location = new System.Drawing.Point(284, 229);
+            this.AddButton.MinimumSize = new System.Drawing.Size(208, 31);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(215, 34);
+            this.AddButton.TabIndex = 68;
+            this.AddButton.Text = "Добавить";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // label1
+            // PwdTextBox2
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(284, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 23);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "Повторение пароля";
+            this.PwdTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PwdTextBox2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.PwdTextBox2.Location = new System.Drawing.Point(284, 172);
+            this.PwdTextBox2.MaxLength = 70;
+            this.PwdTextBox2.Name = "PwdTextBox2";
+            this.PwdTextBox2.Size = new System.Drawing.Size(215, 31);
+            this.PwdTextBox2.TabIndex = 67;
             // 
-            // textBox3
+            // PwdLabel2
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(284, 101);
-            this.textBox3.MaxLength = 70;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(215, 31);
-            this.textBox3.TabIndex = 65;
+            this.PwdLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PwdLabel2.AutoSize = true;
+            this.PwdLabel2.BackColor = System.Drawing.Color.White;
+            this.PwdLabel2.Location = new System.Drawing.Point(284, 146);
+            this.PwdLabel2.Name = "PwdLabel2";
+            this.PwdLabel2.Size = new System.Drawing.Size(203, 23);
+            this.PwdLabel2.TabIndex = 66;
+            this.PwdLabel2.Text = "Повторение пароля";
             // 
-            // label3
+            // PwdTextBox1
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(284, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 23);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "Пароль";
+            this.PwdTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PwdTextBox1.Location = new System.Drawing.Point(284, 101);
+            this.PwdTextBox1.MaxLength = 70;
+            this.PwdTextBox1.Name = "PwdTextBox1";
+            this.PwdTextBox1.Size = new System.Drawing.Size(215, 31);
+            this.PwdTextBox1.TabIndex = 65;
             // 
-            // textBox4
+            // PwdLabel1
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox4.Location = new System.Drawing.Point(284, 41);
-            this.textBox4.MaxLength = 70;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(215, 31);
-            this.textBox4.TabIndex = 59;
+            this.PwdLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PwdLabel1.AutoSize = true;
+            this.PwdLabel1.BackColor = System.Drawing.Color.White;
+            this.PwdLabel1.Location = new System.Drawing.Point(284, 75);
+            this.PwdLabel1.Name = "PwdLabel1";
+            this.PwdLabel1.Size = new System.Drawing.Size(82, 23);
+            this.PwdLabel1.TabIndex = 64;
+            this.PwdLabel1.Text = "Пароль";
             // 
-            // label4
+            // LoginTextBox
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(280, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 23);
-            this.label4.TabIndex = 58;
-            this.label4.Text = "Логин";
+            this.LoginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.LoginTextBox.Location = new System.Drawing.Point(284, 41);
+            this.LoginTextBox.MaxLength = 70;
+            this.LoginTextBox.Name = "LoginTextBox";
+            this.LoginTextBox.Size = new System.Drawing.Size(215, 31);
+            this.LoginTextBox.TabIndex = 59;
             // 
-            // textBox2
+            // LoginLabel
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.LoginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginLabel.AutoSize = true;
+            this.LoginLabel.BackColor = System.Drawing.Color.White;
+            this.LoginLabel.Location = new System.Drawing.Point(280, 15);
+            this.LoginLabel.Name = "LoginLabel";
+            this.LoginLabel.Size = new System.Drawing.Size(69, 23);
+            this.LoginLabel.TabIndex = 58;
+            this.LoginLabel.Text = "Логин";
+            // 
+            // OTextBox
+            // 
+            this.OTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox2.Location = new System.Drawing.Point(12, 172);
-            this.textBox2.MaxLength = 70;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(254, 31);
-            this.textBox2.TabIndex = 57;
+            this.OTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.OTextBox.Location = new System.Drawing.Point(12, 172);
+            this.OTextBox.MaxLength = 70;
+            this.OTextBox.Name = "OTextBox";
+            this.OTextBox.Size = new System.Drawing.Size(254, 31);
+            this.OTextBox.TabIndex = 57;
             // 
-            // label2
+            // OLabel
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.OLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 23);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Отчество";
+            this.OLabel.AutoSize = true;
+            this.OLabel.BackColor = System.Drawing.Color.White;
+            this.OLabel.Location = new System.Drawing.Point(12, 146);
+            this.OLabel.Name = "OLabel";
+            this.OLabel.Size = new System.Drawing.Size(99, 23);
+            this.OLabel.TabIndex = 56;
+            this.OLabel.Text = "Отчество";
             // 
             // EditButton
             // 
@@ -177,51 +194,52 @@
             this.EditButton.TabIndex = 55;
             this.EditButton.Text = "Редактировать";
             this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
-            // ManufactureTextBox
+            // NTextBox
             // 
-            this.ManufactureTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ManufactureTextBox.Location = new System.Drawing.Point(12, 101);
-            this.ManufactureTextBox.MaxLength = 70;
-            this.ManufactureTextBox.Name = "ManufactureTextBox";
-            this.ManufactureTextBox.Size = new System.Drawing.Size(254, 31);
-            this.ManufactureTextBox.TabIndex = 54;
+            this.NTextBox.Location = new System.Drawing.Point(12, 101);
+            this.NTextBox.MaxLength = 70;
+            this.NTextBox.Name = "NTextBox";
+            this.NTextBox.Size = new System.Drawing.Size(254, 31);
+            this.NTextBox.TabIndex = 54;
             // 
-            // ManufacturerLabel
+            // NLabel
             // 
-            this.ManufacturerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ManufacturerLabel.AutoSize = true;
-            this.ManufacturerLabel.BackColor = System.Drawing.Color.White;
-            this.ManufacturerLabel.Location = new System.Drawing.Point(12, 75);
-            this.ManufacturerLabel.Name = "ManufacturerLabel";
-            this.ManufacturerLabel.Size = new System.Drawing.Size(48, 23);
-            this.ManufacturerLabel.TabIndex = 53;
-            this.ManufacturerLabel.Text = "Имя";
+            this.NLabel.AutoSize = true;
+            this.NLabel.BackColor = System.Drawing.Color.White;
+            this.NLabel.Location = new System.Drawing.Point(12, 75);
+            this.NLabel.Name = "NLabel";
+            this.NLabel.Size = new System.Drawing.Size(48, 23);
+            this.NLabel.TabIndex = 53;
+            this.NLabel.Text = "Имя";
             // 
-            // CategoryComboBox
+            // ComboBox
             // 
-            this.CategoryComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CategoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(12, 232);
-            this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(254, 31);
-            this.CategoryComboBox.TabIndex = 52;
+            this.ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ComboBox.FormattingEnabled = true;
+            this.ComboBox.Location = new System.Drawing.Point(12, 232);
+            this.ComboBox.Name = "ComboBox";
+            this.ComboBox.Size = new System.Drawing.Size(254, 31);
+            this.ComboBox.TabIndex = 52;
             // 
-            // NameTextBox
+            // FTextBox
             // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.NameTextBox.Location = new System.Drawing.Point(12, 41);
-            this.NameTextBox.MaxLength = 70;
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(254, 31);
-            this.NameTextBox.TabIndex = 51;
+            this.FTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.FTextBox.Location = new System.Drawing.Point(12, 41);
+            this.FTextBox.MaxLength = 70;
+            this.FTextBox.Name = "FTextBox";
+            this.FTextBox.Size = new System.Drawing.Size(254, 31);
+            this.FTextBox.TabIndex = 51;
             // 
             // CategoryLabel
             // 
@@ -235,17 +253,17 @@
             this.CategoryLabel.TabIndex = 50;
             this.CategoryLabel.Text = "Роль";
             // 
-            // NameLabel
+            // АLabel
             // 
-            this.NameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.АLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.BackColor = System.Drawing.Color.White;
-            this.NameLabel.Location = new System.Drawing.Point(12, 15);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(97, 23);
-            this.NameLabel.TabIndex = 49;
-            this.NameLabel.Text = "Фамилия";
+            this.АLabel.AutoSize = true;
+            this.АLabel.BackColor = System.Drawing.Color.White;
+            this.АLabel.Location = new System.Drawing.Point(12, 15);
+            this.АLabel.Name = "АLabel";
+            this.АLabel.Size = new System.Drawing.Size(97, 23);
+            this.АLabel.TabIndex = 49;
+            this.АLabel.Text = "Фамилия";
             // 
             // CloseButton
             // 
@@ -347,20 +365,21 @@
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToMenuButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox LoginTextBox;
+        private System.Windows.Forms.Label LoginLabel;
+        private System.Windows.Forms.TextBox OTextBox;
+        private System.Windows.Forms.Label OLabel;
         private System.Windows.Forms.Button EditButton;
-        private System.Windows.Forms.TextBox ManufactureTextBox;
-        private System.Windows.Forms.Label ManufacturerLabel;
-        private System.Windows.Forms.ComboBox CategoryComboBox;
-        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox NTextBox;
+        private System.Windows.Forms.Label NLabel;
+        private System.Windows.Forms.ComboBox ComboBox;
+        private System.Windows.Forms.TextBox FTextBox;
         private System.Windows.Forms.Label CategoryLabel;
-        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label АLabel;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.TextBox PwdTextBox2;
+        private System.Windows.Forms.Label PwdLabel2;
+        private System.Windows.Forms.TextBox PwdTextBox1;
+        private System.Windows.Forms.Label PwdLabel1;
     }
 }

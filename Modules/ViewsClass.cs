@@ -16,6 +16,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Boolean EnabledForm = false;
         public static Int16 MoreProductButtonState = 1;
         public static Int16 DiscountDay = 31;
+        public static Boolean DirectoryFormAdd = true;
 
         public static Int32 ViewTableWithPicturesOnDataGrid(DataGridView datagrid, DataTable table, Int32 j, Boolean pagination=true)
         {

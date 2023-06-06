@@ -114,23 +114,98 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void UsersButton_Click(object sender, EventArgs e)
         {
+            ViewsClass.DirectoryFormAdd = true;
+
+
             CreateUserForm NewForm = new CreateUserForm();
             this.Visible = false;
             NewForm.ShowDialog();
         }
 
-        private void SeriesButton_Click(object sender, EventArgs e)
-        {
-            MoreProductMessageForm NewForm = new MoreProductMessageForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-        }
 
         private void CategoryButton_Click(object sender, EventArgs e)
         {
+            ViewsClass.DirectoryFormAdd = true;
+
+
+            ViewsClass.EnabledForm = false;
             DirectoryFormMessageForm NewForm = new DirectoryFormMessageForm();
-            this.Visible = false;
+            this.Enabled = ViewsClass.EnabledForm;
             NewForm.ShowDialog();
+            this.Enabled = true;
+             tabControl_SelectedIndexChanged( sender,  e);
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewsClass.DirectoryFormAdd = false;
+            switch (tabControl.SelectedIndex)
+            {
+                case (0):
+                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value+"'");
+                    ViewsClass.EnabledForm = false;
+                    DirectoryFormMessageForm NewForm0 = new DirectoryFormMessageForm();
+                    this.Enabled = ViewsClass.EnabledForm;
+                    NewForm0.ShowDialog();
+                    this.Enabled = true;
+                    break;
+                case (1):
+                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" seriesproduct ", " where idSeries = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value+"'");
+                    ViewsClass.EnabledForm = false;
+                    MoreProductMessageForm NewForm1 = new MoreProductMessageForm();
+                    this.Enabled = ViewsClass.EnabledForm;
+                    NewForm1.ShowDialog();
+                    this.Enabled = ViewsClass.EnabledForm;
+                    break;
+                case (2):
+                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" `user` ", " where idUser = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value+"'",
+                        join: "inner join role on `idRole`=`roleUser`");
+                    CreateUserForm NewForm2 = new CreateUserForm();
+                    this.Visible = false;
+                    NewForm2.ShowDialog();
+                    break;
+                default:
+                    break;
+            }
+             tabControl_SelectedIndexChanged( sender,  e);
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res; 
+            switch (tabControl.SelectedIndex)
+            {
+                case (0):
+                   var count = SQLClass.GetSelectInList(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
+
+                   res = MessageBox.Show("Внимание! Будет удалено товары удалятся в количестве: " + count + " шт. Уверены что хотите продолжить? \nИзменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
+                    {
+                        SQLClass.DeleteFromDataBase(" product ", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
+
+                        SQLClass.DeleteFromDataBase(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
+              
+                    }
+                    
+                break;
+                case (1):
+                    res = MessageBox.Show("Уверены что хотите удалить выбранную серию? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes){
+                    SQLClass.DeleteFromDataBase(" seriesproduct ", where: " where `idSeries` = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                    }    
+                break;
+                case (2):
+                   res = MessageBox.Show("Уверены что хотите удалить данного пользователя? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                   if (res == DialogResult.Yes)
+                   {
+                       SQLClass.DeleteFromDataBase(" `user` ", where: " where `idUser` = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                   }    
+                break;
+                default:
+                    break;
+            }
+            tabControl_SelectedIndexChanged(sender, e);
+        
         }
 
     }

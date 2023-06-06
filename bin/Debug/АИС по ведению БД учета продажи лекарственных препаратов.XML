@@ -24,11 +24,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="P:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.CreateParams">
-            <summary>
-            <CreateParams>Shape stretching</CreateParams>
-            </summary>
-        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.components">
             <summary>
             Required designer variable.

@@ -17,6 +17,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     {
         String pictureName=BusinessClass.SelectedFromDataGridList[8];
         String CategotyID = "";
+        
         #region Typical events of all forms
         /// <summary>window display buttons </summary>
         private void CloseButton_Click(object sender, EventArgs e)
@@ -233,9 +234,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
-                    PriceUpDown.Value == 0 
-                    )
+                if (NameTextBox.Text.Replace(" ", "").Replace(" ","") == "" || PriceUpDown.Value == 0 )
                 {
                     MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, поле 'цена' не нулевое.", "Информация");
                 }
@@ -293,9 +292,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                if (NameTextBox.Text == "" || NameTextBox.Text == " " ||
-                    PriceUpDown.Value == 0 
-                    )
+                if (NameTextBox.Text.Replace(" ", "").Replace(" ", "") == " " ||PriceUpDown.Value == 0 )
                 {
                     MessageBox.Show("Проверьте заполненность всех необходимых полей:\nналичие наименования, поле 'цена' не нулевое.", "Информация");
                 }
