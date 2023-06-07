@@ -112,7 +112,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else {
                     
-                    List <String> list = SQLClass.GetSelectInList("seriesproduct", " where idSeries = " + selectedId);
+                    List <String> list = SQLClass.GetSelectInListColumns("seriesproduct", " where idSeries = " + selectedId);
                     if (Convert.ToInt32(list[3]) <= Convert.ToInt32(value))
                     {
                         dataGridView.CurrentCell.Value = Convert.ToInt32(list[3]);
@@ -206,7 +206,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
                 foreach (DataGridViewRow  row in dataGridView.Rows)
                 {
-                    List <String > list = SQLClass.GetSelectInList(
+                    List <String > list = SQLClass.GetSelectInListColumns(
                                                             "seriesproduct",
                                                             where: " where `idSeries` = " + row.Cells[0].Value.ToString()
                                                             );
@@ -247,22 +247,22 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         private void ClearButton_Click(object sender, EventArgs e)
         {
             
-            var question = MessageBox.Show("Вы уверены, что хотите очистить заказ? Изменения необратимы.", "Предупреждение", MessageBoxButtons.YesNo);
-            if (question == DialogResult.Yes)
-            {
+            //var question = MessageBox.Show("Вы уверены, что хотите очистить заказ? Изменения необратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+            //if (question == DialogResult.Yes)
+            //{
                 dataGridView.Rows.Clear();
                 BusinessClass.SeriesCountPrescriptionNumberDictionary.Clear();
 
-                MessageBox.Show("Заказ очищен.", "Информация");
+                //MessageBox.Show("Заказ очищен.", "Информация");
 
                 ProductForm NewForm = new ProductForm();
                 this.Visible = false;
                 NewForm.ShowDialog();
 
-            }
-            else {
-                dataGridView.CurrentCell.Value = 1;
-            }
+            //}
+            //else {
+            //    dataGridView.CurrentCell.Value = 1;
+            //}
         }
 
         private void удалитьИзЗаказаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,7 +351,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
 
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
                     where: " where idSeries = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join seriesproduct on productIdSeries = idProduct");
                 ViewsClass.MoreProductButtonState = 4;

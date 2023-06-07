@@ -32,7 +32,31 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
-        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "", String join = "")
+        public static List<String> GetSelectInListRows(String tables, String where = "", String attributes = "*", String order = "", String join = "")
+        {
+            try
+            {
+                List<String> list = new List<String>();
+
+                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
+                MySqlCommand Command = new MySqlCommand(cmd, Connect());
+                MySqlDataReader reader = Command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(reader[0].ToString());
+                }
+
+                Command.Connection.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
+            }
+        }
+        public static List<String> GetSelectInListColumns(String tables, String where = "", String attributes = "*", String order = "", String join = "")
         {
             try
             {

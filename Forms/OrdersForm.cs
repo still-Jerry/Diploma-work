@@ -87,8 +87,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             SearchСomboBox.Items.Add("номеру заказа");
             SearchСomboBox.SelectedItem = "номеру заказа";
 
+        }
+        private void OrdersForm_Load(object sender, EventArgs e)
+        {
             GetProduct();
-
         }
         void GetProduct()
         {
@@ -97,10 +99,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 string where="";
                 switch(FilterComboBox.Text){
                     case("Месяц"):
-                        where = " dateOrder>=date('" + DateTime.Today.Day + "." + (DateTime.Today.Month-1) + "." + DateTime.Today.Year + "') and dateOrder<=current_date() ";
+                        where = "where dateOrder>=date('" + DateTime.Today.Year + "." + (DateTime.Today.Month - 1) + "." + DateTime.Today.Day + "') and dateOrder<=current_date() ";
                         break;
                     case ("Год"):
-                        where = " dateOrder>=date('" + DateTime.Today.Day + "." + DateTime.Today.Month + "." + (DateTime.Today.Year-1) + "') and dateOrder<=current_date() ";
+                        where = "where dateOrder>=date('" + (DateTime.Today.Year - 1) + "." + DateTime.Today.Month + "." + DateTime.Today.Day + "') and dateOrder<=current_date() ";
                         break;
                     case ("Произвольный период"):
                         break;
@@ -113,9 +115,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     join: "inner join `list` on `idOrderList` = `idOrder`"+
                         " inner join `seriesproduct` on `seriesproduct`.`idSeries` = `list`.`seriesProductList` " +
                         " inner join `diploma`.`product` on `seriesproduct`.`productIdSeries` = `product`.`idProduct` "+
-                        " inner join `diploma`.`user` on `user`.`idUser` = `userOrder` "+
-                        " group by idOrder",
-                    where:where);
+                        " inner join `diploma`.`user` on `user`.`idUser` = `userOrder` ",
+                    where:where,
+                    order: " group by idOrder order by idOrder");
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
                     var fio = row.Cells[1].Value.ToString().TrimEnd();
@@ -127,7 +129,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
                     }
                 }
-               
+                dataGridView.Columns[0].Width = 80;
+                dataGridView.Columns[3].Width = 100;
+                dataGridView.Columns[4].Width = 80;
             }
             catch (Exception ex)
             {
@@ -139,7 +143,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //GetProduct();
+            GetProduct();
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -158,7 +162,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                 }
                 else {
-                    row.Cells[1].Value = SQLClass.GetSelectInList(" `order` ",
+                    row.Cells[1].Value = SQLClass.GetSelectInListColumns(" `order` ",
                     " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
                     join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
@@ -170,6 +174,61 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             dataGridView.Columns[3].Width = 100;
             dataGridView.Columns[4].Width = 80;
         }
+
+        private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List <string> listR;
+                if (SearchСomboBox.SelectedItem == "номеру заказа")
+                {
+                    listR = SQLClass.GetSelectInListRows("`order`", " where idOrder like '" + SearchTextBox.Text.TrimStart() + "%'",
+                    "idOrder", " order by idOrder");
+                }
+                else {
+                    listR = SQLClass.GetSelectInListRows("`order`", " where surnameUser like '" + SearchTextBox.Text.TrimStart() + "%'" +
+                        " or nameUser like '" + SearchTextBox.Text.TrimStart() + "%'" + " or patronymicUser like '" + SearchTextBox.Text.TrimStart() + "%'",
+                        "idOrder", " order by idOrder",
+                        " inner join `diploma`.`user` on `user`.`idUser` = `userOrder` ");
+                }
+
+                DataGridViewRow first = null;
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (listR.Contains(row.Cells[0].Value.ToString()))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+
+                        if (first == null)
+                        {
+                            first = row;
+                        }
+                        first.Selected = true;
+                        dataGridView.FirstDisplayedScrollingRowIndex = first.Index;
+                    }
+                    else {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    
+                    }
+                    if (SearchTextBox.Text.Replace(" ", "").Replace("   ", "") == "")
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+              
+            }
+            catch
+            {
+
+            }
+        }
+
+    
 
      
 

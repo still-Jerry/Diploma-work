@@ -73,7 +73,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else
                 {
-                    var id = SQLClass.GetSelectInList(
+                    var id = SQLClass.GetSelectInListColumns(
                     "category",
                     where: " where `nameСategory` = '"+ comboBox.SelectedItem+"'",
                     attributes: " idСategory "
@@ -97,7 +97,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public DiscountForm()
         {
             InitializeComponent();
-            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            List<String> category = SQLClass.GetSelectInListColumns("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
             for (Int16 i = 0; i < category.Count(); i++)
             {
                 comboBox.Items.Add(category[i]);

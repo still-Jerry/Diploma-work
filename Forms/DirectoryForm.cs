@@ -80,6 +80,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         }
         #endregion
 
+        #region General functional events
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -123,37 +124,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        private void UsersButton_Click(object sender, EventArgs e)
-        {
-            ViewsClass.DirectoryFormAdd = true;
-
-
-            CreateUserForm NewForm = new CreateUserForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-        }
-
-
-        private void CategoryButton_Click(object sender, EventArgs e)
-        {
-            ViewsClass.DirectoryFormAdd = true;
-
-
-            ViewsClass.EnabledForm = false;
-            DirectoryFormMessageForm NewForm = new DirectoryFormMessageForm();
-            this.Enabled = ViewsClass.EnabledForm;
-            NewForm.ShowDialog();
-            this.Enabled = true;
-             tabControl_SelectedIndexChanged( sender,  e);
-        }
-
         private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ViewsClass.DirectoryFormAdd = false;
             switch (tabControl.SelectedIndex)
             {
                 case (0):
-                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value+"'");
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
                     ViewsClass.EnabledForm = false;
                     DirectoryFormMessageForm NewForm0 = new DirectoryFormMessageForm();
                     this.Enabled = ViewsClass.EnabledForm;
@@ -161,7 +138,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     this.Enabled = true;
                     break;
                 case (1):
-                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" seriesproduct ", " where idSeries = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value+"'");
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" seriesproduct ", " where idSeries = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'");
                     ViewsClass.EnabledForm = false;
                     MoreProductMessageForm NewForm1 = new MoreProductMessageForm();
                     this.Enabled = ViewsClass.EnabledForm;
@@ -169,7 +146,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     this.Enabled = ViewsClass.EnabledForm;
                     break;
                 case (2):
-                    BusinessClass.SelectedFromDataGridList=SQLClass.GetSelectInList(" `user` ", " where idUser = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value+"'",
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" `user` ", " where idUser = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'",
                         join: "inner join role on `idRole`=`roleUser`");
                     CreateUserForm NewForm2 = new CreateUserForm();
                     this.Visible = false;
@@ -178,18 +155,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 default:
                     break;
             }
-             tabControl_SelectedIndexChanged( sender,  e);
+            tabControl_SelectedIndexChanged(sender, e);
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult res; 
+            DialogResult res;
             switch (tabControl.SelectedIndex)
             {
                 case (0):
                     if (CategoryDataGridView.RowCount > 1)
                     {
-                        var count = SQLClass.GetSelectInList(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
+                        var count = SQLClass.GetSelectInListColumns(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
 
                         res = MessageBox.Show("Внимание! Будет удалено товары удалятся в количестве: " + count + " шт. Уверены что хотите продолжить? \nИзменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
                         if (res == DialogResult.Yes)
@@ -207,15 +184,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                             }
                         }
                     }
-                    else {
+                    else
+                    {
                         MessageBox.Show("Вы не можете удалить последнюю оставшуюся категорию", "Информация");
                     }
-                    
-                break;
+
+                    break;
                 case (1):
                     res = MessageBox.Show("Уверены что хотите удалить выбранную серию? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
-                    if (res == DialogResult.Yes){
-                        if(SQLClass.DeleteFromDataBase(" seriesproduct ", where: " where `idSeries` = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'")){
+                    if (res == DialogResult.Yes)
+                    {
+                        if (SQLClass.DeleteFromDataBase(" seriesproduct ", where: " where `idSeries` = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'"))
+                        {
 
                             MessageBox.Show("Успешное удаление серии!", "Информация");
                         }
@@ -223,36 +203,101 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         {
                             MessageBox.Show("Произошла ошибка. Серия не удалилась", "Информация");
                         }
-                    }    
-                break;
+                    }
+                    break;
                 case (2):
-                if (UsersDataGridView.SelectedRows[0].Cells[0].Value.ToString() == BusinessClass.UserInfoList[0])
-                {
-                    MessageBox.Show("Вы не можете удалить сами себя","Информация");
-                }
-                else
-                {
-                    res = MessageBox.Show("Уверены что хотите удалить данного пользователя? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
-                    if (res == DialogResult.Yes)
+                    if (UsersDataGridView.SelectedRows[0].Cells[0].Value.ToString() == BusinessClass.UserInfoList[0])
                     {
-                        if (SQLClass.DeleteFromDataBase(" `user` ", where: " where `idUser` = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'"))
+                        MessageBox.Show("Вы не можете удалить сами себя", "Информация");
+                    }
+                    else
+                    {
+                        res = MessageBox.Show("Уверены что хотите удалить данного пользователя? Изменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
+                        if (res == DialogResult.Yes)
                         {
-                            MessageBox.Show("Успешное удаление пользователя!", "Информация");
+                            if (SQLClass.DeleteFromDataBase(" `user` ", where: " where `idUser` = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'"))
+                            {
+                                MessageBox.Show("Успешное удаление пользователя!", "Информация");
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Произошла ошибка. Пользователь не удалён", "Информация");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Произошла ошибка. Пользователь не удалён", "Информация");
 
+                            }
                         }
                     }
-                }
-                break;
+                    break;
                 default:
                     break;
             }
             tabControl_SelectedIndexChanged(sender, e);
-        
+
+        }
+        #endregion
+
+        #region Category
+        private void CategoryButton_Click(object sender, EventArgs e)
+        {
+            ViewsClass.DirectoryFormAdd = true;
+
+
+            ViewsClass.EnabledForm = false;
+            DirectoryFormMessageForm NewForm = new DirectoryFormMessageForm();
+            this.Enabled = ViewsClass.EnabledForm;
+            NewForm.ShowDialog();
+            this.Enabled = true;
+            tabControl_SelectedIndexChanged(sender, e);
+        }
+
+        private void CategoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> listR = SQLClass.GetSelectInListRows("`category`", " where nameСategory like '" + CategoryTextBox.Text.TrimStart() + "%'", "idСategory");
+
+                DataGridViewRow first = null;
+                foreach (DataGridViewRow row in CategoryDataGridView.Rows)
+                {
+                    if (listR.Contains(row.Cells[0].Value.ToString()))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+
+                        if (first == null)
+                        {
+                            first = row;
+                        }
+                        first.Selected = true;
+                        CategoryDataGridView.FirstDisplayedScrollingRowIndex = first.Index;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+
+                    }
+                    if (CategoryTextBox.Text.Replace(" ", "").Replace("   ", "") == "")
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+        #endregion
+
+        #region Users
+        private void UsersButton_Click(object sender, EventArgs e)
+        {
+            ViewsClass.DirectoryFormAdd = true;
+
+
+            CreateUserForm NewForm = new CreateUserForm();
+            this.Visible = false;
+            NewForm.ShowDialog();
         }
 
         private void UsersDataGridView_DoubleClick(object sender, EventArgs e)
@@ -272,13 +317,101 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else
                 {
-                    row.Cells[1].Value = SQLClass.GetSelectInList(" diploma.user ", attributes:
+                    row.Cells[1].Value = SQLClass.GetSelectInListColumns(" diploma.user ", attributes:
                     "concat(surnameUser, ' ', nameUser, ' ', patronymicUser)",
                     where: " where idUser = " + selected.Cells[0].Value.ToString())[0];
                 }
 
             }
         }
+
+        private void UsersTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> listR = SQLClass.GetSelectInListRows(" `user` ",
+                " where surnameUser like '" + UsersTextBox.Text.TrimStart() + "%'" +
+                 " or nameUser like '" + UsersTextBox.Text.TrimStart() + "%'" +
+                 " or patronymicUser like '" + UsersTextBox.Text.TrimStart() + "%'"
+                 + " or loginUser like '" + UsersTextBox.Text.TrimStart() + "%'", "idUser");
+
+                DataGridViewRow first = null;
+                foreach (DataGridViewRow row in UsersDataGridView.Rows)
+                {
+                    if (listR.Contains(row.Cells[0].Value.ToString()))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+
+                        if (first == null)
+                        {
+                            first = row;
+                        }
+                        first.Selected = true;
+                        UsersDataGridView.FirstDisplayedScrollingRowIndex = first.Index;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+
+                    }
+                    if (UsersTextBox.Text.Replace(" ", "").Replace("   ", "") == "")
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+        #endregion
+
+        private void SeriesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> listR = SQLClass.GetSelectInListRows(" `seriesproduct` ", " where idSeries like '" + SeriesTextBox.Text.TrimStart() + "%'" +
+                    " or nameProduct like '" + SeriesTextBox.Text.TrimStart() + "%'",
+                "idSeries",
+                join: " inner join `product` on productIdSeries = idProduct ");
+
+                DataGridViewRow first = null;
+                foreach (DataGridViewRow row in SeriesDataGridView.Rows)
+                {
+                    if (listR.Contains(row.Cells[0].Value.ToString()))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+
+                        if (first == null)
+                        {
+                            first = row;
+                        }
+                        first.Selected = true;
+                        SeriesDataGridView.FirstDisplayedScrollingRowIndex = first.Index;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+
+                    }
+                    if (SeriesTextBox.Text.Replace(" ", "").Replace("   ", "") == "")
+                    {
+                        row.DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+    
+
+
 
     }
 }

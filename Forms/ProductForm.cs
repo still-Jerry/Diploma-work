@@ -97,14 +97,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            if (page > 1)
+            try { 
+                if (page > 1)
+                {
+                    page--;
+                    rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                    allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                    PagesLabel.Text = page + " / " + allPages;
+                    numericUpDown.Maximum = allPages;
+                    numericUpDown.Value = page;
+
+                }
+            }
+            catch
             {
-                page--;
-                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
-                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
-                PagesLabel.Text = page + " / " + allPages;
-                numericUpDown.Maximum = allPages;
-                numericUpDown.Value = page;
 
             }
 
@@ -112,28 +118,39 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (numericUpDown.Value != page && numericUpDown.Value!=0)
+            try
             {
-                page = Convert.ToInt32(numericUpDown.Value) - 1;
+                if (numericUpDown.Value != page && numericUpDown.Value != 0)
+                {
+                    page = Convert.ToInt32(numericUpDown.Value) - 1;
+                }
+                if (page * 5 < rows)
+                {
+                    page++;
+                    rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                    allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                    PagesLabel.Text = page + " / " + allPages;
+                    numericUpDown.Maximum = allPages;
+                    numericUpDown.Value = page;
+                }
             }
-            if (page * 5 < rows)
-            {
-                page++;
-                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
-                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
-                PagesLabel.Text = page + " / " + allPages;
-                numericUpDown.Maximum = allPages;
-                numericUpDown.Value = page;
+            catch { 
+            
             }
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
+            try{
             rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
             allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
             PagesLabel.Text = page + " / " + allPages;
             numericUpDown.Maximum = allPages;
             numericUpDown.Value = page;
+             }
+            catch { 
+            
+            }
         }
 
         #endregion
@@ -142,7 +159,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public ProductForm()
         {
             InitializeComponent();
-            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            List<String> category = SQLClass.GetSelectInListColumns("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
             for (Int16 i = 0; i < category.Count(); i++) {
                 SpecComboBox.Items.Add(category[i]);
             }
@@ -193,6 +210,16 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 {
                     where = " where `nameСategory` = '" + SpecComboBox.Text + "' ";
                 }
+                if (SearchTextBox.Text.Replace(" ", "").Replace(" ", "") != "") {
+                    if (where == "")
+                    {
+                        where = " where nameProduct like '" + SearchTextBox.Text.TrimStart() + "%'";
+                    }
+                    else {
+                        where = where + " and nameProduct like '" + SearchTextBox.Text.TrimStart() + "%'";
+                    
+                    }
+                }
                 return SQLClass.GetSelectInDataTable(
                     "product", 
                     where: where, 
@@ -215,7 +242,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 ViewsClass.MoreProductButtonState = 4;
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 0;
@@ -234,7 +261,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 1;
@@ -250,14 +277,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void SpecComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                page = 1;
+                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                page = rows == 0 ? page = 0 : page = 1;
+                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                PagesLabel.Text = page + " / " + allPages;
+                numericUpDown.Maximum = allPages;
+                numericUpDown.Value = page;
+            }
+            catch
+            {
 
-           page = 1;
-           rows= ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
-           page = rows == 0 ? page = 0 : page=1;
-           allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
-           PagesLabel.Text = page + " / " + allPages;
-           numericUpDown.Maximum = allPages;
-           numericUpDown.Value = page;
+            }
         }
 
         private void AddNewProductButton_Click(object sender, EventArgs e)
@@ -265,7 +298,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 2;
@@ -281,32 +314,60 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            numericUpDown.Maximum = allPages;
+            try
+            {
+                numericUpDown.Maximum = allPages;
+            }
+            catch { 
+            }
         }
 
         private void добавитьКЗаказуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        
-            BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
-                    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
-                    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
-
-            if(SQLClass.GetSelectInList("`seriesproduct`",
-                attributes: " concat(idSeries,')  ',ExpirationDateSeries, ' ', countProductSeries, ' шт.') ",
-                order: " ORDER BY `ExpirationDateSeries` ASC",
-                where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]).Count==0)
+            try
             {
-                MessageBox.Show("Отсутсвуют серии продукта. Добавьте серию через меню редактироваения (администратор).", "Информация");
-            }else{
-                ViewsClass.EnabledForm = false;
-                ProductMessageForm NewForm = new ProductMessageForm();
-                this.Enabled = ViewsClass.EnabledForm;
-                NewForm.ShowDialog();
-                this.Enabled = true;
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
+                        where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                        join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
+
+                if (SQLClass.GetSelectInListColumns("`seriesproduct`",
+                    attributes: " concat(idSeries,')  ',ExpirationDateSeries, ' ', countProductSeries, ' шт.') ",
+                    order: " ORDER BY `ExpirationDateSeries` ASC",
+                    where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]).Count == 0)
+                {
+                    MessageBox.Show("Отсутсвуют серии продукта. Добавьте серию через меню редактироваения (администратор).", "Информация");
+                }
+                else
+                {
+                    ViewsClass.EnabledForm = false;
+                    ProductMessageForm NewForm = new ProductMessageForm();
+                    this.Enabled = ViewsClass.EnabledForm;
+                    NewForm.ShowDialog();
+                    this.Enabled = true;
+                }
             }
-           
+            catch { 
+            
+            }
 
         }
+
+        private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                rows = ViewsClass.ViewTableWithPicturesOnDataGrid(dataGridView, RequestGetProduct(), page);
+                allPages = rows % 5 > 0 ? rows / 5 + 1 : rows / 5;
+                PagesLabel.Text = page + " / " + allPages;
+                numericUpDown.Maximum = allPages;
+                numericUpDown.Value = page;
+            }
+            catch (Exception ex) {
+                //MessageBox.Show("Продукт не найден");
+            }
+
+        }
+
 
       
 

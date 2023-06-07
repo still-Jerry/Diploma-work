@@ -21,14 +21,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             InitializeComponent();
             try{
-                if (SQLClass.GetSelectInList(" product ", " where idProduct = '" + BusinessClass.SelectedFromDataGridList[0] + "'", " isPrescriptionProduct ")[0] == "0")
+                if (SQLClass.GetSelectInListColumns(" product ", " where idProduct = '" + BusinessClass.SelectedFromDataGridList[0] + "'", " isPrescriptionProduct ")[0] == "0")
                 {
                     BackgroundGroupBox.Height = 67;
                     this.Height = 110;
                     numericUpDown.Visible = false;
                     NumberLabel.Visible = false;
                 }
-                List<String> series = SQLClass.GetSelectInList("`seriesproduct`",
+                List<String> series = SQLClass.GetSelectInListColumns("`seriesproduct`",
                     attributes: " concat(idSeries,') ',ExpirationDateSeries, ' ', countProductSeries, ' шт.') ",
                     order: " ORDER BY `ExpirationDateSeries` ASC",
                     where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]);
