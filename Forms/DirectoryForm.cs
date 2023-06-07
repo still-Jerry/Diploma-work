@@ -102,6 +102,17 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                            "idUser, concat(surnameUser, ' ', nameUser, ' ', patronymicUser) as 'ФИО', `loginUser` as 'Логин', `nameRole` as 'Роль'",
                            join: "inner join `role` on `idRole` = roleUser");
                         UsersDataGridView.Columns[0].Visible = false;
+                        foreach (DataGridViewRow row in UsersDataGridView.Rows)
+                        {
+                            var fio = row.Cells[1].Value.ToString().TrimEnd();
+                            row.Cells[1].Value = "";
+                            int к = fio.Split(' ').Length;
+                            for (int i = 0; i < fio.Split(' ').Length; i++)
+                            {
+
+                                row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                            }
+                        }
                         break;
                     default:
                         break;
@@ -242,6 +253,31 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
             tabControl_SelectedIndexChanged(sender, e);
         
+        }
+
+        private void UsersDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow selected = UsersDataGridView.SelectedRows[0];
+
+            foreach (DataGridViewRow row in UsersDataGridView.Rows)
+            {
+                if (row != selected)
+                {
+                    var fio = row.Cells[1].Value.ToString().TrimEnd(); ;
+                    row.Cells[1].Value = "";
+                    for (int i = 0; i < fio.Split(' ').Length; i++)
+                    {
+                        row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                    }
+                }
+                else
+                {
+                    row.Cells[1].Value = SQLClass.GetSelectInList(" diploma.user ", attributes:
+                    "concat(surnameUser, ' ', nameUser, ' ', patronymicUser)",
+                    where: " where idUser = " + selected.Cells[0].Value.ToString())[0];
+                }
+
+            }
         }
 
     }

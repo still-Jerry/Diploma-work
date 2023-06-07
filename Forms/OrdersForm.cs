@@ -88,6 +88,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             SearchСomboBox.SelectedItem = "номеру заказа";
 
             GetProduct();
+
         }
         void GetProduct()
         {
@@ -107,31 +108,83 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         break;
                 }
                 dataGridView.DataSource = SQLClass.GetSelectInDataTable(" `order` ", 
-                    attributes:" idOrder as '№', concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления'  ",
-                    join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`",
+                    attributes:"idOrder as №, concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления', "+
+                     " round(sum(`priceProduct`*(1-`discountProduct`)*quantityList),2) as 'Сумма заказа', sum(quantityList) as 'Кол-во продуктов'",
+                    join: "inner join `list` on `idOrderList` = `idOrder`"+
+                        " inner join `seriesproduct` on `seriesproduct`.`idSeries` = `list`.`seriesProductList` " +
+                        " inner join `diploma`.`product` on `seriesproduct`.`productIdSeries` = `product`.`idProduct` "+
+                        " inner join `diploma`.`user` on `user`.`idUser` = `userOrder` "+
+                        " group by idOrder",
                     where:where);
-                //
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    var fio = row.Cells[1].Value.ToString().TrimEnd();
+                    row.Cells[1].Value="";
+                    int к = fio.Split(' ').Length;
+                    for (int i = 0; i < fio.Split(' ').Length;i++ )
+                    {
 
-                //dataGridView.Columns["№"].Width = 30;
+                        row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                    }
+                }
+               
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка");
+                //MessageBox.Show(ex.Message, "Ошибка");
             }
         }
 
     
 
-        private void dataGridView_VisibleChanged(object sender, EventArgs e)
+        private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView.Columns[0].Width = 80;
+            //GetProduct();
         }
 
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selected = dataGridView.SelectedRows[0];
+            
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row != selected)
+                {
+                    var fio = row.Cells[1].Value.ToString().TrimEnd(); ;
+                    row.Cells[1].Value = "";
+                    for (int i = 0; i < fio.Split(' ').Length; i++)
+                    {
+                        row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                    }
+                }
+                else {
+                    row.Cells[1].Value = SQLClass.GetSelectInList(" `order` ",
+                    " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                    attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
+                    join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
+                }
+              
+            }
+
+            dataGridView.Columns[0].Width = 80;
+            dataGridView.Columns[3].Width = 100;
+            dataGridView.Columns[4].Width = 80;
+        }
+
+     
+
         //SELECT idOrder, concat(`surnameUser`, " ",`nameUser`, " ", `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления', 
-        //sum(`priceProduct`*`discountProduct`) as 'Сумма заказа' FROM diploma.order inner join `list` on `idOrderList` = `idOrder`
+        //sum(`priceProduct`*(1-`discountProduct`)*quantityList) as 'Сумма заказа', sum(quantityList) as 'Кол-во продукктов' FROM diploma.order 
+        //inner join `list` on `idOrderList` = `idOrder`
         //inner join `seriesproduct` on `seriesproduct`.`idSeries` = `list`.`seriesProductList`
         //inner join `diploma`.`product` on `seriesproduct`.`productIdSeries` = `product`.`idProduct`
         //inner join `diploma`.`user` on `user`.`idUser` = `userOrder`
-        //group by idOrder;
+        //group by idOrder
+
+        
+        //dataGridViewSelectedRows[0].Cells[1].Value = SQLClass.GetSelectInList(" `order` ", 
+        //" where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
+        //attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
+        //join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
     }
 }
