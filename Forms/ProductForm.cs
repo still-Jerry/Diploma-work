@@ -159,7 +159,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public ProductForm()
         {
             InitializeComponent();
-            List<String> category = SQLClass.GetSelectInListColumns("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
             for (Int16 i = 0; i < category.Count(); i++) {
                 SpecComboBox.Items.Add(category[i]);
             }
@@ -242,7 +242,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 ViewsClass.MoreProductButtonState = 4;
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 0;
@@ -261,7 +261,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 1;
@@ -298,7 +298,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                     where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 2;
@@ -326,11 +326,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns("Product",
+                BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("Product",
                         where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                         join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
 
-                if (SQLClass.GetSelectInListColumns("`seriesproduct`",
+                if (SQLClass.GetSelectInList("`seriesproduct`",
                     attributes: " concat(idSeries,')  ',ExpirationDateSeries, ' ', countProductSeries, ' шт.') ",
                     order: " ORDER BY `ExpirationDateSeries` ASC",
                     where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]).Count == 0)

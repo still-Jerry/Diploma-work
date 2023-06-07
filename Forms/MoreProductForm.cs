@@ -82,7 +82,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public MoreProductForm()
         {
             InitializeComponent();
-            List<String> category = SQLClass.GetSelectInListColumns("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
+            List<String> category = SQLClass.GetSelectInList("`category`", attributes: " `nameСategory` ", order: " ORDER BY `nameСategory` ASC");
             for (Int16 i = 0; i < category.Count(); i++)
             {
                 CategoryComboBox.Items.Add(category[i]);
@@ -177,7 +177,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         Boolean DuplicateCheck() {
             try
             {
-                if (SQLClass.GetSelectInListColumns(" product ", 
+                if (SQLClass.GetSelectInList(" product ", 
                     where: "where nameProduct = '" + NameTextBox.Text + "' and "+
                     "priceProduct = '"+ PriceUpDown.Value+"' and "+
                     "categoryProduct = '"+CategotyID+"' and  "+ 
@@ -241,7 +241,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 else
                 {
                     DialogResult question;
-                    CategotyID = SQLClass.GetSelectInListColumns(" category ", " where nameСategory = '" + CategoryComboBox.Text + "'")[0];
+                    CategotyID = SQLClass.GetSelectInList(" category ", " where nameСategory = '" + CategoryComboBox.Text + "'")[0];
 
                     if (DuplicateCheck())
                     { 
@@ -299,7 +299,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 else
                 {
                     DialogResult question;
-                    CategotyID = SQLClass.GetSelectInListColumns(" category ", " where nameСategory = '" + CategoryComboBox.Text+"'")[0];
+                    CategotyID = SQLClass.GetSelectInList(" category ", " where nameСategory = '" + CategoryComboBox.Text+"'")[0];
 
                     if (DuplicateCheck())
                     {
@@ -368,7 +368,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                var FileDialog = new OpenFileDialog();
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureName =DateTime.Now.Ticks+ openFileDialog1.FileName.Split(new[] { '\\' }).Last();

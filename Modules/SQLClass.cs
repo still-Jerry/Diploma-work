@@ -32,31 +32,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return null;
             }
         }
-        public static List<String> GetSelectInListRows(String tables, String where = "", String attributes = "*", String order = "", String join = "")
-        {
-            try
-            {
-                List<String> list = new List<String>();
-
-                String cmd = "SELECT " + attributes + " FROM " + tables + join + where + order + ";";
-                MySqlCommand Command = new MySqlCommand(cmd, Connect());
-                MySqlDataReader reader = Command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    list.Add(reader[0].ToString());
-                }
-
-                Command.Connection.Close();
-                return list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
-                return null;
-            }
-        }
-        public static List<String> GetSelectInListColumns(String tables, String where = "", String attributes = "*", String order = "", String join = "")
+       
+        public static List<String> GetSelectInList(String tables, String where = "", String attributes = "*", String order = "", String join = "")
         {
             try
             {
@@ -152,6 +129,33 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        public static List<String> RequestInListRows(String request)
+        {
+            try
+            {
+                List<String> list = new List<String>();
+
+                String cmd = request;
+                MySqlCommand Command = new MySqlCommand(cmd, Connect());
+                MySqlDataReader reader = Command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    for (Int16 i = 0; reader.FieldCount > i; i++)
+                    {
+                        list.Add(reader[i].ToString());
+                    }
+                }
+
+                Command.Connection.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return null;
+            }
+        }
 
         public static List<String> TransactionAddToDataBase1(String tables1, String values1,
             String tables, String where = "", String attributes = " * ", String order = "", String join = "")
@@ -232,7 +236,24 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false;
             }
         }
-        
+
+
+
+
+        public static bool ImportTable(string TableName, string Attributes, string VALUES)
+        {
+            try
+            {
+                //MySqlConnection con = new MySqlConnection(StrCon);
+                //con.Open();
+                //string Request = "Insert Into  `" + TableName + "` (" + Attributes + ") VALUES " + VALUES + ";";
+                //MySqlCommand cmd = new MySqlCommand(Request, con);
+                //int n = cmd.ExecuteNonQuery();
+                //con.Close();
+                return true;
+            }
+            catch (Exception) { return false; }
+        }
     }
 
 }

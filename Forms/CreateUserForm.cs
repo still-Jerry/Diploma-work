@@ -62,7 +62,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public CreateUserForm()
         {
             InitializeComponent();
-            List<String> role = SQLClass.GetSelectInListColumns("`role`", attributes: " `nameRole` ");
+            List<String> role = SQLClass.GetSelectInList("`role`", attributes: " `nameRole` ");
             for (Int16 i = 0; i < role.Count(); i++)
             {
                 ComboBox.Items.Add(role[i]);
@@ -119,7 +119,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else
                 {
-                    var role = SQLClass.GetSelectInListColumns(" role ", " where nameRole = '" + ComboBox.Text + "'")[0];
+                    var role = SQLClass.GetSelectInList(" role ", " where nameRole = '" + ComboBox.Text + "'")[0];
                     Random rnd = new Random();
                     var salt = BusinessClass.GetRandomTextString(rnd.Next(5, 12));
                     var pwd = Modules.PersonalDataClass.Hashing(PwdTextBox1.Text, salt);
@@ -165,7 +165,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else
                 {
-                    var role = SQLClass.GetSelectInListColumns(" role ", " where nameRole = '" + ComboBox.Text + "'")[0];
+                    var role = SQLClass.GetSelectInList(" role ", " where nameRole = '" + ComboBox.Text + "'")[0];
                     Boolean update;
                     if (PwdTextBox1.Text.Replace(" ", "").Replace(" ", "") == "") { 
                     update=SQLClass.UpdateToDataBase(" `user` ",

@@ -130,7 +130,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             switch (tabControl.SelectedIndex)
             {
                 case (0):
-                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList(" category ", where: " where `idСategory` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'");
                     ViewsClass.EnabledForm = false;
                     DirectoryFormMessageForm NewForm0 = new DirectoryFormMessageForm();
                     this.Enabled = ViewsClass.EnabledForm;
@@ -138,7 +138,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     this.Enabled = true;
                     break;
                 case (1):
-                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" seriesproduct ", " where idSeries = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'");
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList(" seriesproduct ", " where idSeries = '" + SeriesDataGridView.SelectedRows[0].Cells[0].Value + "'");
                     ViewsClass.EnabledForm = false;
                     MoreProductMessageForm NewForm1 = new MoreProductMessageForm();
                     this.Enabled = ViewsClass.EnabledForm;
@@ -146,7 +146,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     this.Enabled = ViewsClass.EnabledForm;
                     break;
                 case (2):
-                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInListColumns(" `user` ", " where idUser = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'",
+                    BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList(" `user` ", " where idUser = '" + UsersDataGridView.SelectedRows[0].Cells[0].Value + "'",
                         join: "inner join role on `idRole`=`roleUser`");
                     CreateUserForm NewForm2 = new CreateUserForm();
                     this.Visible = false;
@@ -166,7 +166,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 case (0):
                     if (CategoryDataGridView.RowCount > 1)
                     {
-                        var count = SQLClass.GetSelectInListColumns(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
+                        var count = SQLClass.GetSelectInList(" product ", attributes: "count(*)", where: " where `categoryProduct` = '" + CategoryDataGridView.SelectedRows[0].Cells[0].Value + "'")[0];
 
                         res = MessageBox.Show("Внимание! Будет удалено товары удалятся в количестве: " + count + " шт. Уверены что хотите продолжить? \nИзменения не обратимы.", "Предупреждение", MessageBoxButtons.YesNo);
                         if (res == DialogResult.Yes)
@@ -254,7 +254,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                List<string> listR = SQLClass.GetSelectInListRows("`category`", " where nameСategory like '" + CategoryTextBox.Text.TrimStart() + "%'", "idСategory");
+                List<string> listR = SQLClass.GetSelectInList("`category`", " where nameСategory like '" + CategoryTextBox.Text.TrimStart() + "%'", "idСategory");
 
                 DataGridViewRow first = null;
                 foreach (DataGridViewRow row in CategoryDataGridView.Rows)
@@ -317,7 +317,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 else
                 {
-                    row.Cells[1].Value = SQLClass.GetSelectInListColumns(" diploma.user ", attributes:
+                    row.Cells[1].Value = SQLClass.GetSelectInList(" diploma.user ", attributes:
                     "concat(surnameUser, ' ', nameUser, ' ', patronymicUser)",
                     where: " where idUser = " + selected.Cells[0].Value.ToString())[0];
                 }
@@ -329,7 +329,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                List<string> listR = SQLClass.GetSelectInListRows(" `user` ",
+                List<string> listR = SQLClass.GetSelectInList(" `user` ",
                 " where surnameUser like '" + UsersTextBox.Text.TrimStart() + "%'" +
                  " or nameUser like '" + UsersTextBox.Text.TrimStart() + "%'" +
                  " or patronymicUser like '" + UsersTextBox.Text.TrimStart() + "%'"
@@ -372,7 +372,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                List<string> listR = SQLClass.GetSelectInListRows(" `seriesproduct` ", " where idSeries like '" + SeriesTextBox.Text.TrimStart() + "%'" +
+                List<string> listR = SQLClass.GetSelectInList(" `seriesproduct` ", " where idSeries like '" + SeriesTextBox.Text.TrimStart() + "%'" +
                     " or nameProduct like '" + SeriesTextBox.Text.TrimStart() + "%'",
                 "idSeries",
                 join: " inner join `product` on productIdSeries = idProduct ");

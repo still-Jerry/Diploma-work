@@ -98,6 +98,7 @@
             this.ExportButton.TabIndex = 13;
             this.ExportButton.Text = "Экспорт";
             this.ExportButton.UseVisualStyleBackColor = false;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // ImportButton
             // 
@@ -112,6 +113,7 @@
             this.ImportButton.TabIndex = 12;
             this.ImportButton.Text = "Импорт";
             this.ImportButton.UseVisualStyleBackColor = false;
+            this.ImportButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // CloseButton
             // 

@@ -162,7 +162,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                 }
                 else {
-                    row.Cells[1].Value = SQLClass.GetSelectInListColumns(" `order` ",
+                    row.Cells[1].Value = SQLClass.GetSelectInList(" `order` ",
                     " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
                     attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
                     join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
@@ -187,11 +187,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 List <string> listR;
                 if (SearchСomboBox.SelectedItem == "номеру заказа")
                 {
-                    listR = SQLClass.GetSelectInListRows("`order`", " where idOrder like '" + SearchTextBox.Text.TrimStart() + "%'",
+                    listR = SQLClass.GetSelectInList("`order`", " where idOrder like '" + SearchTextBox.Text.TrimStart() + "%'",
                     "idOrder", " order by idOrder");
                 }
                 else {
-                    listR = SQLClass.GetSelectInListRows("`order`", " where surnameUser like '" + SearchTextBox.Text.TrimStart() + "%'" +
+                    listR = SQLClass.GetSelectInList("`order`", " where surnameUser like '" + SearchTextBox.Text.TrimStart() + "%'" +
                         " or nameUser like '" + SearchTextBox.Text.TrimStart() + "%'" + " or patronymicUser like '" + SearchTextBox.Text.TrimStart() + "%'",
                         "idOrder", " order by idOrder",
                         " inner join `diploma`.`user` on `user`.`idUser` = `userOrder` ");

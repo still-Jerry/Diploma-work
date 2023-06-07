@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.ToDelayButton = new System.Windows.Forms.Button();
             this.ToSpeciallyButton = new System.Windows.Forms.Button();
             this.ToDirectoryButton = new System.Windows.Forms.Button();
             this.ToOrdersButton = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ВackgroundGroupBox.Controls.Add(this.ToDelayButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToSpeciallyButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToDirectoryButton);
             this.ВackgroundGroupBox.Controls.Add(this.ToOrdersButton);
@@ -56,24 +54,9 @@
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(219, 281);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(219, 241);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
-            // 
-            // ToDelayButton
-            // 
-            this.ToDelayButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ToDelayButton.BackColor = System.Drawing.Color.White;
-            this.ToDelayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToDelayButton.Location = new System.Drawing.Point(6, 163);
-            this.ToDelayButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ToDelayButton.Name = "ToDelayButton";
-            this.ToDelayButton.Size = new System.Drawing.Size(208, 33);
-            this.ToDelayButton.TabIndex = 18;
-            this.ToDelayButton.Text = "Просрочка";
-            this.ToDelayButton.UseVisualStyleBackColor = false;
-            this.ToDelayButton.Click += new System.EventHandler(this.ToDelayButton_Click);
             // 
             // ToSpeciallyButton
             // 
@@ -81,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToSpeciallyButton.BackColor = System.Drawing.Color.White;
             this.ToSpeciallyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToSpeciallyButton.Location = new System.Drawing.Point(6, 241);
+            this.ToSpeciallyButton.Location = new System.Drawing.Point(6, 202);
             this.ToSpeciallyButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToSpeciallyButton.Name = "ToSpeciallyButton";
             this.ToSpeciallyButton.Size = new System.Drawing.Size(208, 33);
@@ -96,7 +79,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ToDirectoryButton.BackColor = System.Drawing.Color.White;
             this.ToDirectoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToDirectoryButton.Location = new System.Drawing.Point(6, 202);
+            this.ToDirectoryButton.Location = new System.Drawing.Point(6, 163);
             this.ToDirectoryButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.ToDirectoryButton.Name = "ToDirectoryButton";
             this.ToDirectoryButton.Size = new System.Drawing.Size(208, 33);
@@ -205,7 +188,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(257, 340);
+            this.ClientSize = new System.Drawing.Size(257, 300);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
             this.Controls.Add(this.ExpandButton);
@@ -214,8 +197,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.MaximumSize = new System.Drawing.Size(257, 340);
-            this.MinimumSize = new System.Drawing.Size(257, 214);
+            this.MaximumSize = new System.Drawing.Size(257, 300);
+            this.MinimumSize = new System.Drawing.Size(257, 205);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Меню";
@@ -232,7 +215,6 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToAuthorizationButton;
-        private System.Windows.Forms.Button ToDelayButton;
         private System.Windows.Forms.Button ToSpeciallyButton;
         private System.Windows.Forms.Button ToDirectoryButton;
         private System.Windows.Forms.Button ToOrdersButton;

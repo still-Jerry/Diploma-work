@@ -17,6 +17,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Int16 MoreProductButtonState = 1;
         public static Int16 DiscountDay = 31;
         public static Boolean DirectoryFormAdd = true;
+        public static Boolean SpeciallyFormImport = true;
 
         public static string ToUpperString(string str)
         {

@@ -21,12 +21,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             if (BusinessClass.UserInfoList[5] == "2")
             {
               
-               this.Height = 214;
+               this.Height = 205;
                this.Width = 257;
 
             }
             else {
-                this.Height = 340;
+                this.Height = 300;
                 this.Width = 257;
             }
         }

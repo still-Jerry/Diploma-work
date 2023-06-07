@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.EntarenceButton = new System.Windows.Forms.Button();
             this.PwdCheckBox = new System.Windows.Forms.CheckBox();
             this.PwdTextBox = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ВackgroundGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
-            this.ВackgroundGroupBox.Controls.Add(this.button1);
             this.ВackgroundGroupBox.Controls.Add(this.EntarenceButton);
             this.ВackgroundGroupBox.Controls.Add(this.PwdCheckBox);
             this.ВackgroundGroupBox.Controls.Add(this.PwdTextBox);
@@ -63,19 +61,6 @@
             this.ВackgroundGroupBox.Size = new System.Drawing.Size(390, 199);
             this.ВackgroundGroupBox.TabIndex = 6;
             this.ВackgroundGroupBox.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(245, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Н";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
             // 
             // EntarenceButton
             // 
@@ -229,7 +214,6 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
-        private System.Windows.Forms.Button button1;
 
     }
 }

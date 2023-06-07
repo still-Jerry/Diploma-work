@@ -74,7 +74,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                     if (PersonalDataClass.CheckUserEquality(LoginTextBox.Text, PwdTextBox.Text))
                     {
-                        BusinessClass.UserInfoList = SQLClass.GetSelectInListColumns("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
+                        BusinessClass.UserInfoList = SQLClass.GetSelectInList("`user`", " where `loginUser` = '" + LoginTextBox.Text + "' ", "idUser, surnameUser, nameUser, patronymicUser, loginUser, roleUser");
 
                         MessageBox.Show("Добро пожаловать, " + BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3] + "!", "Информация");
                         MenuForm NewForm = new MenuForm();

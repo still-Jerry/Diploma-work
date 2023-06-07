@@ -156,6 +156,12 @@
     <Compile Include="Forms\DirectoryForm.Designer.cs">
       <DependentUpon>DirectoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SpeciallyMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SpeciallyMessageForm.Designer.cs">
+      <DependentUpon>SpeciallyMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\BusinessClass.cs" />
     <Compile Include="Modules\PersonalDataClass.cs" />
     <Compile Include="Modules\SQLClass.cs" />
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DirectoryForm.resx">
       <DependentUpon>DirectoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SpeciallyMessageForm.resx">
+      <DependentUpon>SpeciallyMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
