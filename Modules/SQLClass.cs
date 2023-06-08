@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules
 {
     /// <summary>
@@ -237,23 +238,23 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-
-
-
-        public static bool ImportTable(string TableName, string Attributes, string VALUES)
-        {
-            try
-            {
-                //MySqlConnection con = new MySqlConnection(StrCon);
-                //con.Open();
-                //string Request = "Insert Into  `" + TableName + "` (" + Attributes + ") VALUES " + VALUES + ";";
-                //MySqlCommand cmd = new MySqlCommand(Request, con);
-                //int n = cmd.ExecuteNonQuery();
-                //con.Close();
-                return true;
-            }
-            catch (Exception) { return false; }
-        }
+        //public static void BacupExport() {
+        //    string constring = "server=localhost;user=root;pwd=qwerty;database=test;";
+        //    string file = "C:\\backup.sql";
+        //    using (MySqlConnection conn = new MySqlConnection(constring))
+        //    {
+        //        using (MySqlCommand cmd = new MySqlCommand())
+        //        {
+        //            using (MySqlBackup mb = new MySqlBackup(cmd))
+        //            {
+        //                cmd.Connection = conn;
+        //                conn.Open();
+        //                mb.ExportToFile(file);
+        //                conn.Close();
+        //            }
+        //        }
+        //    }
+        //}
     }
 
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
@@ -15,8 +16,48 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using SQLClass = Modules.SQLClass;
     public partial class MoreProductMessageForm : Form
     {
-       
+        /// <summary> Inactivity Tracking </summary>
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (GetIdleTime() >= 60000)
+            {
+                AuthorizationForm NewForm = new AuthorizationForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+            }
+        }
+        [DllImport("User32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+
+            public uint dwTime;
+        }
+
+        public static uint GetIdleTime()
+        {
+            LASTINPUTINFO LastUserAction = new LASTINPUTINFO();
+            LastUserAction.cbSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(LastUserAction);
+            GetLastInputInfo(ref LastUserAction);
+            return ((uint)Environment.TickCount - LastUserAction.dwTime);
+        }
+
+        private void MoreProductMessageForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.SizeAll;
+            base.Capture = false;
+            Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
+            this.WndProc(ref m);
+            this.Cursor = Cursors.Default;
+        }
+
+        private void MoreProductMessageForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         public MoreProductMessageForm()
         {
             InitializeComponent();
@@ -74,5 +115,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
             }
         }
+
+
     }
 }

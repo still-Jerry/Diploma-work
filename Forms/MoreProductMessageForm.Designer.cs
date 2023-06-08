@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.BackgroundGroupBox = new System.Windows.Forms.GroupBox();
@@ -35,6 +36,7 @@
             this.SeriesLabel = new System.Windows.Forms.Label();
             this.NumberLabel = new System.Windows.Forms.Label();
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -126,6 +128,11 @@
             this.numericUpDown.TabIndex = 25;
             this.numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MoreProductMessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -144,6 +151,8 @@
             this.Name = "MoreProductMessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание серии продукта";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MoreProductMessageForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoreProductMessageForm_MouseDown);
             this.BackgroundGroupBox.ResumeLayout(false);
             this.BackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
@@ -160,6 +169,7 @@
         private System.Windows.Forms.Label NumberLabel;
         private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Timer timer1;
 
     }
 }

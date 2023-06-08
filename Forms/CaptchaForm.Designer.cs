@@ -186,6 +186,8 @@
             this.Name = "CaptchaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "А не робот ли вы?";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CaptchaForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CaptchaForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

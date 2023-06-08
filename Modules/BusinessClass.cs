@@ -38,6 +38,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             return text;
         }
 
+        public static bool WriteCounfig(string value, string path)
+        {
+            try
+            {
+                StreamWriter writer = new StreamWriter(path, false);
+                writer.Write(value);
+                writer.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool ExportTable(DataTable dt, string table, string path ="")
         {
             try
@@ -78,5 +93,85 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false; 
             }
         }
+
+        public static bool ImportTable(string table, string path = "")
+        {
+            try
+            {
+                string[] fileText = File.ReadAllLines(path);
+                Boolean first = true;
+                foreach (string strFileText in fileText) {
+                    if (first)
+                    {
+                        string collumns = "";
+                        for (int i = 0; i < strFileText.Split(';').Length; i++)
+                        {
+                            if (i == strFileText.Split(';').Length - 1)
+                            {
+                                collumns = collumns + strFileText.Split(';')[i] + " text";
+
+                            }
+                            else
+                            {
+                                collumns = collumns + strFileText.Split(';')[i] + " text, ";
+
+                            }
+                        }
+                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+                        SQLClass.RequestInListRows("CREATE TABLE new_reserve ( " + collumns + " );");
+                        first = false;
+                    }
+                    else {
+                        string values = "";
+                        for (int i = 0; i < strFileText.Split(';').Length; i++)
+                        {
+                            if (i == strFileText.Split(';').Length - 1)
+                            {
+                                values = values + "'" + strFileText.Split(';')[i]+"'";
+                            }
+                            else
+                            {
+                                values = values +"'"+ strFileText.Split(';')[i] + "', ";
+                            }
+                        }
+                        SQLClass.AddToDataBase(" new_reserve ",values);
+                    }
+                }
+                SQLClass.RequestInListRows("DROP TABLE IF EXISTS " + table + "_copy;");    
+                if (SQLClass.RequestInListRows("CREATE TABLE " + table + "_copy select * from `" + table + "`;") != null) {
+                    List<String> col = SQLClass.RequestInListRows("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '"+table+"' AND TABLE_SCHEMA='diploma';");
+                    string colval="";
+                    for (int i = 0; i < col.Count; i++)
+                        {
+                            if (i == col.Count - 1)
+                            {
+                                colval = colval +col[i];
+                            }
+                            else
+                            {
+                                colval = colval +col[i]+ ", ";
+                            }
+                        }
+                    SQLClass.DeleteFromDataBase(table, "");
+                    if (SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from new_reserve;") == null)
+                    {
+                        SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from " + table + "_copy;");
+                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+                        return false;                   
+                    }
+                    else {
+                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS "+table+"_copy;");
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            { 
+                return false; 
+            }
+        }
+
+    
     }
 }

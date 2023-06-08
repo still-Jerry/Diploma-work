@@ -52,6 +52,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -361,6 +362,11 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // DirectoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -380,6 +386,8 @@
             this.Name = "DirectoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поставщики";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DirectoryForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DirectoryForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.contextMenuStrip.ResumeLayout(false);
@@ -418,5 +426,6 @@
         private System.Windows.Forms.TextBox UsersTextBox;
         private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

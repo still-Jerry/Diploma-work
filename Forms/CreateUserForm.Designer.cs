@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.FTextBox = new System.Windows.Forms.TextBox();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.АLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,6 +370,11 @@
             this.АLabel.TabIndex = 116;
             this.АLabel.Text = "Фамилия";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // CreateUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -386,6 +393,8 @@
             this.MinimumSize = new System.Drawing.Size(510, 415);
             this.Name = "CreateUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateUserForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CreateUserForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -417,5 +426,6 @@
         private System.Windows.Forms.TextBox FTextBox;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Label АLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

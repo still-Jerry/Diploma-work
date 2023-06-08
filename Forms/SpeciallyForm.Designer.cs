@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.ToDiscountFormButton = new System.Windows.Forms.Button();
             this.BackupButton = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,6 +181,11 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // SpeciallyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -198,6 +205,8 @@
             this.Name = "SpeciallyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Специальные возожности";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpeciallyForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SpeciallyForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -214,5 +223,6 @@
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.Button ToDiscountFormButton;
         private System.Windows.Forms.Button BackupButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }

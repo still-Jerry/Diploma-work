@@ -52,6 +52,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -352,6 +353,11 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -371,7 +377,9 @@
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Лекарственные препараты";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProductForm_FormClosed);
             this.Load += new System.EventHandler(this.ProductForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ProductForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
@@ -405,5 +413,6 @@
         private System.Windows.Forms.ToolStripMenuItem добавитьКЗаказуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem просмотрТовараToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem редактированиеТовараToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }

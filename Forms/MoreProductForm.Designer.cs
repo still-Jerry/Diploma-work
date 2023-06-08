@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.AddToSeriesButton = new System.Windows.Forms.Button();
             this.AddToOrderButton = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRackUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountUpDown)).BeginInit();
@@ -446,6 +448,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MoreProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -464,6 +471,8 @@
             this.MinimumSize = new System.Drawing.Size(595, 505);
             this.Name = "MoreProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MoreProductForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoreProductForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRackUpDown)).EndInit();
@@ -505,5 +514,6 @@
         private System.Windows.Forms.Button ImageButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button AddToSeriesButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }

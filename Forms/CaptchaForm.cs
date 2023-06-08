@@ -14,7 +14,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using ViewsClass = Modules.ViewsClass;
     public partial class CaptchaForm : Form
     {
-        
+        #region Typical events of all forms
+        private void CaptchaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CaptchaForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.SizeAll;
+            base.Capture = false;
+            Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
+            this.WndProc(ref m);
+            this.Cursor = Cursors.Default;
+        }
+        #endregion
 
         public CaptchaForm()
         {
@@ -50,6 +64,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 ViewsClass.EnabledForm = true;
             }
         }
+
+
 
         
     }

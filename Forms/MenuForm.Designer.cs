@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.ToSpeciallyButton = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,6 +184,11 @@
             this.ExpandButton.UseVisualStyleBackColor = false;
             this.ExpandButton.Click += new System.EventHandler(this.ExpandButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -203,6 +210,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Меню";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -219,5 +227,6 @@
         private System.Windows.Forms.Button ToDirectoryButton;
         private System.Windows.Forms.Button ToOrdersButton;
         private System.Windows.Forms.Button ToProductButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }

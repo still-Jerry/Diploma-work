@@ -7,6 +7,9 @@
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.components">
             <summary>
             Required designer variable.
@@ -29,6 +32,9 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.components">
             <summary>
             Required designer variable.
@@ -49,6 +55,9 @@
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.RequestGetProduct">
             <summary>Private form functions</summary>
         </member>
@@ -68,6 +77,9 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.components">
             <summary>
@@ -123,6 +135,9 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.components">
             <summary>
             Required designer variable.
@@ -142,6 +157,9 @@
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.dataGridView_EditingControlShowing(System.Object,System.Windows.Forms.DataGridViewEditingControlShowingEventArgs)">
             <summary>
@@ -176,6 +194,9 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.components">
             <summary>
             Required designer variable.
@@ -193,8 +214,31 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.components">
             <summary>
@@ -215,6 +259,9 @@
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.ToMenuButton_Click(System.Object,System.EventArgs)">
             <summary>
@@ -249,6 +296,9 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
@@ -276,6 +326,9 @@
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.ToMenuButton_Click(System.Object,System.EventArgs)">
             <summary>
@@ -310,10 +363,8 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.ToMenuButton_Click(System.Object,System.EventArgs)">
-            <summary>
-            <CreateParams>Shape stretching</CreateParams>
-            </summary>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.components">
             <summary>
@@ -331,6 +382,9 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
@@ -356,6 +410,9 @@
             <summary>
             <CreateParams>Shape stretching</CreateParams>
             </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.components">
             <summary>

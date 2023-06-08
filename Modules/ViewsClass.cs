@@ -15,7 +15,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Boolean StateWindows = true;
         public static Boolean EnabledForm = false;
         public static Int16 MoreProductButtonState = 1;
-        public static Int16 DiscountDay = 31;
+        public static Int16 DiscountDay =  Convert.ToInt16(File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "\\Res\\discount.conf")[0]);
         public static Boolean DirectoryFormAdd = true;
         public static Boolean SpeciallyFormImport = true;
 

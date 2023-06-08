@@ -196,6 +196,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация пользователя";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AuthorizationForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AuthorizationForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             this.ResumeLayout(false);

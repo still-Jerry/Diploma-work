@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
@@ -48,6 +49,49 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return cp;
             }
         }
+        /// <summary> Inactivity Tracking </summary>
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (GetIdleTime() >= 60000)
+            {
+                AuthorizationForm NewForm = new AuthorizationForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
+            }
+        }
+        [DllImport("User32.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+
+            public uint dwTime;
+        }
+
+        public static uint GetIdleTime()
+        {
+            LASTINPUTINFO LastUserAction = new LASTINPUTINFO();
+            LastUserAction.cbSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(LastUserAction);
+            GetLastInputInfo(ref LastUserAction);
+            return ((uint)Environment.TickCount - LastUserAction.dwTime);
+        }
+
+        private void OrdersForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.SizeAll;
+            base.Capture = false;
+            Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
+            this.WndProc(ref m);
+            this.Cursor = Cursors.Default;
+        }
+
+        private void OrdersForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         /// <summary>window display buttons </summary>
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -105,6 +149,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         where = "where dateOrder>=date('" + (DateTime.Today.Year - 1) + "." + DateTime.Today.Month + "." + DateTime.Today.Day + "') and dateOrder<=current_date() ";
                         break;
                     case ("Произвольный период"):
+                        ViewsClass.EnabledForm = false;
+                        OrdersMessageForm NewForm = new OrdersMessageForm();
+                        this.Enabled = ViewsClass.EnabledForm;
+                        NewForm.ShowDialog();
+                        this.Enabled = true;
+
+                        where = "where dateOrder>=date('"+OrdersMessageForm.start+"') and dateOrder<=date('"+OrdersMessageForm.end+ "') ";
+
                         break;
                     default:
                         break;
@@ -227,6 +279,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
             }
         }
+
 
     
 

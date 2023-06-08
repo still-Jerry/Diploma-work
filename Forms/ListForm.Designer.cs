@@ -49,6 +49,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToProductButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
@@ -303,6 +304,11 @@
             this.ToProductButton.UseVisualStyleBackColor = false;
             this.ToProductButton.Click += new System.EventHandler(this.ToProductButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -322,6 +328,8 @@
             this.Name = "ListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Состав заказа";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ListForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -350,5 +358,6 @@
         private System.Windows.Forms.DataGridViewImageColumn ImgColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn InformColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountColumn;
+        private System.Windows.Forms.Timer timer1;
     }
 }

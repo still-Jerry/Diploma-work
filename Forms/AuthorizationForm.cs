@@ -49,12 +49,23 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 ViewsClass.StateWindows = true;
             }
         }
-        #endregion
 
+        private void AuthorizationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.SizeAll;
+            base.Capture = false;
+            Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
+            this.WndProc(ref m);
+            this.Cursor = Cursors.Default;
+
+        }
         private void AuthorizationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        #endregion
+
+   
 
         private void EntarenceButton_Click(object sender, EventArgs e)
         {
@@ -111,6 +122,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 PwdTextBox.UseSystemPasswordChar = true;
             }
         }
+
+ 
 
      
     }

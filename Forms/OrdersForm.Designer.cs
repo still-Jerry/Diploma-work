@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.FilterLabel = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -227,6 +229,11 @@
             this.ToMenuButton.UseVisualStyleBackColor = false;
             this.ToMenuButton.Click += new System.EventHandler(this.ToMenuButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -246,7 +253,9 @@
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Учёт заказов";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrdersForm_FormClosed);
             this.Load += new System.EventHandler(this.OrdersForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OrdersForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -268,5 +277,6 @@
         private System.Windows.Forms.Button ToListButton;
         private System.Windows.Forms.Label FilterLabel;
         private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

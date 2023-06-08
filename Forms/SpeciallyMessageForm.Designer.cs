@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.BackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +102,16 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Выберите таблицу:";
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // SpeciallyMessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -117,6 +130,8 @@
             this.Name = "SpeciallyMessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Иморт/Экспорт";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpeciallyMessageForm_FormClosed);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SpeciallyMessageForm_MouseMove);
             this.BackgroundGroupBox.ResumeLayout(false);
             this.BackgroundGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -131,5 +146,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Timer timer1;
     }
 }

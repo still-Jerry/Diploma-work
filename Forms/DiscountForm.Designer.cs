@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.DayLabel = new System.Windows.Forms.Label();
             this.CangeDayButton = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToSpeciallyFormButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DayNumericUpDown)).BeginInit();
@@ -229,6 +231,11 @@
             this.ToSpeciallyFormButton.UseVisualStyleBackColor = false;
             this.ToSpeciallyFormButton.Click += new System.EventHandler(this.ToSpeciallyFormButton_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // DiscountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -248,6 +255,8 @@
             this.Name = "DiscountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Работа со скидками";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DiscountForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DiscountForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
             this.ВackgroundGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountNumericUpDown)).EndInit();
@@ -271,5 +280,6 @@
         private System.Windows.Forms.NumericUpDown DayNumericUpDown;
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
