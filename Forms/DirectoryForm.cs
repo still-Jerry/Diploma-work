@@ -22,6 +22,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             CategoryDataGridView.DataSource = SQLClass.GetSelectInDataTable(" category ", attributes: " idСategory, nameСategory as 'Название' ");
             CategoryDataGridView.Columns[0].Visible = false;
             timer1.Start();
+            if (ViewsClass.StateWindows)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
         #region Typical events of all forms
         /// <summary>
@@ -44,7 +52,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -146,6 +154,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                            "idUser, concat(surnameUser, ' ', nameUser, ' ', patronymicUser) as 'ФИО', `loginUser` as 'Логин', `nameRole` as 'Роль'",
                            join: "inner join `role` on `idRole` = roleUser");
                         UsersDataGridView.Columns[0].Visible = false;
+                        UsersDataGridView.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
                         foreach (DataGridViewRow row in UsersDataGridView.Rows)
                         {
                             var fio = row.Cells[1].Value.ToString().TrimEnd();

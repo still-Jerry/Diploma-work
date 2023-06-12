@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
+
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules
 {
     /// <summary>
@@ -238,23 +240,35 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        //public static void BacupExport() {
-        //    string constring = "server=localhost;user=root;pwd=qwerty;database=test;";
-        //    string file = "C:\\backup.sql";
-        //    using (MySqlConnection conn = new MySqlConnection(constring))
-        //    {
-        //        using (MySqlCommand cmd = new MySqlCommand())
-        //        {
-        //            using (MySqlBackup mb = new MySqlBackup(cmd))
-        //            {
-        //                cmd.Connection = conn;
-        //                conn.Open();
-        //                mb.ExportToFile(file);
-        //                conn.Close();
-        //            }
-        //        }
-        //    }
-        //}
+        public static Boolean BacupExport(String path)
+        {
+            try
+            {
+                //String file = AppDomain.CurrentDomain.BaseDirectory + "Res\\AppBackups\\" + filename;
+                path = "D:\\backup.sql";
+                using(MySqlConnection conn =new MySqlConnection()){
+                    using(MySqlCommand cmd = new MySqlCommand()){
+                        conn.ConnectionString = "host=localhost;uid=root;pwd=root;database=diploma;";
+                        conn.Open();
+                        cmd.Connection = conn;
+                        cmd.CommandText = "Use diploma;";
+                        cmd.ExecuteNonQuery();
+                        using (MySqlBackup mb = new MySqlBackup(cmd)) {
+                            mb.ExportInfo.ExportTableStructure = true;
+                            mb.ExportInfo.ExportRows = true;
+                            mb.ExportToFile(path);
+                        }
+                        conn.Close();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return false;
+            }
+        }
     }
 
 }

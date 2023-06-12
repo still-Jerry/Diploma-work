@@ -17,7 +17,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using SQLClass = Modules.SQLClass;
     public partial class MoreProductForm : Form
     {
-        String pictureName=BusinessClass.SelectedFromDataGridList[8];
+        String pictureName=BusinessClass.SelectedFromDataGridList[7];
         String CategotyID = "";
         
         #region Typical events of all forms
@@ -77,7 +77,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -297,14 +297,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                     if (question == DialogResult.Yes)
                     {
-                        try { File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
-                        }
-                        catch 
+                        if (pictureName != BusinessClass.SelectedFromDataGridList[7])
                         {
-                            MessageBox.Show("Изображение не сохранено");
-                            pictureName = "";
+                            try
+                            {
+                                File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Изображение не сохранено");
+                                pictureName = "";
+                            }
                         }
-
                         if (SQLClass.UpdateToDataBase(" product ",
                            "nameProduct = '" + NameTextBox.Text + "' , " +
                             "categoryProduct = '" + CategotyID + "' ," +
@@ -355,14 +359,17 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     }
                     if (question == DialogResult.Yes)
                     {
-                        try
+                        if (pictureName != "")
                         {
-                            File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Изображение не сохранено");
-                            pictureName = "";
+                            try
+                            {
+                                File.Copy(openFileDialog1.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Product\\" + pictureName);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Изображение не сохранено");
+                                pictureName = "";
+                            }
                         }
                         BusinessClass.SelectedFromDataGridList =SQLClass.TransactionAddToDataBase1(" product ", 
                             "null, '" +
@@ -456,6 +463,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             NameTextBox.SelectionStart = NameTextBox.Text.Length;
             NameTextBox.Focus();
         }
+
+   
 
 
      

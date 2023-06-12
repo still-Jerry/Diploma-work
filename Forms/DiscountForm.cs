@@ -75,7 +75,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -165,7 +165,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                if (BusinessClass.WriteCounfig(DayNumericUpDown.Value.ToString(), AppDomain.CurrentDomain.BaseDirectory + "\\Res\\discount.conf"))
+                if (BusinessClass.WriteCounfig(DayNumericUpDown.Value.ToString(), AppDomain.CurrentDomain.BaseDirectory + "\\Res\\discount.cfg"))
                 {
                     ViewsClass.DiscountDay = Convert.ToInt16(DayNumericUpDown.Value);
                     MessageBox.Show("Скидочный день успешно изменён.", "Информация");

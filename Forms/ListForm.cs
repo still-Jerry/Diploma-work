@@ -77,7 +77,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -184,6 +184,14 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             InitializeComponent();
             RequestGetProduct();
             timer1.Start();
+            if (ViewsClass.StateWindows)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
         /// <summary>Private form functions</summary> 
         void ChangeNumbers() {

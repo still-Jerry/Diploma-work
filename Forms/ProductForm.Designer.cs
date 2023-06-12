@@ -84,16 +84,15 @@
             // 
             // AddNewProductButton
             // 
-            this.AddNewProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddNewProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddNewProductButton.BackColor = System.Drawing.Color.White;
             this.AddNewProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNewProductButton.Location = new System.Drawing.Point(149, 377);
-            this.AddNewProductButton.MinimumSize = new System.Drawing.Size(252, 30);
+            this.AddNewProductButton.Location = new System.Drawing.Point(416, 22);
+            this.AddNewProductButton.MinimumSize = new System.Drawing.Size(120, 31);
             this.AddNewProductButton.Name = "AddNewProductButton";
-            this.AddNewProductButton.Size = new System.Drawing.Size(253, 30);
+            this.AddNewProductButton.Size = new System.Drawing.Size(120, 31);
             this.AddNewProductButton.TabIndex = 21;
-            this.AddNewProductButton.Text = "Добавить новый товар";
+            this.AddNewProductButton.Text = "Добавить";
             this.AddNewProductButton.UseVisualStyleBackColor = false;
             this.AddNewProductButton.Click += new System.EventHandler(this.AddNewProductButton_Click);
             // 
@@ -154,10 +153,10 @@
             this.ToListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ToListButton.BackColor = System.Drawing.Color.White;
             this.ToListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToListButton.Location = new System.Drawing.Point(451, 22);
-            this.ToListButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ToListButton.Location = new System.Drawing.Point(416, 22);
+            this.ToListButton.MinimumSize = new System.Drawing.Size(120, 31);
             this.ToListButton.Name = "ToListButton";
-            this.ToListButton.Size = new System.Drawing.Size(85, 31);
+            this.ToListButton.Size = new System.Drawing.Size(120, 31);
             this.ToListButton.TabIndex = 15;
             this.ToListButton.Text = "Заказ";
             this.ToListButton.UseVisualStyleBackColor = false;
@@ -197,7 +196,7 @@
             this.SearchTextBox.Location = new System.Drawing.Point(6, 22);
             this.SearchTextBox.MaxLength = 70;
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(439, 31);
+            this.SearchTextBox.Size = new System.Drawing.Size(404, 31);
             this.SearchTextBox.TabIndex = 8;
             this.SearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTextBox_KeyPress);
             // 

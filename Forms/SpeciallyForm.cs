@@ -12,6 +12,8 @@ using System.Runtime.InteropServices;
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
     using ViewsClass = Modules.ViewsClass;
+    using SQLClass = Modules.SQLClass;
+
     public partial class SpeciallyForm : Form
     {
     
@@ -71,7 +73,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -127,6 +129,25 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             this.Enabled = ViewsClass.EnabledForm;
             NewForm.ShowDialog();
             this.Enabled = true;
+        }
+
+        private void BackupButton_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filepath = folderBrowserDialog.SelectedPath+"\\backup_" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "_руч.sql";
+
+                if (SQLClass.BacupExport(filepath))
+                {
+                    MessageBox.Show("Успешное создание бэкапа", "Информация");
+
+                }
+                else
+                {
+                    MessageBox.Show("Бэкап не создан", "Ошибка");
+
+                }
+            }
         }
 
 

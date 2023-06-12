@@ -66,8 +66,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
+                
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
                 NewForm.ShowDialog();
@@ -222,9 +223,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 AddNewProductButton.Visible = false;
             }
             else {
+                contextMenuStrip.Items[0].Visible = false;
+                ToListButton.Visible = false;
                 contextMenuStrip.Items[2].Visible = true;
                 AddNewProductButton.Visible = true;
             
+            }
+            timer1.Start();
+            if (ViewsClass.StateWindows)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
             }
             
         }
@@ -379,7 +391,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     order: " ORDER BY `ExpirationDateSeries` ASC",
                     where: " where productIdSeries = " + BusinessClass.SelectedFromDataGridList[0]).Count == 0)
                 {
-                    MessageBox.Show("Отсутсвуют серии продукта. Добавьте серию через меню редактироваения (администратор).", "Информация");
+                    MessageBox.Show("Отсутсвуют серии продукта. Добавьте серию через меню редактироваения (роль пользователя: Заведующий).", "Информация");
                 }
                 else
                 {

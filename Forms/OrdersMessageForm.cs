@@ -22,7 +22,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -71,7 +71,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             if (StartDateTimePicker.Value >= EndDateTimePicker.Value)
             {
-                MessageBox.Show("Дата начала периода должна быть меньше дады конца", "Инфомация");
+                MessageBox.Show("Дата начала периода должна быть меньше даты конца", "Инфомация");
             }
             else {
                 start = StartDateTimePicker.Value.Year + "." + StartDateTimePicker.Value.Month + "." + StartDateTimePicker.Value.Day;

@@ -17,7 +17,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
     public partial class OrdersForm : Form
     {
-      
+        Double totalSum = 0;
+
         #region Typical events of all forms
         private void ToMenuButton_Click(object sender, EventArgs e)
         {
@@ -53,7 +54,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
@@ -131,10 +132,33 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             SearchСomboBox.Items.Add("номеру заказа");
             SearchСomboBox.SelectedItem = "номеру заказа";
 
+            if (BusinessClass.UserInfoList[5] == "2")
+            {
+                ToListButton.Visible = false;
+            }
+            else
+            {
+                ToListButton.Visible = true;
+
+            }
+
+            if (ViewsClass.StateWindows)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+
         }
         private void OrdersForm_Load(object sender, EventArgs e)
         {
             GetProduct();
+            dataGridView.Columns[0].Width = 80;
+            dataGridView.Columns[3].Width = 100;
+            
+            
         }
         void GetProduct()
         {
@@ -163,7 +187,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 }
                 dataGridView.DataSource = SQLClass.GetSelectInDataTable(" `order` ", 
                     attributes:"idOrder as №, concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`) as 'Пользователь', dateOrder as 'Дата оформления', "+
-                     " round(sum(`priceProduct`*(1-`discountProduct`)*quantityList),2) as 'Сумма заказа', sum(quantityList) as 'Кол-во продуктов'",
+                     " round(sum(`priceProduct`*(1-`discountProduct`)*quantityList),2) as 'Сумма заказа'",
                     join: "inner join `list` on `idOrderList` = `idOrder`"+
                         " inner join `seriesproduct` on `seriesproduct`.`idSeries` = `list`.`seriesProductList` " +
                         " inner join `diploma`.`product` on `seriesproduct`.`productIdSeries` = `product`.`idProduct` "+
@@ -181,9 +205,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
                     }
                 }
-                dataGridView.Columns[0].Width = 80;
-                dataGridView.Columns[3].Width = 100;
-                dataGridView.Columns[4].Width = 80;
+                ChangeNumbers();
+               
             }
             catch (Exception ex)
             {
@@ -191,6 +214,24 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        void ChangeNumbers()
+        {
+            try
+            {
+                totalSum = 0;
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    totalSum += Convert.ToDouble(row.Cells[3].Value.ToString());
+
+                }
+                TotalSumLabel.Text = "Итого: " + totalSum + " p.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
+        }
     
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,37 +241,37 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selected = dataGridView.SelectedRows[0];
-            
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            if (BusinessClass.UserInfoList[5] == "1")
             {
-                if (row != selected)
+                DataGridViewRow selected = dataGridView.SelectedRows[0];
+
+                foreach (DataGridViewRow row in dataGridView.Rows)
                 {
-                    var fio = row.Cells[1].Value.ToString().TrimEnd(); ;
-                    row.Cells[1].Value = "";
-                    for (int i = 0; i < fio.Split(' ').Length; i++)
+                    if (row != selected)
                     {
-                        row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                        var fio = row.Cells[1].Value.ToString().TrimEnd(); ;
+                        row.Cells[1].Value = "";
+                        for (int i = 0; i < fio.Split(' ').Length; i++)
+                        {
+                            row.Cells[1].Value = row.Cells[1].Value.ToString() + fio.Split(' ')[i][0] + "****** ";
+                        }
                     }
+                    else
+                    {
+                        row.Cells[1].Value = SQLClass.GetSelectInList(" `order` ",
+                        " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
+                        attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
+                        join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
+                    }
+
                 }
-                else {
-                    row.Cells[1].Value = SQLClass.GetSelectInList(" `order` ",
-                    " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value,
-                    attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
-                    join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0];
-                }
-              
+
+                dataGridView.Columns[0].Width = 80;
+                dataGridView.Columns[3].Width = 100;
             }
-
-            dataGridView.Columns[0].Width = 80;
-            dataGridView.Columns[3].Width = 100;
-            dataGridView.Columns[4].Width = 80;
         }
 
-        private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
+    
 
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -278,6 +319,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             {
 
             }
+        }
+
+        private void ToListButton_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void просмотрСоставаЗаказаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("diploma.order",
+                   where: " where idOrder = " + dataGridView.SelectedRows[0].Cells[0].Value);
+            MoreOrderForm NewForm = new MoreOrderForm();
+            this.Visible = false;
+            NewForm.ShowDialog();
         }
 
 

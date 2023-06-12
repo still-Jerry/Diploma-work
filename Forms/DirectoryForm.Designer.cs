@@ -171,7 +171,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LemonChiffon;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CategoryDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.CategoryDataGridView.Location = new System.Drawing.Point(3, 43);
             this.CategoryDataGridView.MultiSelect = false;
@@ -212,7 +212,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.SeriesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.SeriesDataGridView.Location = new System.Drawing.Point(3, 43);
             this.SeriesDataGridView.MultiSelect = false;
@@ -263,7 +263,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.UsersDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.UsersDataGridView.Location = new System.Drawing.Point(3, 43);
             this.UsersDataGridView.MultiSelect = false;

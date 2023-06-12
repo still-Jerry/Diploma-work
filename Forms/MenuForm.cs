@@ -92,8 +92,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (GetIdleTime() >= 60000)
+            if (GetIdleTime() >= 60000 && this.Visible)
             {
+                
                 AuthorizationForm NewForm = new AuthorizationForm();
                 this.Visible = false;
                 NewForm.ShowDialog();
@@ -123,14 +124,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             ProductForm NewForm = new ProductForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
         private void ToOrdersButton_Click(object sender, EventArgs e)
@@ -138,14 +132,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             OrdersForm NewForm = new OrdersForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
+            
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void ToSuppliersButton_Click(object sender, EventArgs e)
@@ -153,14 +141,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             DirectoryForm NewForm = new DirectoryForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
+            
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
 
@@ -170,30 +152,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             SpeciallyForm NewForm = new SpeciallyForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
+            
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
-        private void ToDelayButton_Click(object sender, EventArgs e)
-        {
-            DelayForm NewForm = new DelayForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-            try
-            {
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
 
 

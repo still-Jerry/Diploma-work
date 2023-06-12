@@ -39,6 +39,7 @@
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +87,7 @@
             this.BackupButton.TabIndex = 23;
             this.BackupButton.Text = "Создать бэкап";
             this.BackupButton.UseVisualStyleBackColor = false;
+            this.BackupButton.Click += new System.EventHandler(this.BackupButton_Click);
             // 
             // ExportButton
             // 
@@ -224,5 +226,6 @@
         private System.Windows.Forms.Button ToDiscountFormButton;
         private System.Windows.Forms.Button BackupButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
