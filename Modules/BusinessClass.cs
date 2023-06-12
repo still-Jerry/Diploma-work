@@ -77,9 +77,18 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 //data
                 foreach (DataRow dataRow in dt.Rows)
                 {
+                    var arr = dataRow.ItemArray;
+                    string r = "";
+                    for (int i=0; i < dataRow.ItemArray.Count(); i++){
 
-                    string r = String.Join(";", dataRow.ItemArray);
-                    string rez = r.Replace(',', '.');
+                        if (i==dataRow.ItemArray.Count()-1){
+                            r = r + dataRow.ItemArray[i].ToString().Replace(';', '.');
+                        }else{
+                            r = r + dataRow.ItemArray[i].ToString().Replace(';', '.') + ";";
+                        }
+                    
+                    }
+                    string rez = r.Replace(',', '.').Replace("\n", "").Replace("\r","").Replace("\t","");
                     writer.WriteLine(rez);
                 }
 
@@ -94,13 +103,91 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        //public static bool ImportTable(string table, string path = "")
+        //{
+        //    try
+        //    {
+        //        string[] fileText = File.ReadAllLines(path);
+        //        Boolean first = true;
+        //        foreach (string strFileText in fileText) {
+        //            if (first)
+        //            {
+        //                string collumns = "";
+        //                for (int i = 0; i < strFileText.Split(';').Length; i++)
+        //                {
+        //                    if (i == strFileText.Split(';').Length - 1)
+        //                    {
+        //                        collumns = collumns + strFileText.Split(';')[i] + " text";
+
+        //                    }
+        //                    else
+        //                    {
+        //                        collumns = collumns + strFileText.Split(';')[i] + " text, ";
+
+        //                    }
+        //                }
+        //                SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+        //                SQLClass.RequestInListRows("CREATE TABLE new_reserve ( " + collumns + " );");
+        //                first = false;
+        //            }
+        //            else {
+        //                string values = "";
+        //                for (int i = 0; i < strFileText.Split(';').Length; i++)
+        //                {
+        //                    if (i == strFileText.Split(';').Length - 1)
+        //                    {
+        //                        values = values + "'" + strFileText.Split(';')[i]+"'";
+        //                    }
+        //                    else
+        //                    {
+        //                        values = values +"'"+ strFileText.Split(';')[i] + "', ";
+        //                    }
+        //                }
+        //                SQLClass.AddToDataBase(" new_reserve ",values);
+        //            }
+        //        }
+        //        SQLClass.RequestInListRows("DROP TABLE IF EXISTS " + table + "_copy;");    
+        //        if (SQLClass.RequestInListRows("CREATE TABLE " + table + "_copy select * from `" + table + "`;") != null) {
+        //            List<String> col = SQLClass.RequestInListRows("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '"+table+"' AND TABLE_SCHEMA='diploma';");
+        //            string colval="";
+        //            for (int i = 0; i < col.Count; i++)
+        //                {
+        //                    if (i == col.Count - 1)
+        //                    {
+        //                        colval = colval +col[i];
+        //                    }
+        //                    else
+        //                    {
+        //                        colval = colval +col[i]+ ", ";
+        //                    }
+        //                }
+        //            SQLClass.DeleteFromDataBase(table, "");
+        //            if (SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from new_reserve;") == null)
+        //            {
+        //                SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from " + table + "_copy;");
+        //                SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+        //                return false;                   
+        //            }
+        //            else {
+        //                SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+        //                SQLClass.RequestInListRows("DROP TABLE IF EXISTS "+table+"_copy;");
+        //            }
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    { 
+        //        return false; 
+        //    }
+        //}
         public static bool ImportTable(string table, string path = "")
         {
             try
             {
                 string[] fileText = File.ReadAllLines(path);
                 Boolean first = true;
-                foreach (string strFileText in fileText) {
+                foreach (string strFileText in fileText)
+                {
                     if (first)
                     {
                         string collumns = "";
@@ -121,54 +208,52 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         SQLClass.RequestInListRows("CREATE TABLE new_reserve ( " + collumns + " );");
                         first = false;
                     }
-                    else {
+                    else
+                    {
                         string values = "";
                         for (int i = 0; i < strFileText.Split(';').Length; i++)
                         {
                             if (i == strFileText.Split(';').Length - 1)
                             {
-                                values = values + "'" + strFileText.Split(';')[i]+"'";
+                                values = values + "'" + strFileText.Split(';')[i] + "'";
                             }
                             else
                             {
-                                values = values +"'"+ strFileText.Split(';')[i] + "', ";
+                                values = values + "'" + strFileText.Split(';')[i] + "', ";
                             }
                         }
-                        SQLClass.AddToDataBase(" new_reserve ",values);
+                        SQLClass.AddToDataBase(" new_reserve ", values);
                     }
                 }
-                SQLClass.RequestInListRows("DROP TABLE IF EXISTS " + table + "_copy;");    
-                if (SQLClass.RequestInListRows("CREATE TABLE " + table + "_copy select * from `" + table + "`;") != null) {
-                    List<String> col = SQLClass.RequestInListRows("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '"+table+"' AND TABLE_SCHEMA='diploma';");
-                    string colval="";
-                    for (int i = 0; i < col.Count; i++)
-                        {
-                            if (i == col.Count - 1)
-                            {
-                                colval = colval +col[i];
-                            }
-                            else
-                            {
-                                colval = colval +col[i]+ ", ";
-                            }
-                        }
-                    SQLClass.DeleteFromDataBase(table, "");
-                    if (SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from new_reserve;") == null)
+              
+                List<String> col = SQLClass.RequestInListRows("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + table + "' AND TABLE_SCHEMA='diploma';");
+                string colval = "";
+                for (int i = 0; i < col.Count; i++)
+                {
+                    if (i == col.Count - 1)
                     {
-                        SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from " + table + "_copy;");
-                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
-                        return false;                   
+                        colval = colval + col[i];
                     }
-                    else {
-                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
-                        SQLClass.RequestInListRows("DROP TABLE IF EXISTS "+table+"_copy;");
+                    else
+                    {
+                        colval = colval + col[i] + ", ";
                     }
                 }
+                SQLClass.DeleteFromDataBase(table, "");
+                if (SQLClass.RequestInListRows("INSERT INTO `" + table + "` ( " + colval + " ) select * from new_reserve;") == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    SQLClass.RequestInListRows("DROP TABLE IF EXISTS new_reserve;");
+                }
+                
                 return true;
             }
             catch (Exception)
-            { 
-                return false; 
+            {
+                return false;
             }
         }
 

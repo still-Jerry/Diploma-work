@@ -71,9 +71,16 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                if (LoginTextBox.Text.Replace(" ", "").Replace(" ", "") == "" || PwdTextBox.Text.Replace(" ", "").Replace(" ", "") == "")
+                if (SQLClass.GetSelectInList("user").Count == 0 || SQLClass.GetSelectInList("role").Count == 0) {
+                    MessageBox.Show("Таблицы пользователи и роль пусты. Необходимо выгрузить дамп бд или импортировать таблицы из csv файлов.","Информация");
+                    RecoveryForm NewForm = new RecoveryForm();
+                    this.Visible = false;
+                    NewForm.ShowDialog();
+                }
+                else if (LoginTextBox.Text.Replace(" ", "").Replace(" ", "") == "" || PwdTextBox.Text.Replace(" ", "").Replace(" ", "") == "")
                 {
                     MessageBox.Show("Заполните пустые поля", "Ошибка");
+                    
                 }
                 else
                 {
@@ -108,6 +115,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("Таблицы пользователи и роль пусты. Необходимо выгрузить дамп бд или импортировать таблицы из csv файлов.", "Информация");
+                RecoveryForm NewForm = new RecoveryForm();
+                this.Visible = false;
+                NewForm.ShowDialog();
             }
         }
       

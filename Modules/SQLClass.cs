@@ -240,7 +240,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        public static Boolean BacupExport(String path)
+        public static Boolean BakcupExport(String path)
         {
             try
             {
@@ -272,6 +272,34 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 return false;
             }
         }
+
+        public static Boolean BakcupImport(String path)
+        {
+            try
+            {
+                String constring = "host=localhost;uid=root;pwd=root;database=diploma;charset=utf8;convertzerodatetime=true;";
+                using (MySqlConnection conn = new MySqlConnection(constring))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        using (MySqlBackup mb = new MySqlBackup(cmd))
+                        {
+                            cmd.Connection = conn;
+                            conn.Open();
+                            mb.ImportFromFile(path);
+                            conn.Close();
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return false;
+            }
+        }
+
     }
 
 }

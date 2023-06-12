@@ -14,9 +14,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using ViewsClass = Modules.ViewsClass;
     using SQLClass = Modules.SQLClass;
 
-    public partial class SpeciallyForm : Form
+    public partial class RecoveryForm : Form
     {
-    
         #region Typical events of all forms
         private void CloseButton_Click(object sender, EventArgs e)
         {
@@ -57,17 +56,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void ToMenuButton_Click(object sender, EventArgs e)
         {
-            MenuForm NewForm = new MenuForm();
+            AuthorizationForm NewForm = new AuthorizationForm();
             this.Visible = false;
             NewForm.ShowDialog();
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
         }
         /// <summary> Inactivity Tracking </summary>
 
@@ -100,54 +92,9 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         #endregion
 
-        public SpeciallyForm()
+        public RecoveryForm()
         {
             InitializeComponent();
-        }
-        private void ToDiscountFormButton_Click(object sender, EventArgs e)
-        {
-            DiscountForm NewForm = new DiscountForm();
-            this.Visible = false;
-            NewForm.ShowDialog();
-        }
-
-        private void ImportButton_Click(object sender, EventArgs e)
-        {
-            ViewsClass.SpeciallyFormImport = true;
-            ViewsClass.EnabledForm = false;
-            SpeciallyMessageForm NewForm = new SpeciallyMessageForm();
-            this.Enabled = ViewsClass.EnabledForm;
-            NewForm.ShowDialog();
-            this.Enabled = true;
-        }
-
-        private void ExportButton_Click(object sender, EventArgs e)
-        {
-            ViewsClass.SpeciallyFormImport = false;
-            ViewsClass.EnabledForm = false;
-            SpeciallyMessageForm NewForm = new SpeciallyMessageForm();
-            this.Enabled = ViewsClass.EnabledForm;
-            NewForm.ShowDialog();
-            this.Enabled = true;
-        }
-
-        private void BackupButton_Click(object sender, EventArgs e)
-        {
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filepath = folderBrowserDialog.SelectedPath + "\\backup_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + "_руч.sql";
-
-                if (SQLClass.BakcupExport(filepath))
-                {
-                    MessageBox.Show("Успешное создание бэкапа", "Информация");
-
-                }
-                else
-                {
-                    MessageBox.Show("Бэкап не создан", "Ошибка");
-
-                }
-            }
         }
 
         private void RestoreButton_Click(object sender, EventArgs e)
@@ -167,8 +114,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
                 }
             }
+
         }
 
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

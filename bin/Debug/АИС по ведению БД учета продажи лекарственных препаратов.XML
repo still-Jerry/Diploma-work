@@ -394,6 +394,26 @@
             <CreateParams>Shape stretching</CreateParams>
             </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.RecoveryForm.timer1_Tick(System.Object,System.EventArgs)">
+            <summary> Inactivity Tracking </summary>
+        </member>
+        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.RecoveryForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.RecoveryForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.RecoveryForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.timer1_Tick(System.Object,System.EventArgs)">
             <summary> Inactivity Tracking </summary>
         </member>

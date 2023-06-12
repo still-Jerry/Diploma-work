@@ -164,6 +164,12 @@
     <Compile Include="Forms\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RecoveryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RecoveryForm.Designer.cs">
+      <DependentUpon>RecoveryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SpeciallyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     <EmbeddedResource Include="Forms\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RecoveryForm.resx">
+      <DependentUpon>RecoveryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SpeciallyForm.resx">
       <DependentUpon>SpeciallyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +285,13 @@
     </Content>
     <Content Include="Res\Diploma.sql" />
     <Content Include="Res\Product\638208987283151274Анастрозол.jpg" />
+    <Content Include="Res\Product\638209192826785364ВИФЕРОН.jpg" />
+    <Content Include="Res\Product\638209194787720230Лайфферон.jpg" />
+    <Content Include="Res\Product\638209616840640330Зигита.jpg" />
+    <Content Include="Res\Product\638209860485183991Зигита.jpg" />
+    <Content Include="Res\Product\638209869566281702Ярина.jpg" />
+    <Content Include="Res\Product\638210034694196275Сумамед.jpg" />
+    <Content Include="Res\Product\638217721723636878Ингавирин.jpg" />
     <Content Include="Res\Product\Гриппферон.jpeg" />
     <Content Include="Res\Product\Прогестерон.jpg" />
     <None Include="Res\AppView\background.jpg">

@@ -1,6 +1,6 @@
 ﻿namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
-    partial class SpeciallyForm
+    partial class RecoveryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,16 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.RestoreButton = new System.Windows.Forms.Button();
-            this.ToDiscountFormButton = new System.Windows.Forms.Button();
-            this.BackupButton = new System.Windows.Forms.Button();
-            this.ExportButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.ВackgroundGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -51,14 +47,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ВackgroundGroupBox.Controls.Add(this.RestoreButton);
-            this.ВackgroundGroupBox.Controls.Add(this.ToDiscountFormButton);
-            this.ВackgroundGroupBox.Controls.Add(this.BackupButton);
-            this.ВackgroundGroupBox.Controls.Add(this.ExportButton);
             this.ВackgroundGroupBox.Controls.Add(this.ImportButton);
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(170, 284);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(170, 121);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
@@ -68,7 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RestoreButton.BackColor = System.Drawing.Color.White;
             this.RestoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RestoreButton.Location = new System.Drawing.Point(6, 221);
+            this.RestoreButton.Location = new System.Drawing.Point(6, 57);
             this.RestoreButton.MinimumSize = new System.Drawing.Size(85, 30);
             this.RestoreButton.Name = "RestoreButton";
             this.RestoreButton.Size = new System.Drawing.Size(158, 57);
@@ -76,51 +69,6 @@
             this.RestoreButton.Text = "Восстановить бэкап";
             this.RestoreButton.UseVisualStyleBackColor = false;
             this.RestoreButton.Click += new System.EventHandler(this.RestoreButton_Click);
-            // 
-            // ToDiscountFormButton
-            // 
-            this.ToDiscountFormButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ToDiscountFormButton.BackColor = System.Drawing.Color.White;
-            this.ToDiscountFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToDiscountFormButton.Location = new System.Drawing.Point(6, 97);
-            this.ToDiscountFormButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ToDiscountFormButton.Name = "ToDiscountFormButton";
-            this.ToDiscountFormButton.Size = new System.Drawing.Size(158, 57);
-            this.ToDiscountFormButton.TabIndex = 24;
-            this.ToDiscountFormButton.Text = "Работа со скидками";
-            this.ToDiscountFormButton.UseVisualStyleBackColor = false;
-            this.ToDiscountFormButton.Click += new System.EventHandler(this.ToDiscountFormButton_Click);
-            // 
-            // BackupButton
-            // 
-            this.BackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BackupButton.BackColor = System.Drawing.Color.White;
-            this.BackupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackupButton.Location = new System.Drawing.Point(6, 159);
-            this.BackupButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.BackupButton.Name = "BackupButton";
-            this.BackupButton.Size = new System.Drawing.Size(158, 57);
-            this.BackupButton.TabIndex = 23;
-            this.BackupButton.Text = "Создать бэкап";
-            this.BackupButton.UseVisualStyleBackColor = false;
-            this.BackupButton.Click += new System.EventHandler(this.BackupButton_Click);
-            // 
-            // ExportButton
-            // 
-            this.ExportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportButton.BackColor = System.Drawing.Color.White;
-            this.ExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExportButton.Location = new System.Drawing.Point(6, 57);
-            this.ExportButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(158, 35);
-            this.ExportButton.TabIndex = 13;
-            this.ExportButton.Text = "Экспорт";
-            this.ExportButton.UseVisualStyleBackColor = false;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // ImportButton
             // 
@@ -209,15 +157,14 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
-            this.openFileDialog.Filter = "SQL Files (*.sql)|*.sql";
             // 
-            // SpeciallyForm
+            // RecoveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(208, 343);
+            this.ClientSize = new System.Drawing.Size(208, 180);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
@@ -227,9 +174,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximumSize = new System.Drawing.Size(1024, 720);
-            this.Name = "SpeciallyForm";
+            this.Name = "RecoveryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Специальные возожности";
+            this.Text = "Восстановление данных";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SpeciallyForm_FormClosed);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SpeciallyForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
@@ -244,12 +191,8 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToMenuButton;
-        private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.Button ImportButton;
-        private System.Windows.Forms.Button ToDiscountFormButton;
-        private System.Windows.Forms.Button BackupButton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button RestoreButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
     }

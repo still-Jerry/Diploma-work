@@ -45,6 +45,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (Modules.ViewsClass.CloseForm)
+            {
+                String filepath = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\AppBackups\\backup_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".sql";
+                if (Modules.SQLClass.BakcupExport(filepath))
+                {
+                    MessageBox.Show("Успешное создание бэкапа", "Информация");
+
+                }
+                else
+                {
+                    MessageBox.Show("Бэкап не создан", "Ошибка");
+
+                }
+                Modules.ViewsClass.CloseForm = false;
+            }
             Application.Exit();
         }
 

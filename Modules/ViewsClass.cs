@@ -18,6 +18,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public static Int16 DiscountDay =  Convert.ToInt16(File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "\\Res\\discount.cfg")[0]);
         public static Boolean DirectoryFormAdd = true;
         public static Boolean SpeciallyFormImport = true;
+        public static Boolean CloseForm = true;
+
 
         public static string ToUpperString(string str)
         {
