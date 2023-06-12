@@ -135,7 +135,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                string filepath = folderBrowserDialog.SelectedPath+"\\backup_" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "_руч.sql";
+                string filepath = folderBrowserDialog.SelectedPath + "\\backup_" + DateTime.Now.ToString("dd.MM.yyyy HH:mm") + "_руч.sql";
 
                 if (SQLClass.BacupExport(filepath))
                 {

@@ -66,10 +66,21 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         public SpeciallyMessageForm()
         {
             InitializeComponent();
-            List<String> tables = SQLClass.RequestInListRows("Show tables;");
-            for (Int16 i = 0; i < tables.Count(); i++)
+            if (ViewsClass.SpeciallyFormImport)
             {
-                comboBox.Items.Add(tables[i]);
+                comboBox.Items.Add("category");
+                comboBox.Items.Add("role");
+                comboBox.Items.Add("user");
+                comboBox.Items.Add("product");
+
+            }
+            else
+            {
+                List<String> tables = SQLClass.RequestInListRows("Show tables;");
+                for (Int16 i = 0; i < tables.Count(); i++)
+                {
+                    comboBox.Items.Add(tables[i]);
+                }
             }
             comboBox.SelectedIndex = 0;
         }
@@ -86,16 +97,23 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             if (ViewsClass.SpeciallyFormImport)
             {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                if (SQLClass.GetSelectInList(comboBox.Text).Count == 0)
                 {
-                    if (BusinessClass.ImportTable(comboBox.Text, openFileDialog.FileName))
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        MessageBox.Show("Импорт произошёл успешно!", "Информация");
+                        if (BusinessClass.ImportTable(comboBox.Text, openFileDialog.FileName))
+                        {
+                            MessageBox.Show("Импорт произошёл успешно!", "Информация");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка импортирования.", "Ошибка");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Ошибка импортирования.", "Ошибка");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Импорт не отработет, т. к. таблицы должны быть пустыми", "Информация");
                 }
             }
             else {

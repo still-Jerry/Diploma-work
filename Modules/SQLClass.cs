@@ -23,7 +23,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             try
             {
-                string con = "host=localhost;uid=root;pwd=root;database=diploma;";
+                string con = "host=localhost;uid=root;pwd=123;database=diploma;";
                 MySqlConnection Connection = new MySqlConnection(con);
                 Connection.Open();
                 return Connection;
@@ -246,14 +246,17 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             {
                 //String file = AppDomain.CurrentDomain.BaseDirectory + "Res\\AppBackups\\" + filename;
                 path = "D:\\backup.sql";
-                using(MySqlConnection conn =new MySqlConnection()){
-                    using(MySqlCommand cmd = new MySqlCommand()){
-                        conn.ConnectionString = "host=localhost;uid=root;pwd=root;database=diploma;charset=utf8;convertzerodatetime=true;";
+                using (MySqlConnection conn = new MySqlConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand())
+                    {
+                        conn.ConnectionString = "host=localhost;uid=root;pwd=123;database=diploma;charset=utf8;convertzerodatetime=true;";
                         conn.Open();
                         cmd.Connection = conn;
                         cmd.CommandText = "Use diploma;";
                         cmd.ExecuteNonQuery();
-                        using (MySqlBackup mb = new MySqlBackup(cmd)) {
+                        using (MySqlBackup mb = new MySqlBackup(cmd))
+                        {
                             mb.ExportInfo.ExportTableStructure = true;
                             mb.ExportInfo.ExportRows = true;
                             mb.ExportToFile(path);
