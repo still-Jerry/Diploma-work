@@ -248,7 +248,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 path = "D:\\backup.sql";
                 using(MySqlConnection conn =new MySqlConnection()){
                     using(MySqlCommand cmd = new MySqlCommand()){
-                        conn.ConnectionString = "host=localhost;uid=root;pwd=root;database=diploma;";
+                        conn.ConnectionString = "host=localhost;uid=root;pwd=root;database=diploma;charset=utf8;convertzerodatetime=true;";
                         conn.Open();
                         cmd.Connection = conn;
                         cmd.CommandText = "Use diploma;";
