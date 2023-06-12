@@ -1,0 +1,144 @@
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppLibraries\MySqlBackup.dll
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppView\captha.jpg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppView\icon.ico
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\discount.cfg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppView\background.jpg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppView\plug.png
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\AppView\iconP.png
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.XML
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreOrderForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.GenerateResource.Cache
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.XML
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppLibraries\MySqlBackup.dll
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppView\captha.jpg
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppView\icon.ico
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\discount.cfg
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppView\background.jpg
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppView\plug.png
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\Res\AppView\iconP.png
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\bin\Debug\MySqlBackup.dll
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreOrderForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.resources
+C:\Users\User\Desktop\Новая папка (2)\Diploma-work-main (1)\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.GenerateResource.Cache
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.XML
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppLibraries\MySqlBackup.dll
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\captha.jpg
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\icon.ico
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\discount.cfg
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\background.jpg
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\plug.png
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\iconP.png
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\bin\Debug\MySqlBackup.dll
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csprojResolveAssemblyReference.cache
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreOrderForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.resources
+C:\Users\Командор\Downloads\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.GenerateResource.Cache
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.XML
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppLibraries\MySqlBackup.dll
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\captha.jpg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\icon.ico
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\discount.cfg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\background.jpg
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\plug.png
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\Res\AppView\iconP.png
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.exe
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\АИС по ведению БД учета продажи лекарственных препаратов.pdb
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\bin\Debug\MySqlBackup.dll
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csprojResolveAssemblyReference.cache
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.АИС по ведению БД учета продажи лекарственных препаратов.exe.config
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CreateUserForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryFormMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DiscountForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreOrderForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.AuthorizationForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.CaptchaForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MenuForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.MoreProductForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ProductForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DirectoryForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.SpeciallyMessageForm.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.resources
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\Diploma-work-main\Diploma-work-main\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.GenerateResource.Cache
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\MySqlBackup.dll
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csprojResolveAssemblyReference.cache
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.АИС по ведению БД учета продажи лекарственных препаратов.exe.config
