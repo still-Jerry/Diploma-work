@@ -302,6 +302,7 @@
             this.DelayReportButton.TabIndex = 37;
             this.DelayReportButton.Text = "Сформировать";
             this.DelayReportButton.UseVisualStyleBackColor = false;
+            this.DelayReportButton.Click += new System.EventHandler(this.DelayReportButton_Click);
             // 
             // DelaySearchTextBox
             // 

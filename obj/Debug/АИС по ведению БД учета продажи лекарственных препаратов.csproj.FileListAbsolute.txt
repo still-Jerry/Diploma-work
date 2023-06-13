@@ -145,3 +145,4 @@ C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проек
 C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\obj\Debug\АИС по ведению БД учета продажи лекарственных препаратов.csproj.ResolveComReference.cache
 C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\Documents\check_template.docx
 C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\Documents\order_report_template.docx
+C:\Users\Командор\Desktop\Сайт_ы\Курс 4\Диплом\Проект\АИС по ведению БД учета продажи лекарственных препаратов\bin\Debug\Res\Documents\delay_report_template.docx

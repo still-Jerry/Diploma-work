@@ -267,6 +267,9 @@
     <None Include="Res\Documents\check_template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Res\Documents\delay_report_template.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Res\Documents\order_report_template.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

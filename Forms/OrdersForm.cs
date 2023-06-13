@@ -382,7 +382,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        bool OrderDelayCreate(bool visible)
+        bool DelayReportCreate(bool visible)
         {
             try
             {
@@ -394,20 +394,20 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
                 string number = "";
                 string date = "";
-                string worker = "";
+                string product = "";
+                string price = "";
+                string count = "";
                 string cost = "";
                 double cost1 = 0.0;
-                foreach (DataGridViewRow row in OrdersDataGridView.Rows)
+                foreach (DataGridViewRow row in DelayDataGridView.Rows)
                 {
                     number += row.Cells[0].Value.ToString() + "\v";
-                    worker += SQLClass.GetSelectInList(" `order` ",
-                        " where idOrder = " + row.Cells[0].Value.ToString(),
-                        attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
-                        join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0] + "\v";
-
+                    product += row.Cells[1].Value.ToString() + "\v"; 
                     date += row.Cells[2].Value.ToString().Split(' ')[0] + "\v";
-                    cost += row.Cells[3].Value.ToString() + "\v";
-                    cost1 += Convert.ToDouble(row.Cells[3].Value.ToString());
+                    price += row.Cells[3].Value.ToString() + "\v";
+                    count += row.Cells[4].Value.ToString() + "\v"; 
+                    cost += row.Cells[5].Value.ToString() + "\v";
+                    cost1 += Convert.ToDouble(row.Cells[5].Value.ToString());
 
                 }
 
@@ -426,8 +426,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 BusinessClass.ReplaceWordStub("{user}", BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3], wordDocument);
                 BusinessClass.ReplaceWordStub("{period}", period, wordDocument);
                 BusinessClass.ReplaceWordStub("{№}", number, wordDocument);
-                BusinessClass.ReplaceWordStub("{worker}", worker, wordDocument);
+                BusinessClass.ReplaceWordStub("{product}", product, wordDocument);
                 BusinessClass.ReplaceWordStub("{date}", date, wordDocument);
+                BusinessClass.ReplaceWordStub("{price}", price, wordDocument);
+                BusinessClass.ReplaceWordStub("{count}", count, wordDocument);
                 BusinessClass.ReplaceWordStub("{cost}", cost, wordDocument);
                 BusinessClass.ReplaceWordStub("{cost1}", cost1.ToString(), wordDocument);
 
@@ -637,8 +639,30 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             GetDelay();
         }
+
+        private void DelayReportButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Вывести отчёт?", "Информация", MessageBoxButtons.YesNo);
+            bool checkF = false;
+            if (dr == DialogResult.Yes)
+            {
+                checkF = true;
+            }
+            else
+            {
+                checkF = false;
+            }
+            this.Enabled = false;
+            if (!DelayReportCreate(checkF))
+            {
+                MessageBox.Show("Отчёт не сформирован.", "Ошибка");
+            }
+            this.Enabled = true;
+        }
+
         #endregion
 
+      
 
 
 
