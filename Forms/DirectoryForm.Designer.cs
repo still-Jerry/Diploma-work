@@ -153,6 +153,7 @@
             this.CategoryTextBox.Size = new System.Drawing.Size(403, 31);
             this.CategoryTextBox.TabIndex = 2;
             this.CategoryTextBox.TextChanged += new System.EventHandler(this.CategoryTextBox_TextChanged);
+            this.CategoryTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CategoryTextBox_KeyPress);
             // 
             // CategoryDataGridView
             // 
@@ -233,6 +234,7 @@
             this.SeriesTextBox.Size = new System.Drawing.Size(522, 31);
             this.SeriesTextBox.TabIndex = 17;
             this.SeriesTextBox.TextChanged += new System.EventHandler(this.SeriesTextBox_TextChanged);
+            this.SeriesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SeriesTextBox_KeyPress);
             // 
             // UsersTabPage
             // 

@@ -351,6 +351,7 @@
             this.NameTextBox.Size = new System.Drawing.Size(311, 31);
             this.NameTextBox.TabIndex = 18;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
+            this.NameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextBox_KeyPress);
             // 
             // CategoryLabel
             // 

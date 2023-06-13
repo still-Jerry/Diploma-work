@@ -99,6 +99,7 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(381, 31);
             this.textBox.TabIndex = 26;
+            this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // timer1
             // 

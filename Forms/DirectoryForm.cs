@@ -462,6 +462,34 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        private void CategoryTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (!((l >= 'А' && l <= 'я') || l == 'ё' || l == 'Ё' || l == '\b' || l == '-'
+               || l == '0' || l == '1' || l == '2' || l == '3' || l == '4' || l == '5'
+               || l == '6' || l == '7' || l == '8' || l == '9' || l == ' '))
+            {
+                e.Handled = true;
+            }
+            CategoryTextBox.Text = ViewsClass.ToUpperString(CategoryTextBox.Text);
+            CategoryTextBox.SelectionStart = CategoryTextBox.Text.Length;
+            CategoryTextBox.Focus();
+        }
+
+        private void SeriesTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (!((l >= 'А' && l <= 'я') || l == 'ё' || l == 'Ё' || l == '\b' || l == '-'
+               || l == '0' || l == '1' || l == '2' || l == '3' || l == '4' || l == '5'
+               || l == '6' || l == '7' || l == '8' || l == '9' || l == ' '))
+            {
+                e.Handled = true;
+            }
+            SeriesTextBox.Text = ViewsClass.ToUpperString(SeriesTextBox.Text);
+            SeriesTextBox.SelectionStart = SeriesTextBox.Text.Length;
+            SeriesTextBox.Focus();
+        }
+
 
     
 

@@ -464,6 +464,17 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             NameTextBox.Focus();
         }
 
+        private void NameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (!((l >= 'А' && l <= 'я') || l == 'ё' || l == 'Ё' || l == '\b' || l == '-'
+               || l == '0' || l == '1' || l == '2' || l == '3' || l == '4' || l == '5'
+               || l == '6' || l == '7' || l == '8' || l == '9' || l == ' '))
+            {
+                e.Handled = true;
+            }
+        }
+
    
 
 
