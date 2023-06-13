@@ -333,6 +333,12 @@
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.GetProduct">
+            <summary>Private form functions</summary> 
+        </member>
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.FilterComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>Function Events </summary>
+        </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.components">
             <summary>
             Required designer variable.

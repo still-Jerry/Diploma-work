@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Modules
 {
@@ -36,6 +37,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 text += ALF[rnd.Next(ALF.Length)];
             }
             return text;
+        }
+
+        public static void ReplaceWordStub(string stubToReplace, string text, Word.Document wordDocument)
+        {
+            var range = wordDocument.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: stubToReplace, ReplaceWith: text);
         }
 
         public static bool WriteCounfig(string value, string path)

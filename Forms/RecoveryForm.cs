@@ -119,7 +119,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-
+            ViewsClass.SpeciallyFormImport = true;
+            ViewsClass.EnabledForm = false;
+            SpeciallyMessageForm NewForm = new SpeciallyMessageForm();
+            this.Enabled = ViewsClass.EnabledForm;
+            NewForm.ShowDialog();
+            this.Enabled = true;
         }
     }
 }

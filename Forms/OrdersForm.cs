@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
@@ -17,6 +19,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
     public partial class OrdersForm : Form
     {
+        string period = "";
         Double totalSum = 0;
 
         #region Typical events of all forms
@@ -134,11 +137,11 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
             if (BusinessClass.UserInfoList[5] == "2")
             {
-                ToListButton.Visible = false;
+                ReportButton.Visible = false;
             }
             else
             {
-                ToListButton.Visible = true;
+                ReportButton.Visible = true;
 
             }
 
@@ -152,6 +155,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
 
         }
+
         private void OrdersForm_Load(object sender, EventArgs e)
         {
             GetProduct();
@@ -160,6 +164,8 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             
             
         }
+
+        /// <summary>Private form functions</summary> 
         void GetProduct()
         {
             try
@@ -167,9 +173,13 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 string where="";
                 switch(FilterComboBox.Text){
                     case("Месяц"):
+                        period = DateTime.Today.Day + "." + (DateTime.Today.Month - 1) + "." + DateTime.Today.Year + " - " + DateTime.Today.Date.ToString().Split(' ')[0];
+
                         where = "where dateOrder>=date('" + DateTime.Today.Year + "." + (DateTime.Today.Month - 1) + "." + DateTime.Today.Day + "') and dateOrder<=current_date() ";
                         break;
                     case ("Год"):
+                        period = DateTime.Today.Day + "." + DateTime.Today.Month + "." + (DateTime.Today.Year - 1) + " - " + DateTime.Today.Date.ToString().Split(' ')[0];
+
                         where = "where dateOrder>=date('" + (DateTime.Today.Year - 1) + "." + DateTime.Today.Month + "." + DateTime.Today.Day + "') and dateOrder<=current_date() ";
                         break;
                     case ("Произвольный период"):
@@ -179,10 +189,15 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         NewForm.ShowDialog();
                         this.Enabled = true;
 
+                        period = OrdersMessageForm.start + " - " + OrdersMessageForm.end;
+
+
                         where = "where dateOrder>=date('"+OrdersMessageForm.start+"') and dateOrder<=date('"+OrdersMessageForm.end+ "') ";
 
                         break;
                     default:
+                        period = " за всё время.";
+
                         break;
                 }
                 dataGridView.DataSource = SQLClass.GetSelectInDataTable(" `order` ", 
@@ -232,8 +247,69 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 MessageBox.Show(ex.Message, "Ошибка");
             }
         }
-    
 
+        bool CheckCreate(bool visible)
+        {
+            try
+            {
+                String path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Documents\\OrderReports";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                string number = "";
+                string date = "";
+                string worker = "";
+                string cost = "";
+                double cost1 = 0.0;
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    number += row.Cells[0].Value.ToString() + "\v";
+                    worker += SQLClass.GetSelectInList(" `order` ",
+                        " where idOrder = " + row.Cells[0].Value.ToString(),
+                        attributes: "concat(`surnameUser`, ' ',`nameUser`, ' ', `patronymicUser`)",
+                        join: "inner join `diploma`.`user` on `user`.`idUser` = `userOrder`")[0] +"\v";
+
+                    date += row.Cells[2].Value.ToString().Split(' ')[0] + "\v";
+                    cost += row.Cells[3].Value.ToString() + "\v";
+                    cost1 += Convert.ToDouble(row.Cells[3].Value.ToString());
+
+                }
+
+
+                string FileCheck = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Documents\\order_report_template.docx";
+                string newFileName = path + "\\Отчёт_о_заказах_" + DateTime.Now.ToString("yyyy_MM_dd__HH_mm_ss") + ".doc";
+
+                FileInfo fileInf = new FileInfo(FileCheck);
+                fileInf.CopyTo(newFileName, true);
+
+                var wordApp = new Word.Application();
+                wordApp.Visible = false;
+
+                var wordDocument = wordApp.Documents.Open(newFileName);
+                BusinessClass.ReplaceWordStub("{dateReport}", DateTime.Now.ToString("dd.MM.yyyy_HH:mm:ss"), wordDocument);
+                BusinessClass.ReplaceWordStub("{user}", BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3], wordDocument);
+                BusinessClass.ReplaceWordStub("{period}", period, wordDocument);
+                BusinessClass.ReplaceWordStub("{№}", number, wordDocument);
+                BusinessClass.ReplaceWordStub("{worker}", worker, wordDocument);
+                BusinessClass.ReplaceWordStub("{date}", date, wordDocument);
+                BusinessClass.ReplaceWordStub("{cost}", cost, wordDocument);
+                BusinessClass.ReplaceWordStub("{cost1}", cost1.ToString(), wordDocument);
+
+                wordDocument.Save();
+                wordApp.Visible = visible;
+                if (!visible) { wordDocument.Close(Word.WdSaveOptions.wdDoNotSaveChanges); }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        /// <summary>Function Events </summary>
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetProduct();
@@ -270,8 +346,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 dataGridView.Columns[3].Width = 100;
             }
         }
-
-    
 
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -321,11 +395,6 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
-        private void ToListButton_Click(object sender, EventArgs e)
-        {
-         
-        }
-
         private void просмотрСоставаЗаказаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BusinessClass.SelectedFromDataGridList = SQLClass.GetSelectInList("diploma.order",
@@ -333,6 +402,26 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             MoreOrderForm NewForm = new MoreOrderForm();
             this.Visible = false;
             NewForm.ShowDialog();
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Вывести отчёт?", "Информация", MessageBoxButtons.YesNo);
+            bool checkF = false;
+            if (dr == DialogResult.Yes)
+            {
+                checkF = true;
+            }
+            else
+            {
+                checkF = false;
+            }
+            this.Enabled = false;
+            if (!CheckCreate(checkF))
+            {
+                MessageBox.Show("Отчёт не сформирован.", "Ошибка");
+            }
+            this.Enabled = true;
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms
 {
@@ -295,6 +297,102 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 MessageBox.Show(ex.Message, "Ошибка");
             }
         }
+        bool CheckCreate(bool visible)
+        {
+            try
+            {
+                String path = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Documents\\Checks";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                String where = "";
+                Boolean flag = true;
+                foreach (string series in BusinessClass.SeriesCountPrescriptionNumberDictionary.Keys)
+                {
+                    if (flag)
+                    {
+                        where += " where `idSeries` = " + series;
+                        flag = false;
+                    }
+                    else
+                    {
+                        where += " or `idSeries` = " + series;
+
+                    }
+                }
+
+                DataTable productsDT = SQLClass.GetSelectInDataTable(
+                        "seriesproduct",
+                        where: where,
+                        attributes: " idSeries, nameProduct, priceProduct, discountProduct ",
+                        join: " inner join product on productIdSeries = idProduct"
+                        );
+                List<String> order = SQLClass.GetSelectInList("`order`", order: " ORDER BY idOrder DESC LIMIT 1");
+
+                string products = "";
+                string price = "";
+                string dis = "";
+                string count = "";
+                string cost = "";
+                double cost1 = 0.0;
+                // убрать все sql запросы из функции если небходимо то передать (datatable из запроса selectindatatable, номер заказа)
+                // считать и брать числа из данных таблицы по запросу, а не из листа состава заказа
+                foreach (DataRow row in productsDT.Rows)
+                {
+                    products += row["nameProduct"].ToString() + "\v";
+                    price += row["priceProduct"].ToString() + "\v";
+                    count += BusinessClass.SeriesCountPrescriptionNumberDictionary[row["idSeries"].ToString()][0] + "\v";
+
+                    if (ViewsClass.DiscountDay == DateTime.Today.Day)
+                    {
+                        dis += row["discountProduct"].ToString() + "\v";
+                        cost += (Convert.ToDouble(row["priceProduct"]) * (1 - Convert.ToDouble(row["discountProduct"])) * Convert.ToInt32(BusinessClass.SeriesCountPrescriptionNumberDictionary[row["idSeries"].ToString()][0])) + "\v";
+                        cost1 += Convert.ToDouble(row["priceProduct"]) * (1 - Convert.ToDouble(row["discountProduct"])) * Convert.ToInt32(BusinessClass.SeriesCountPrescriptionNumberDictionary[row["idSeries"].ToString()][0]);
+               
+                    }
+                    else {
+                        dis += "0.0\v";
+                        cost += Convert.ToDouble(row["priceProduct"]) * Convert.ToInt32(BusinessClass.SeriesCountPrescriptionNumberDictionary[row["idSeries"].ToString()][0]) + "\v";
+                        cost1 += Convert.ToDouble(row["priceProduct"]) * Convert.ToInt32(BusinessClass.SeriesCountPrescriptionNumberDictionary[row["idSeries"].ToString()][0]);
+
+                    }
+                    
+                }
+
+
+                string FileCheck = AppDomain.CurrentDomain.BaseDirectory + "\\Res\\Documents\\check_template.docx";
+                string newFileName = path + "\\Чек_" + order[0] + "_" + DateTime.Now.ToString("yyyy_MM_dd__HH_mm_ss") + ".doc";
+
+                FileInfo fileInf = new FileInfo(FileCheck);
+                fileInf.CopyTo(newFileName, true);
+
+                var wordApp = new Word.Application();
+                wordApp.Visible = false;
+
+                var wordDocument = wordApp.Documents.Open(newFileName);
+                BusinessClass.ReplaceWordStub("{orderId}", order[0], wordDocument);
+                BusinessClass.ReplaceWordStub("{dateCheck}", DateTime.Now.ToString("dd.MM.yyyy_HH:mm:ss"), wordDocument);
+                BusinessClass.ReplaceWordStub("{user}", BusinessClass.UserInfoList[1] + " " + BusinessClass.UserInfoList[2] + " " + BusinessClass.UserInfoList[3], wordDocument);
+                BusinessClass.ReplaceWordStub("{products}", products, wordDocument);
+                BusinessClass.ReplaceWordStub("{price}", price, wordDocument);
+                BusinessClass.ReplaceWordStub("{dis}", dis, wordDocument);
+                BusinessClass.ReplaceWordStub("{count}", count, wordDocument);
+                BusinessClass.ReplaceWordStub("{cost}", cost, wordDocument);
+                BusinessClass.ReplaceWordStub("{cost1}", cost1.ToString(), wordDocument);
+
+                wordDocument.Save();
+                wordApp.Visible = visible;
+                if (!visible) { wordDocument.Close(Word.WdSaveOptions.wdDoNotSaveChanges); }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+     
         /// <summary>Function Events </summary>
         
         private void ClearButton_Click(object sender, EventArgs e)
@@ -371,6 +469,23 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                                " where idSeries = " + series);
                        }
                        MessageBox.Show("Успешное оформление заказа.", "Информация");
+
+                       DialogResult dr = MessageBox.Show("Вывести чек?", "Информация", MessageBoxButtons.YesNo);
+                       bool checkF = false;
+                       if (dr == DialogResult.Yes)
+                       {
+                           checkF = true;
+                       }
+                       else
+                       {
+                           checkF = false;
+                       }
+                       this.Enabled = false;
+                       if (!CheckCreate(checkF))
+                       {
+                           MessageBox.Show("Чек не сформирован.", "Ошибка");
+                       }
+                       this.Enabled = true;
                        ClearButton_Click(sender, e);
 
                 }else{

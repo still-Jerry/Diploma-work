@@ -16,7 +16,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.SpeciallyForm());
+            Application.Run(new Forms.AuthorizationForm());
         }
     }
 }

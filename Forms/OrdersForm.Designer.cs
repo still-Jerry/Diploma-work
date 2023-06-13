@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
             this.TotalSumLabel = new System.Windows.Forms.Label();
             this.FilterLabel = new System.Windows.Forms.Label();
             this.SearchLabel = new System.Windows.Forms.Label();
-            this.ToListButton = new System.Windows.Forms.Button();
+            this.ReportButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.FilterComboBox = new System.Windows.Forms.ComboBox();
             this.SearchСomboBox = new System.Windows.Forms.ComboBox();
@@ -59,7 +60,7 @@
             this.ВackgroundGroupBox.Controls.Add(this.TotalSumLabel);
             this.ВackgroundGroupBox.Controls.Add(this.FilterLabel);
             this.ВackgroundGroupBox.Controls.Add(this.SearchLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.ToListButton);
+            this.ВackgroundGroupBox.Controls.Add(this.ReportButton);
             this.ВackgroundGroupBox.Controls.Add(this.SearchTextBox);
             this.ВackgroundGroupBox.Controls.Add(this.FilterComboBox);
             this.ВackgroundGroupBox.Controls.Add(this.SearchСomboBox);
@@ -104,19 +105,19 @@
             this.SearchLabel.TabIndex = 17;
             this.SearchLabel.Text = "Поиск по:";
             // 
-            // ToListButton
+            // ReportButton
             // 
-            this.ToListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ToListButton.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ToListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToListButton.Location = new System.Drawing.Point(365, 376);
-            this.ToListButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ToListButton.Name = "ToListButton";
-            this.ToListButton.Size = new System.Drawing.Size(171, 31);
-            this.ToListButton.TabIndex = 16;
-            this.ToListButton.Text = "Сформировать";
-            this.ToListButton.UseVisualStyleBackColor = false;
-            this.ToListButton.Click += new System.EventHandler(this.ToListButton_Click);
+            this.ReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReportButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportButton.Location = new System.Drawing.Point(365, 376);
+            this.ReportButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(171, 31);
+            this.ReportButton.TabIndex = 16;
+            this.ReportButton.Text = "Сформировать";
+            this.ReportButton.UseVisualStyleBackColor = false;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
             // SearchTextBox
             // 
@@ -281,6 +282,7 @@
             this.Controls.Add(this.ВackgroundGroupBox);
             this.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MinimumSize = new System.Drawing.Size(560, 350);
             this.Name = "OrdersForm";
@@ -308,7 +310,7 @@
         private System.Windows.Forms.ComboBox FilterComboBox;
         private System.Windows.Forms.ComboBox SearchСomboBox;
         private System.Windows.Forms.TextBox SearchTextBox;
-        private System.Windows.Forms.Button ToListButton;
+        private System.Windows.Forms.Button ReportButton;
         private System.Windows.Forms.Label FilterLabel;
         private System.Windows.Forms.Label SearchLabel;
         private System.Windows.Forms.Timer timer1;
