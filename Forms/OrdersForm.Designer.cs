@@ -30,26 +30,42 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersForm));
             this.ВackgroundGroupBox = new System.Windows.Forms.GroupBox();
-            this.TotalSumLabel = new System.Windows.Forms.Label();
-            this.FilterLabel = new System.Windows.Forms.Label();
-            this.SearchLabel = new System.Windows.Forms.Label();
-            this.ReportButton = new System.Windows.Forms.Button();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
-            this.FilterComboBox = new System.Windows.Forms.ComboBox();
-            this.SearchСomboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.OrdersTabPage = new System.Windows.Forms.TabPage();
+            this.OrdersTotalSumLabel = new System.Windows.Forms.Label();
+            this.OrdersFilterLabel = new System.Windows.Forms.Label();
+            this.OrdersSearchLabel = new System.Windows.Forms.Label();
+            this.OrdersReportButton = new System.Windows.Forms.Button();
+            this.OrdersSearchTextBox = new System.Windows.Forms.TextBox();
+            this.OrdersFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.OrdersSearchСomboBox = new System.Windows.Forms.ComboBox();
+            this.OrdersDataGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.просмотрСоставаЗаказаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DelayTabPage = new System.Windows.Forms.TabPage();
+            this.DelayTotalSumLabel = new System.Windows.Forms.Label();
+            this.DelayFilterLabel = new System.Windows.Forms.Label();
+            this.DelaySearchLabel = new System.Windows.Forms.Label();
+            this.DelayReportButton = new System.Windows.Forms.Button();
+            this.DelaySearchTextBox = new System.Windows.Forms.TextBox();
+            this.DelayFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.DelaySearchСomboBox = new System.Windows.Forms.ComboBox();
+            this.DelayDataGridView = new System.Windows.Forms.DataGridView();
             this.CloseButton = new System.Windows.Forms.Button();
             this.HideButton = new System.Windows.Forms.Button();
             this.ExpandButton = new System.Windows.Forms.Button();
             this.ToMenuButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ВackgroundGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.OrdersTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            this.DelayTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DelayDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // ВackgroundGroupBox
@@ -57,116 +73,139 @@
             this.ВackgroundGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ВackgroundGroupBox.Controls.Add(this.TotalSumLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.FilterLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.SearchLabel);
-            this.ВackgroundGroupBox.Controls.Add(this.ReportButton);
-            this.ВackgroundGroupBox.Controls.Add(this.SearchTextBox);
-            this.ВackgroundGroupBox.Controls.Add(this.FilterComboBox);
-            this.ВackgroundGroupBox.Controls.Add(this.SearchСomboBox);
-            this.ВackgroundGroupBox.Controls.Add(this.dataGridView);
+            this.ВackgroundGroupBox.Controls.Add(this.tabControl);
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 411);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 421);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
-            // TotalSumLabel
+            // tabControl
             // 
-            this.TotalSumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TotalSumLabel.AutoSize = true;
-            this.TotalSumLabel.BackColor = System.Drawing.Color.White;
-            this.TotalSumLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TotalSumLabel.Location = new System.Drawing.Point(6, 378);
-            this.TotalSumLabel.Name = "TotalSumLabel";
-            this.TotalSumLabel.Size = new System.Drawing.Size(164, 25);
-            this.TotalSumLabel.TabIndex = 24;
-            this.TotalSumLabel.Text = "ИТОГО: 123p.";
-            // 
-            // FilterLabel
-            // 
-            this.FilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterLabel.AutoSize = true;
-            this.FilterLabel.BackColor = System.Drawing.Color.White;
-            this.FilterLabel.Location = new System.Drawing.Point(444, 61);
-            this.FilterLabel.Name = "FilterLabel";
-            this.FilterLabel.Size = new System.Drawing.Size(92, 23);
-            this.FilterLabel.TabIndex = 18;
-            this.FilterLabel.Text = "Период:";
-            // 
-            // SearchLabel
-            // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.BackColor = System.Drawing.Color.White;
-            this.SearchLabel.Location = new System.Drawing.Point(6, 61);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(109, 23);
-            this.SearchLabel.TabIndex = 17;
-            this.SearchLabel.Text = "Поиск по:";
-            // 
-            // ReportButton
-            // 
-            this.ReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ReportButton.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportButton.Location = new System.Drawing.Point(365, 376);
-            this.ReportButton.MinimumSize = new System.Drawing.Size(85, 30);
-            this.ReportButton.Name = "ReportButton";
-            this.ReportButton.Size = new System.Drawing.Size(171, 31);
-            this.ReportButton.TabIndex = 16;
-            this.ReportButton.Text = "Сформировать";
-            this.ReportButton.UseVisualStyleBackColor = false;
-            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
-            // 
-            // SearchTextBox
-            // 
-            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTextBox.Location = new System.Drawing.Point(6, 22);
-            this.SearchTextBox.MaxLength = 70;
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(530, 31);
-            this.SearchTextBox.TabIndex = 11;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
-            // 
-            // FilterComboBox
-            // 
-            this.FilterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(274, 87);
-            this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.FilterComboBox.Size = new System.Drawing.Size(262, 31);
-            this.FilterComboBox.TabIndex = 10;
-            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
-            // 
-            // SearchСomboBox
-            // 
-            this.SearchСomboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SearchСomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchСomboBox.FormattingEnabled = true;
-            this.SearchСomboBox.Location = new System.Drawing.Point(6, 87);
-            this.SearchСomboBox.Name = "SearchСomboBox";
-            this.SearchСomboBox.Size = new System.Drawing.Size(262, 31);
-            this.SearchСomboBox.TabIndex = 9;
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.ContextMenuStrip = this.contextMenuStrip;
+            this.tabControl.Controls.Add(this.OrdersTabPage);
+            this.tabControl.Controls.Add(this.DelayTabPage);
+            this.tabControl.Location = new System.Drawing.Point(3, 14);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(536, 404);
+            this.tabControl.TabIndex = 25;
+            // 
+            // OrdersTabPage
+            // 
+            this.OrdersTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
+            this.OrdersTabPage.Controls.Add(this.OrdersTotalSumLabel);
+            this.OrdersTabPage.Controls.Add(this.OrdersFilterLabel);
+            this.OrdersTabPage.Controls.Add(this.OrdersSearchLabel);
+            this.OrdersTabPage.Controls.Add(this.OrdersReportButton);
+            this.OrdersTabPage.Controls.Add(this.OrdersSearchTextBox);
+            this.OrdersTabPage.Controls.Add(this.OrdersFilterComboBox);
+            this.OrdersTabPage.Controls.Add(this.OrdersSearchСomboBox);
+            this.OrdersTabPage.Controls.Add(this.OrdersDataGridView);
+            this.OrdersTabPage.Location = new System.Drawing.Point(4, 32);
+            this.OrdersTabPage.Name = "OrdersTabPage";
+            this.OrdersTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.OrdersTabPage.Size = new System.Drawing.Size(528, 368);
+            this.OrdersTabPage.TabIndex = 0;
+            this.OrdersTabPage.Text = "Заказы";
+            // 
+            // OrdersTotalSumLabel
+            // 
+            this.OrdersTotalSumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.OrdersTotalSumLabel.AutoSize = true;
+            this.OrdersTotalSumLabel.BackColor = System.Drawing.Color.White;
+            this.OrdersTotalSumLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OrdersTotalSumLabel.Location = new System.Drawing.Point(6, 335);
+            this.OrdersTotalSumLabel.Name = "OrdersTotalSumLabel";
+            this.OrdersTotalSumLabel.Size = new System.Drawing.Size(164, 25);
+            this.OrdersTotalSumLabel.TabIndex = 32;
+            this.OrdersTotalSumLabel.Text = "ИТОГО: 123p.";
+            // 
+            // OrdersFilterLabel
+            // 
+            this.OrdersFilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrdersFilterLabel.AutoSize = true;
+            this.OrdersFilterLabel.BackColor = System.Drawing.Color.White;
+            this.OrdersFilterLabel.Location = new System.Drawing.Point(433, 40);
+            this.OrdersFilterLabel.Name = "OrdersFilterLabel";
+            this.OrdersFilterLabel.Size = new System.Drawing.Size(92, 23);
+            this.OrdersFilterLabel.TabIndex = 31;
+            this.OrdersFilterLabel.Text = "Период:";
+            // 
+            // OrdersSearchLabel
+            // 
+            this.OrdersSearchLabel.AutoSize = true;
+            this.OrdersSearchLabel.BackColor = System.Drawing.Color.White;
+            this.OrdersSearchLabel.Location = new System.Drawing.Point(3, 40);
+            this.OrdersSearchLabel.Name = "OrdersSearchLabel";
+            this.OrdersSearchLabel.Size = new System.Drawing.Size(109, 23);
+            this.OrdersSearchLabel.TabIndex = 30;
+            this.OrdersSearchLabel.Text = "Поиск по:";
+            // 
+            // OrdersReportButton
+            // 
+            this.OrdersReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrdersReportButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.OrdersReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrdersReportButton.Location = new System.Drawing.Point(360, 332);
+            this.OrdersReportButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.OrdersReportButton.Name = "OrdersReportButton";
+            this.OrdersReportButton.Size = new System.Drawing.Size(164, 33);
+            this.OrdersReportButton.TabIndex = 29;
+            this.OrdersReportButton.Text = "Сформировать";
+            this.OrdersReportButton.UseVisualStyleBackColor = false;
+            this.OrdersReportButton.Click += new System.EventHandler(this.OrdersReportButton_Click);
+            // 
+            // OrdersSearchTextBox
+            // 
+            this.OrdersSearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrdersSearchTextBox.Location = new System.Drawing.Point(3, 6);
+            this.OrdersSearchTextBox.MaxLength = 70;
+            this.OrdersSearchTextBox.Name = "OrdersSearchTextBox";
+            this.OrdersSearchTextBox.Size = new System.Drawing.Size(522, 31);
+            this.OrdersSearchTextBox.TabIndex = 28;
+            this.OrdersSearchTextBox.TextChanged += new System.EventHandler(this.OrdersSearchTextBox_TextChanged);
+            this.OrdersSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelaySearchTextBox_KeyPress);
+            // 
+            // OrdersFilterComboBox
+            // 
+            this.OrdersFilterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrdersFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrdersFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrdersFilterComboBox.FormattingEnabled = true;
+            this.OrdersFilterComboBox.Location = new System.Drawing.Point(271, 66);
+            this.OrdersFilterComboBox.Name = "OrdersFilterComboBox";
+            this.OrdersFilterComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.OrdersFilterComboBox.Size = new System.Drawing.Size(253, 31);
+            this.OrdersFilterComboBox.TabIndex = 27;
+            this.OrdersFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.OrdersFilterComboBox_SelectedIndexChanged);
+            // 
+            // OrdersSearchСomboBox
+            // 
+            this.OrdersSearchСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrdersSearchСomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrdersSearchСomboBox.FormattingEnabled = true;
+            this.OrdersSearchСomboBox.Location = new System.Drawing.Point(3, 66);
+            this.OrdersSearchСomboBox.Name = "OrdersSearchСomboBox";
+            this.OrdersSearchСomboBox.Size = new System.Drawing.Size(253, 31);
+            this.OrdersSearchСomboBox.TabIndex = 26;
+            // 
+            // OrdersDataGridView
+            // 
+            this.OrdersDataGridView.AllowUserToAddRows = false;
+            this.OrdersDataGridView.AllowUserToDeleteRows = false;
+            this.OrdersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrdersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.OrdersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.OrdersDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrdersDataGridView.ContextMenuStrip = this.contextMenuStrip;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -174,16 +213,16 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LemonChiffon;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.Location = new System.Drawing.Point(6, 124);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(530, 246);
-            this.dataGridView.TabIndex = 0;
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            this.OrdersDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.OrdersDataGridView.Location = new System.Drawing.Point(3, 100);
+            this.OrdersDataGridView.MultiSelect = false;
+            this.OrdersDataGridView.Name = "OrdersDataGridView";
+            this.OrdersDataGridView.ReadOnly = true;
+            this.OrdersDataGridView.RowHeadersVisible = false;
+            this.OrdersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.OrdersDataGridView.Size = new System.Drawing.Size(522, 229);
+            this.OrdersDataGridView.TabIndex = 25;
+            this.OrdersDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdersDataGridView_CellDoubleClick);
             // 
             // contextMenuStrip
             // 
@@ -199,6 +238,133 @@
             this.просмотрСоставаЗаказаToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.просмотрСоставаЗаказаToolStripMenuItem.Text = "Просмотр состава заказа";
             this.просмотрСоставаЗаказаToolStripMenuItem.Click += new System.EventHandler(this.просмотрСоставаЗаказаToolStripMenuItem_Click);
+            // 
+            // DelayTabPage
+            // 
+            this.DelayTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
+            this.DelayTabPage.Controls.Add(this.DelayTotalSumLabel);
+            this.DelayTabPage.Controls.Add(this.DelayFilterLabel);
+            this.DelayTabPage.Controls.Add(this.DelaySearchLabel);
+            this.DelayTabPage.Controls.Add(this.DelayReportButton);
+            this.DelayTabPage.Controls.Add(this.DelaySearchTextBox);
+            this.DelayTabPage.Controls.Add(this.DelayFilterComboBox);
+            this.DelayTabPage.Controls.Add(this.DelaySearchСomboBox);
+            this.DelayTabPage.Controls.Add(this.DelayDataGridView);
+            this.DelayTabPage.Location = new System.Drawing.Point(4, 32);
+            this.DelayTabPage.Name = "DelayTabPage";
+            this.DelayTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.DelayTabPage.Size = new System.Drawing.Size(528, 368);
+            this.DelayTabPage.TabIndex = 1;
+            this.DelayTabPage.Text = "Просрочка";
+            // 
+            // DelayTotalSumLabel
+            // 
+            this.DelayTotalSumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DelayTotalSumLabel.AutoSize = true;
+            this.DelayTotalSumLabel.BackColor = System.Drawing.Color.White;
+            this.DelayTotalSumLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelayTotalSumLabel.Location = new System.Drawing.Point(6, 335);
+            this.DelayTotalSumLabel.Name = "DelayTotalSumLabel";
+            this.DelayTotalSumLabel.Size = new System.Drawing.Size(164, 25);
+            this.DelayTotalSumLabel.TabIndex = 40;
+            this.DelayTotalSumLabel.Text = "ИТОГО: 123p.";
+            // 
+            // DelayFilterLabel
+            // 
+            this.DelayFilterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayFilterLabel.AutoSize = true;
+            this.DelayFilterLabel.BackColor = System.Drawing.Color.White;
+            this.DelayFilterLabel.Location = new System.Drawing.Point(433, 40);
+            this.DelayFilterLabel.Name = "DelayFilterLabel";
+            this.DelayFilterLabel.Size = new System.Drawing.Size(92, 23);
+            this.DelayFilterLabel.TabIndex = 39;
+            this.DelayFilterLabel.Text = "Период:";
+            // 
+            // DelaySearchLabel
+            // 
+            this.DelaySearchLabel.AutoSize = true;
+            this.DelaySearchLabel.BackColor = System.Drawing.Color.White;
+            this.DelaySearchLabel.Location = new System.Drawing.Point(3, 40);
+            this.DelaySearchLabel.Name = "DelaySearchLabel";
+            this.DelaySearchLabel.Size = new System.Drawing.Size(109, 23);
+            this.DelaySearchLabel.TabIndex = 38;
+            this.DelaySearchLabel.Text = "Поиск по:";
+            // 
+            // DelayReportButton
+            // 
+            this.DelayReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayReportButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.DelayReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelayReportButton.Location = new System.Drawing.Point(360, 332);
+            this.DelayReportButton.MinimumSize = new System.Drawing.Size(85, 30);
+            this.DelayReportButton.Name = "DelayReportButton";
+            this.DelayReportButton.Size = new System.Drawing.Size(164, 33);
+            this.DelayReportButton.TabIndex = 37;
+            this.DelayReportButton.Text = "Сформировать";
+            this.DelayReportButton.UseVisualStyleBackColor = false;
+            // 
+            // DelaySearchTextBox
+            // 
+            this.DelaySearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelaySearchTextBox.Location = new System.Drawing.Point(3, 6);
+            this.DelaySearchTextBox.MaxLength = 70;
+            this.DelaySearchTextBox.Name = "DelaySearchTextBox";
+            this.DelaySearchTextBox.Size = new System.Drawing.Size(522, 31);
+            this.DelaySearchTextBox.TabIndex = 36;
+            this.DelaySearchTextBox.TextChanged += new System.EventHandler(this.DelaySearchTextBox_TextChanged);
+            this.DelaySearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DelaySearchTextBox_KeyPress);
+            // 
+            // DelayFilterComboBox
+            // 
+            this.DelayFilterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DelayFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelayFilterComboBox.FormattingEnabled = true;
+            this.DelayFilterComboBox.Location = new System.Drawing.Point(271, 66);
+            this.DelayFilterComboBox.Name = "DelayFilterComboBox";
+            this.DelayFilterComboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DelayFilterComboBox.Size = new System.Drawing.Size(253, 31);
+            this.DelayFilterComboBox.TabIndex = 35;
+            this.DelayFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.DelayFilterComboBox_SelectedIndexChanged);
+            // 
+            // DelaySearchСomboBox
+            // 
+            this.DelaySearchСomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DelaySearchСomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DelaySearchСomboBox.FormattingEnabled = true;
+            this.DelaySearchСomboBox.Location = new System.Drawing.Point(3, 66);
+            this.DelaySearchСomboBox.Name = "DelaySearchСomboBox";
+            this.DelaySearchСomboBox.Size = new System.Drawing.Size(253, 31);
+            this.DelaySearchСomboBox.TabIndex = 34;
+            // 
+            // DelayDataGridView
+            // 
+            this.DelayDataGridView.AllowUserToAddRows = false;
+            this.DelayDataGridView.AllowUserToDeleteRows = false;
+            this.DelayDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelayDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DelayDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DelayDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.DelayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DelayDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DelayDataGridView.Location = new System.Drawing.Point(3, 100);
+            this.DelayDataGridView.MultiSelect = false;
+            this.DelayDataGridView.Name = "DelayDataGridView";
+            this.DelayDataGridView.ReadOnly = true;
+            this.DelayDataGridView.RowHeadersVisible = false;
+            this.DelayDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DelayDataGridView.Size = new System.Drawing.Size(522, 229);
+            this.DelayDataGridView.TabIndex = 33;
             // 
             // CloseButton
             // 
@@ -274,7 +440,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(580, 470);
+            this.ClientSize = new System.Drawing.Size(580, 480);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);
@@ -287,14 +453,19 @@
             this.MinimumSize = new System.Drawing.Size(560, 350);
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Учёт заказов";
+            this.Text = "Учёт";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrdersForm_FormClosed);
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OrdersForm_MouseDown);
             this.ВackgroundGroupBox.ResumeLayout(false);
-            this.ВackgroundGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.OrdersTabPage.ResumeLayout(false);
+            this.OrdersTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            this.DelayTabPage.ResumeLayout(false);
+            this.DelayTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DelayDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,16 +477,27 @@
         private System.Windows.Forms.Button HideButton;
         private System.Windows.Forms.Button ExpandButton;
         private System.Windows.Forms.Button ToMenuButton;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.ComboBox FilterComboBox;
-        private System.Windows.Forms.ComboBox SearchСomboBox;
-        private System.Windows.Forms.TextBox SearchTextBox;
-        private System.Windows.Forms.Button ReportButton;
-        private System.Windows.Forms.Label FilterLabel;
-        private System.Windows.Forms.Label SearchLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem просмотрСоставаЗаказаToolStripMenuItem;
-        private System.Windows.Forms.Label TotalSumLabel;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage OrdersTabPage;
+        private System.Windows.Forms.TabPage DelayTabPage;
+        private System.Windows.Forms.Label OrdersTotalSumLabel;
+        private System.Windows.Forms.Label OrdersFilterLabel;
+        private System.Windows.Forms.Label OrdersSearchLabel;
+        private System.Windows.Forms.Button OrdersReportButton;
+        private System.Windows.Forms.TextBox OrdersSearchTextBox;
+        private System.Windows.Forms.ComboBox OrdersFilterComboBox;
+        private System.Windows.Forms.ComboBox OrdersSearchСomboBox;
+        private System.Windows.Forms.DataGridView OrdersDataGridView;
+        private System.Windows.Forms.Label DelayTotalSumLabel;
+        private System.Windows.Forms.Label DelayFilterLabel;
+        private System.Windows.Forms.Label DelaySearchLabel;
+        private System.Windows.Forms.Button DelayReportButton;
+        private System.Windows.Forms.TextBox DelaySearchTextBox;
+        private System.Windows.Forms.ComboBox DelayFilterComboBox;
+        private System.Windows.Forms.ComboBox DelaySearchСomboBox;
+        private System.Windows.Forms.DataGridView DelayDataGridView;
     }
 }

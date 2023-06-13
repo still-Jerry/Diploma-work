@@ -79,7 +79,7 @@
             this.ВackgroundGroupBox.Location = new System.Drawing.Point(19, 40);
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 411);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 421);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
@@ -101,7 +101,7 @@
             // 
             this.numericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown.Location = new System.Drawing.Point(451, 378);
+            this.numericUpDown.Location = new System.Drawing.Point(451, 388);
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(58, 27);
             this.numericUpDown.TabIndex = 20;
@@ -113,7 +113,7 @@
             this.PagesLabel.AutoSize = true;
             this.PagesLabel.BackColor = System.Drawing.Color.White;
             this.PagesLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PagesLabel.Location = new System.Drawing.Point(39, 381);
+            this.PagesLabel.Location = new System.Drawing.Point(39, 391);
             this.PagesLabel.Name = "PagesLabel";
             this.PagesLabel.Size = new System.Drawing.Size(65, 18);
             this.PagesLabel.TabIndex = 18;
@@ -125,7 +125,7 @@
             this.NextButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NextButton.Location = new System.Drawing.Point(513, 378);
+            this.NextButton.Location = new System.Drawing.Point(513, 388);
             this.NextButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(23, 27);
@@ -140,7 +140,7 @@
             this.BackButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BackButton.Location = new System.Drawing.Point(10, 378);
+            this.BackButton.Location = new System.Drawing.Point(10, 388);
             this.BackButton.MinimumSize = new System.Drawing.Size(23, 21);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(23, 27);
@@ -231,7 +231,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(530, 276);
+            this.dataGridView.Size = new System.Drawing.Size(530, 286);
             this.dataGridView.TabIndex = 0;
             // 
             // IDColumn
@@ -364,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(580, 470);
+            this.ClientSize = new System.Drawing.Size(580, 480);
             this.Controls.Add(this.ToMenuButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);

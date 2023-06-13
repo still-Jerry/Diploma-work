@@ -101,7 +101,7 @@
             this.ToOrdersButton.Name = "ToOrdersButton";
             this.ToOrdersButton.Size = new System.Drawing.Size(208, 33);
             this.ToOrdersButton.TabIndex = 14;
-            this.ToOrdersButton.Text = "Учёт заказов";
+            this.ToOrdersButton.Text = "Ведение учёта";
             this.ToOrdersButton.UseVisualStyleBackColor = false;
             this.ToOrdersButton.Click += new System.EventHandler(this.ToOrdersButton_Click);
             // 

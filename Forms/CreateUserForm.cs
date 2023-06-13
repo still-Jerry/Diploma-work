@@ -115,6 +115,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
             if (!ViewsClass.DirectoryFormAdd)
             {
+                if (BusinessClass.SelectedFromDataGridList[0] == BusinessClass.UserInfoList[0])
+                {
+                    ComboBox.Enabled = false;
+                }
                 AddButton.Visible = false;
                 EditButton.Visible = true;
 
@@ -130,9 +134,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 AddButton.Visible = true;
                 EditButton.Visible = false;
             }
-            if (BusinessClass.SelectedFromDataGridList[0] == BusinessClass.UserInfoList[0]) {
-                ComboBox.Enabled = false;
-            }
+          
         }
 
         private void ToMenuButton_Click(object sender, EventArgs e)

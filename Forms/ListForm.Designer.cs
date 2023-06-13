@@ -71,7 +71,7 @@
             this.ВackgroundGroupBox.Margin = new System.Windows.Forms.Padding(10);
             this.ВackgroundGroupBox.Name = "ВackgroundGroupBox";
             this.ВackgroundGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 410);
+            this.ВackgroundGroupBox.Size = new System.Drawing.Size(542, 420);
             this.ВackgroundGroupBox.TabIndex = 0;
             this.ВackgroundGroupBox.TabStop = false;
             // 
@@ -81,7 +81,7 @@
             this.ClearButton.BackColor = System.Drawing.Color.White;
             this.ClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClearButton.Location = new System.Drawing.Point(321, 306);
+            this.ClearButton.Location = new System.Drawing.Point(321, 316);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ClearButton.MinimumSize = new System.Drawing.Size(85, 29);
             this.ClearButton.Name = "ClearButton";
@@ -96,7 +96,7 @@
             this.DiscountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DiscountLabel.AutoSize = true;
             this.DiscountLabel.BackColor = System.Drawing.Color.White;
-            this.DiscountLabel.Location = new System.Drawing.Point(2, 339);
+            this.DiscountLabel.Location = new System.Drawing.Point(2, 349);
             this.DiscountLabel.Name = "DiscountLabel";
             this.DiscountLabel.Size = new System.Drawing.Size(152, 23);
             this.DiscountLabel.TabIndex = 25;
@@ -107,7 +107,7 @@
             this.SumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SumLabel.AutoSize = true;
             this.SumLabel.BackColor = System.Drawing.Color.White;
-            this.SumLabel.Location = new System.Drawing.Point(5, 306);
+            this.SumLabel.Location = new System.Drawing.Point(5, 316);
             this.SumLabel.Name = "SumLabel";
             this.SumLabel.Size = new System.Drawing.Size(212, 23);
             this.SumLabel.TabIndex = 24;
@@ -119,7 +119,7 @@
             this.TotalSumLabel.AutoSize = true;
             this.TotalSumLabel.BackColor = System.Drawing.Color.White;
             this.TotalSumLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TotalSumLabel.Location = new System.Drawing.Point(4, 375);
+            this.TotalSumLabel.Location = new System.Drawing.Point(4, 385);
             this.TotalSumLabel.Name = "TotalSumLabel";
             this.TotalSumLabel.Size = new System.Drawing.Size(164, 25);
             this.TotalSumLabel.TabIndex = 23;
@@ -131,7 +131,7 @@
             this.SaveButton.BackColor = System.Drawing.Color.LemonChiffon;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveButton.Location = new System.Drawing.Point(321, 366);
+            this.SaveButton.Location = new System.Drawing.Point(321, 376);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SaveButton.MinimumSize = new System.Drawing.Size(85, 29);
             this.SaveButton.Name = "SaveButton";
@@ -171,7 +171,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(530, 285);
+            this.dataGridView.Size = new System.Drawing.Size(530, 295);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentDoubleClick);
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -316,7 +316,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(251)))), ((int)(((byte)(229)))));
             this.BackgroundImage = global::АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(580, 470);
+            this.ClientSize = new System.Drawing.Size(580, 480);
             this.Controls.Add(this.ToProductButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.HideButton);

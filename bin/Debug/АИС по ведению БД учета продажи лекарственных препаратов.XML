@@ -166,26 +166,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.timer1_Tick(System.Object,System.EventArgs)">
-            <summary> Inactivity Tracking </summary>
-        </member>
-        <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.DelayForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.ListForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
@@ -333,11 +313,8 @@
         <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.CloseButton_Click(System.Object,System.EventArgs)">
             <summary>window display buttons </summary>
         </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.GetProduct">
+        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.GetOrders">
             <summary>Private form functions</summary> 
-        </member>
-        <member name="M:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.FilterComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
-            <summary>Function Events </summary>
         </member>
         <member name="F:АИС_по_ведению_БД_учета_продажи_лекарственных_препаратов.Forms.OrdersForm.components">
             <summary>

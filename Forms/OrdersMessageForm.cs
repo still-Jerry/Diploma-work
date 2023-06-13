@@ -82,5 +82,12 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             }
         }
 
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            ViewsClass.EnabledForm = true;
+            this.Visible = false;
+            ViewsClass.EnabledForm = true;
+        }
+
     }
 }

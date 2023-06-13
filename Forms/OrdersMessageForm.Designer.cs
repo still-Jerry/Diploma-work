@@ -65,6 +65,7 @@
             this.CancelButton.TabIndex = 21;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // BackgroundGroupBox
             // 
