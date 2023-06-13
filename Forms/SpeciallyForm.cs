@@ -158,8 +158,10 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
 
                 if (SQLClass.BakcupImport(filepath))
                 {
-                    MessageBox.Show("Успешное восстановление бэкапа!", "Информация");
-
+                    MessageBox.Show("Успешное восстановление бэкапа! Необходимо повторно пройти авторизацию.", "Информация");
+                    AuthorizationForm NewForm = new AuthorizationForm();
+                    this.Visible = false;
+                    NewForm.ShowDialog();
                 }
                 else
                 {
