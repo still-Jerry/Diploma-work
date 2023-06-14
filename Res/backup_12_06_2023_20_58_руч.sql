@@ -1,5 +1,5 @@
 -- MySqlBackup.NET 2.3.6
--- Dump Time: 2023-06-12 22:51:58
+-- Dump Time: 2023-06-12 20:58:34
 -- --------------------------------------
 -- Server version 8.0.30 MySQL Community Server - GPL
 
@@ -192,5 +192,5 @@ INSERT INTO `order`(`idOrder`,`userOrder`,`dateOrder`) VALUES(18,1,'2020-06-01 0
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2023-06-12 22:51:58
--- Total time: 0:0:0:0:387 (d:h:m:s:ms)
+-- Dump completed on 2023-06-12 20:58:35
+-- Total time: 0:0:0:0:621 (d:h:m:s:ms)

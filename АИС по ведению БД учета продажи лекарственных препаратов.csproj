@@ -289,12 +289,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <Content Include="Res\AppLibraries\Microsoft.Office.Interop.Word.dll" />
-    <Content Include="Res\AppLibraries\MySql.Data.dll" />
+    <Content Include="Res\AppLibraries\Microsoft.Office.Interop.Word.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\AppLibraries\MySql.Data.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Res\AppLibraries\MySqlBackup.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Res\AppLibraries\OFFICE.DLL" />
+    <Content Include="Res\AppLibraries\OFFICE.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Res\Diploma_RoleUser .sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
