@@ -156,7 +156,7 @@
             this.LoginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.LoginTextBox.Location = new System.Drawing.Point(243, 180);
-            this.LoginTextBox.MaxLength = 70;
+            this.LoginTextBox.MaxLength = 45;
             this.LoginTextBox.Name = "LoginTextBox";
             this.LoginTextBox.Size = new System.Drawing.Size(219, 31);
             this.LoginTextBox.TabIndex = 133;
@@ -305,7 +305,7 @@
             this.NTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NTextBox.Location = new System.Drawing.Point(10, 105);
-            this.NTextBox.MaxLength = 70;
+            this.NTextBox.MaxLength = 35;
             this.NTextBox.Name = "NTextBox";
             this.NTextBox.Size = new System.Drawing.Size(215, 31);
             this.NTextBox.TabIndex = 121;
