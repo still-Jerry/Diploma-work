@@ -17,7 +17,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
     using SQLClass = Modules.SQLClass;
     public partial class MoreProductForm : Form
     {
-        String pictureName=BusinessClass.SelectedFromDataGridList[7];
+        String pictureName="";
         String CategotyID = "";
         
         #region Typical events of all forms
@@ -136,6 +136,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             switch (ViewsClass.MoreProductButtonState) { 
             
                 case 1:
+                    pictureName = BusinessClass.SelectedFromDataGridList[7];
                     DeleteButton.Visible = true;
                     AddButton.Visible = false;
                     EditButton.Visible = true;
@@ -153,6 +154,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                     AddToSeriesButton.Visible = false;
                     break;
                 default:
+                    pictureName = BusinessClass.SelectedFromDataGridList[7];
                     DeleteButton.Visible = false;
                     AddButton.Visible = false;
                     EditButton.Visible = false;

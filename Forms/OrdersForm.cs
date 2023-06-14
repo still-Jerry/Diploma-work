@@ -278,7 +278,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         break;
                 }
                 DelayDataGridView.DataSource = SQLClass.GetSelectInDataTable(" `seriesproduct` ",
-                    attributes: "idSeries as 'Серия', `nameProduct` as 'Наименование'," +
+                    attributes: "idSeries as 'Серия', `nameProduct` as 'Товар'," +
                      "expirationDateSeries as 'Годен  до', `priceProduct` as 'Цена',"+
                      "countProductSeries as 'Кол-во', (countProductSeries*`priceProduct`) as 'Утбыток'",
                     join: " inner join `diploma`.`product` on `seriesproduct`.`productIdSeries` = `product`.`idProduct` " ,

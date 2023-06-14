@@ -295,19 +295,37 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Res\AppLibraries\OFFICE.DLL" />
+    <Content Include="Res\Diploma_RoleUser .sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Res\Diploma_Structure.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Res\Product\638208987283151274Анастрозол.jpg" />
-    <Content Include="Res\Product\638209192826785364ВИФЕРОН.jpg" />
-    <Content Include="Res\Product\638209194787720230Лайфферон.jpg" />
-    <Content Include="Res\Product\638209616840640330Зигита.jpg" />
-    <Content Include="Res\Product\638209860485183991Зигита.jpg" />
-    <Content Include="Res\Product\638209869566281702Ярина.jpg" />
-    <Content Include="Res\Product\638210034694196275Сумамед.jpg" />
-    <Content Include="Res\Product\638217721723636878Ингавирин.jpg" />
+    <Content Include="Res\Product\Анастрозол.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\ВИФЕРОН.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Res\Product\Гриппферон.jpeg" />
-    <Content Include="Res\Product\Прогестерон.jpg" />
+    <Content Include="Res\Product\Зигита.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Ингавирин.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Лайфферон.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Прогестерон.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Сумамед.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Res\Product\Ярина.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Res\AppView\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

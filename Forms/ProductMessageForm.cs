@@ -139,7 +139,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
             try
             {
                 string series = comboBox.Text.Split(')')[0];
-                if (BusinessClass.SelectedFromDataGridList[10] == "1" && numericUpDown.Value == 0)
+                if (BusinessClass.SelectedFromDataGridList[8] == "1" && numericUpDown.Value == 0)
                 {
                     MessageBox.Show("Данный товар является рецепторным. Пожалуйста, введите рецепторный номер.", "Информация");
                 }

@@ -143,7 +143,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                         break;
                     case(1):
                         SeriesDataGridView.DataSource = SQLClass.GetSelectInDataTable(" seriesproduct ", attributes:
-                           "idSeries as '№', `nameProduct` as 'Продукт', expirationDateSeries as 'Годен до', countProductSeries as 'Кол-во'",
+                           "idSeries as '№', `nameProduct` as 'Товар', expirationDateSeries as 'Годен до', countProductSeries as 'Кол-во'",
                            join: "inner join product on productIdSeries=`idProduct`");
                         SeriesDataGridView.Columns[0].Width = 70;
                         SeriesDataGridView.Columns[3].Width = 80;

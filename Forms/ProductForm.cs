@@ -358,6 +358,7 @@ namespace АИС_по_ведению_БД_учета_продажи_лекарс
                 //    where: " where idProduct = " + dataGridView.SelectedRows[0].Cells[0].Value,
                 //    join: " inner join category on `product`.`categoryProduct` = `category`.`idСategory`");
                 ViewsClass.MoreProductButtonState = 2;
+                
                 MoreProductForm NewForm = new MoreProductForm();
                 this.Visible = false;
                 NewForm.ShowDialog();
